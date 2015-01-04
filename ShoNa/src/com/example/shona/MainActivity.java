@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 		LV1CateBut2 = (Button)findViewById(R.id.button2);
 		LV1CateBut2.setContentDescription("Food");
 		LV1CateBut3 = (Button)findViewById(R.id.button3);
-		LV1CateBut3.setContentDescription("Snack");
+		LV1CateBut3.setContentDescription("Snacks");
 		LV1CateBut4 = (Button)findViewById(R.id.button4);
 		LV1CateBut4.setContentDescription("Health & Beauty");
 		LV1CateBut5 = (Button)findViewById(R.id.button5);
@@ -79,14 +79,14 @@ public class MainActivity extends Activity {
 		LV1CateBut8.setContentDescription("Promotion Product");
 		
 		//Intent creation
-		intentToBev = new Intent(MainActivity.this,LV2_BevActivity.class);
-		intentToFood = new Intent(MainActivity.this,LV2_FoodActivity.class);
-		intentToSnack = new Intent(MainActivity.this,LV2_SnackActivity.class);
-		intentToHB = new Intent(MainActivity.this,LV2_BevActivity.class);
-		intentToHP = new Intent(MainActivity.this,LV2_BevActivity.class);
-		intentToCC = new Intent(MainActivity.this,LV2_BevActivity.class);
-		intentToPC = new Intent(MainActivity.this,LV2_BevActivity.class);
-		intentToPro = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToBev = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToFood = new Intent(MainActivity.this,LV2FoodActivity.class);
+		intentToSnack = new Intent(MainActivity.this,LV2SnackActivity.class);
+		intentToHB = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToHP = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToCC = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToPC = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToPro = new Intent(MainActivity.this,LV2BevActivity.class);
 		
 		//OnClickListener creation
 		lv1CLS = new OnClickListener() {
@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
 					startActivityForResult(intentToFood, Food);
 					finish();
 				}
-				else if(v==LV1CateBut3){//Snack
+				else if(v==LV1CateBut3){//Snacks
 					Log.i("ButtonL1", "3");
 					//openLV2
 					startActivityForResult(intentToSnack, Snack);

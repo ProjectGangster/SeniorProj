@@ -30,16 +30,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LV2_BevActivity"
+            android:name=".LV2BevActivity"
             android:label="@string/title_activity_lv2__bev" >
         </activity>
         <activity
-            android:name=".LV2_FoodActivity"
+            android:name=".LV2FoodActivity"
             android:label="@string/title_activity_lv2__food" >
         </activity>
         <activity
-            android:name=".LV2_SnackActivity"
+            android:name=".LV2SnackActivity"
             android:label="@string/title_activity_lv2__snack" >
+        </activity>
+        <activity
+            android:name=".LV2HBActivity"
+            android:label="@string/title_activity_lv2_hb" >
         </activity>
     </application>
 

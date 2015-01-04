@@ -7,7 +7,7 @@
     <string name="chooseCatDes">Choose a product category</string>
     <string name="LV1CateBut1">Beverage</string>
     <string name="LV1CateBut2">Food</string>
-    <string name="LV1CateBut3">Snack</string>
+    <string name="LV1CateBut3">Snacks</string>
     <string name="LV1CateBut4">Health &amp; Beauty</string>
     <string name="LV1CateBut5">Household Product</string>
     <string name="LV1CateBut6">Car Care</string>
@@ -20,14 +20,15 @@
     <string name="LV2CateBut3">Fresh Food</string>
     <string name="LV2CateBut4">Frozen Food</string>
     <string name="LV2CateBut5">Package Food</string>
-    <string name="LV2CateBut6">Organic Food</string>
+    <string name="LV2CateBut6">Cooking Ingredients</string>
     <string name="LV2CateBut7">Bakery</string>
     <string name="LV2CateBut8">Dairy</string>
-    <string name="title_activity_lv2__snack">Snack</string>
+    <string name="title_activity_lv2__snack">Snacks</string>
     <string name="LV2CateBut9">Confectionery</string>
     <string name="LV2CateBut10">Chips</string>
     <string name="LV2CateBut11">Bars</string>
     <string name="LV2CateBut12">Biscuits/Crackers</string>
     <string name="LV2CateBut13">Cookies</string>
+    <string name="title_activity_lv2_hb">Health &amp; Beauty</string>
 
 </resources>

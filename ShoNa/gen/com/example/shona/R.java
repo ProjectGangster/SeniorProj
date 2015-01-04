@@ -39,14 +39,16 @@ public final class R {
     public static final class layout {
         public static final int activity_lv2_bev=0x7f030000;
         public static final int activity_lv2_food=0x7f030001;
-        public static final int activity_lv2_snack=0x7f030002;
-        public static final int activity_main=0x7f030003;
+        public static final int activity_lv2_hb=0x7f030002;
+        public static final int activity_lv2_snack=0x7f030003;
+        public static final int activity_main=0x7f030004;
     }
     public static final class menu {
-        public static final int lv2__snack=0x7f070000;
-        public static final int lv2_bev=0x7f070001;
-        public static final int lv2_food=0x7f070002;
-        public static final int main=0x7f070003;
+        public static final int lv2_bev=0x7f070000;
+        public static final int lv2_food=0x7f070001;
+        public static final int lv2_hb=0x7f070002;
+        public static final int lv2_snack=0x7f070003;
+        public static final int main=0x7f070004;
     }
     public static final class string {
         public static final int LV1CateBut1=0x7f050004;
@@ -77,6 +79,7 @@ public final class R {
         public static final int title_activity_lv2__bev=0x7f05000c;
         public static final int title_activity_lv2__food=0x7f05000f;
         public static final int title_activity_lv2__snack=0x7f050016;
+        public static final int title_activity_lv2_hb=0x7f05001c;
     }
     public static final class style {
         /** 
