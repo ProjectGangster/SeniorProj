@@ -65,5 +65,16 @@
     <string name="LV3CateBut7">Coolers/Mixed/Mixer</string>
     <string name="LV3CateBut8">Beer</string>
     <string name="LV3CateBut9">Accessories</string>
+    <string name="title_activity_lv3_nal">Non-Alcoholic Beverage</string>
+    <string name="LV3CateBut10">Milk</string>
+    <string name="LV3CateBut11">Health &amp; Beauty Drinks/Supplements</string>
+    <string name="LV3CateBut12">Energy &amp; Sport Drinks</string>
+    <string name="LV3CateBut13">Soft Drinks</string>
+    <string name="LV3CateBut14">Fruit Juice</string>
+    <string name="LV3CateBut15">Water</string>
+    <string name="LV3CateBut16">Coffee</string>
+    <string name="LV3CateBut17">Coffee Creamers</string>
+    <string name="LV3CateBut18">Tea</string>
+    <string name="LV3CateBut19">Powder Health Tonics</string>
 
 </resources>

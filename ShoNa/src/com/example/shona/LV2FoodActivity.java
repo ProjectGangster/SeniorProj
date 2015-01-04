@@ -2,8 +2,10 @@ package com.example.shona;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,48 +49,50 @@ public class LV2FoodActivity extends Activity {
 		LV2CateBut6.setContentDescription("Dairy");
 		
 		//OnClickListener creation
-		/*lv2CLS = new OnClickListener() {
+		lv2CLS = new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if(v==LV2CateBut1){//Beverage
 					Log.i("ButtonL2", "1");
-					//openLV2
-					startActivityForResult(intentToBev, Bev);
+					//openLV3
+					//startActivityForResult(intentToBev, Bev);
 					finish();
 				}
-				else if(v==LV1CateBut2){//Food
-					Log.i("ButtonL1", "2");
-					//openLV2
-					startActivityForResult(intentToFood, Food);
+				else if(v==LV2CateBut2){//Food
+					Log.i("ButtonL2", "2");
+					//openLV3
+					//startActivityForResult(intentToFood, Food);
 					finish();
 				}
-				else if(v==LV1CateBut3){//Snack
-					Log.i("ButtonL1", "3");
-					//openLV2
-					startActivityForResult(intentToSnack, Snack);
+				else if(v==LV2CateBut3){//Snack
+					Log.i("ButtonL2", "3");
+					//openLV3
+					//startActivityForResult(intentToSnack, Snack);
 					finish();
 				}
-				else if(v==LV1CateBut4){//Health & Beauty
-					Log.i("ButtonL1", "4");
-					//openLV2
-					startActivityForResult(intentToHB, HB);
+				else if(v==LV2CateBut4){//Health & Beauty
+					Log.i("ButtonL2", "4");
+					//openLV3
+					//startActivityForResult(intentToHB, HB);
 					finish();
 				}
-				else if(v==LV1CateBut5){//Household Product
-					Log.i("ButtonL1", "5");
-					//openLV2
-					startActivityForResult(intentToHP, HP);
+				else if(v==LV2CateBut5){//Household Product
+					Log.i("ButtonL2", "5");
+					//openLV3
+					//startActivityForResult(intentToHP, HP);
 					finish();
 				}
-				else if(v==LV1CateBut6){//Car Care
-					Log.i("ButtonL1", "6");
-					//openLV2
-					startActivityForResult(intentToCC, CC);
+				else if(v==LV2CateBut6){//Car Care
+					Log.i("ButtonL2", "6");
+					//openLV3
+					//startActivityForResult(intentToCC, CC);
 					finish();
 				}
-		*/
+			}
+		};
+				
 		//set OnClickListener
 		LV2CateBut1.setOnClickListener(lv2CLS);
 		LV2CateBut2.setOnClickListener(lv2CLS);

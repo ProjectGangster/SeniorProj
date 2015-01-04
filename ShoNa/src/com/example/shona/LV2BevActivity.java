@@ -49,7 +49,7 @@ public class LV2BevActivity extends Activity {
 		
 		//intent creation
 		intentToAl = new Intent(LV2BevActivity.this,LV3ALActivity.class);
-		//intentToNoAl = new Intent(LV2BevActivity.this,LV3ALActivity.class);
+		intentToNoAl = new Intent(LV2BevActivity.this,LV3NALActivity.class);
 		
 		//OnClickListener creation
 		lv2CLS = new OnClickListener() {
