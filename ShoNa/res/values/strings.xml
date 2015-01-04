@@ -23,5 +23,11 @@
     <string name="LV2CateBut6">Organic Food</string>
     <string name="LV2CateBut7">Bakery</string>
     <string name="LV2CateBut8">Dairy</string>
+    <string name="title_activity_lv2__snack">Snack</string>
+    <string name="LV2CateBut9">Confectionery</string>
+    <string name="LV2CateBut10">Chips</string>
+    <string name="LV2CateBut11">Bars</string>
+    <string name="LV2CateBut12">Biscuits/Crackers</string>
+    <string name="LV2CateBut13">Cookies</string>
 
 </resources>

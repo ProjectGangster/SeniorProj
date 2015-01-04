@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 		//Intent creation
 		intentToBev = new Intent(MainActivity.this,LV2_BevActivity.class);
 		intentToFood = new Intent(MainActivity.this,LV2_FoodActivity.class);
-		intentToSnack = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToSnack = new Intent(MainActivity.this,LV2_SnackActivity.class);
 		intentToHB = new Intent(MainActivity.this,LV2_BevActivity.class);
 		intentToHP = new Intent(MainActivity.this,LV2_BevActivity.class);
 		intentToCC = new Intent(MainActivity.this,LV2_BevActivity.class);
