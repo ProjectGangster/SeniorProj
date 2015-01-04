@@ -4,5 +4,14 @@
     <string name="app_name">ShoNa</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="chooseCatDes">Choose a product category</string>
+    <string name="LV1CateBut1">Beverage</string>
+    <string name="LV1CateBut2">Food</string>
+    <string name="LV1CateBut3">Snack</string>
+    <string name="LV1CateBut4">Health &amp; Beauty</string>
+    <string name="LV1CateBut5">Household Product</string>
+    <string name="LV1CateBut6">Car Care</string>
+    <string name="LV1CateBut7">Pet Care</string>
+    <string name="LV1CateBut8">Promotion</string>
 
 </resources>
