@@ -62,11 +62,11 @@
             android:label="@string/title_activity_lv2_pro" >
         </activity>
         <activity
-            android:name=".LV3ALActivity"
+            android:name=".BevLV3ALActivity"
             android:label="@string/title_activity_lv3_al" >
         </activity>
         <activity
-            android:name=".LV3NALActivity"
+            android:name=".BevLV3NALActivity"
             android:label="@string/title_activity_lv3_nal" >
         </activity>
     </application>
