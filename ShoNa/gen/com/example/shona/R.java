@@ -25,7 +25,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080009;
+        public static final int action_settings=0x7f08000a;
         public static final int button1=0x7f080001;
         public static final int button2=0x7f080002;
         public static final int button3=0x7f080003;
@@ -34,6 +34,7 @@ public final class R {
         public static final int button6=0x7f080006;
         public static final int button7=0x7f080007;
         public static final int button8=0x7f080008;
+        public static final int button9=0x7f080009;
         public static final int textView1=0x7f080000;
     }
     public static final class layout {
@@ -45,7 +46,8 @@ public final class R {
         public static final int activity_lv2_pc=0x7f030005;
         public static final int activity_lv2_pro=0x7f030006;
         public static final int activity_lv2_snack=0x7f030007;
-        public static final int activity_main=0x7f030008;
+        public static final int activity_lv3_al=0x7f030008;
+        public static final int activity_main=0x7f030009;
     }
     public static final class menu {
         public static final int lv2=0x7f070000;
@@ -56,7 +58,8 @@ public final class R {
         public static final int lv2_hb=0x7f070005;
         public static final int lv2_pc=0x7f070006;
         public static final int lv2_snack=0x7f070007;
-        public static final int main=0x7f070008;
+        public static final int lv3_al=0x7f070008;
+        public static final int main=0x7f070009;
     }
     public static final class string {
         public static final int LV1CateBut1=0x7f050004;
@@ -101,6 +104,15 @@ public final class R {
         public static final int LV2CateBut7=0x7f050014;
         public static final int LV2CateBut8=0x7f050015;
         public static final int LV2CateBut9=0x7f050017;
+        public static final int LV3CateBut1=0x7f050037;
+        public static final int LV3CateBut2=0x7f050038;
+        public static final int LV3CateBut3=0x7f050039;
+        public static final int LV3CateBut4=0x7f05003a;
+        public static final int LV3CateBut5=0x7f05003b;
+        public static final int LV3CateBut6=0x7f05003c;
+        public static final int LV3CateBut7=0x7f05003d;
+        public static final int LV3CateBut8=0x7f05003e;
+        public static final int LV3CateBut9=0x7f05003f;
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int chooseCatDes=0x7f050003;
@@ -113,6 +125,7 @@ public final class R {
         public static final int title_activity_lv2_hp=0x7f050025;
         public static final int title_activity_lv2_pc=0x7f050031;
         public static final int title_activity_lv2_pro=0x7f050035;
+        public static final int title_activity_lv3_al=0x7f050036;
     }
     public static final class style {
         /** 

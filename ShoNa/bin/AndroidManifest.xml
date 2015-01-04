@@ -61,6 +61,10 @@
             android:name=".LV2ProActivity"
             android:label="@string/title_activity_lv2_pro" >
         </activity>
+        <activity
+            android:name=".LV3ALActivity"
+            android:label="@string/title_activity_lv3_al" >
+        </activity>
     </application>
 
 </manifest>

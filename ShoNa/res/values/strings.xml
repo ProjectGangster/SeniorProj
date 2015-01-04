@@ -55,5 +55,15 @@
     <string name="LV2CateBut33">Pet Cleaning</string>
     <string name="LV2CateBut34">Pet Accessories</string>
     <string name="title_activity_lv2_pro">Promotion</string>
+    <string name="title_activity_lv3_al">Alcoholic Beverage</string>
+    <string name="LV3CateBut1">Spirit</string>
+    <string name="LV3CateBut2">White Wine</string>
+    <string name="LV3CateBut3">Red Wine</string>
+    <string name="LV3CateBut4">Rose Wine</string>
+    <string name="LV3CateBut5">Champagne/Sparkling Wine</string>
+    <string name="LV3CateBut6">Asian Rice Wine</string>
+    <string name="LV3CateBut7">Coolers/Mixed/Mixer</string>
+    <string name="LV3CateBut8">Beer</string>
+    <string name="LV3CateBut9">Accessories</string>
 
 </resources>

@@ -27,8 +27,13 @@ public class LV2BevActivity extends Activity {
 	/*
 	 * Intent
 	 */
-	//private Intent intentFromLV1;
-
+	//intent
+	private Intent intentToAl;
+	private Intent intentToNoAl;
+	//code for communication between activity
+	protected int al = 31;
+	protected int nal = 32;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,8 +47,9 @@ public class LV2BevActivity extends Activity {
 		LV2CateBut2 = (Button)findViewById(R.id.button2);
 		LV2CateBut2.setContentDescription("Non-Alcoholic");
 		
-		//intent
-		//intentFromLV1 = getIntent();
+		//intent creation
+		intentToAl = new Intent(LV2BevActivity.this,LV3ALActivity.class);
+		//intentToNoAl = new Intent(LV2BevActivity.this,LV3ALActivity.class);
 		
 		//OnClickListener creation
 		lv2CLS = new OnClickListener() {
@@ -51,13 +57,17 @@ public class LV2BevActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(v==LV2CateBut1){//Beverage
+				if(v==LV2CateBut1){//Al
 					Log.i("ButtonL2", "1");
-					
+					//openLV3
+					startActivityForResult(intentToAl, al);
+					finish();
 				}
-				else if(v==LV2CateBut2){//Food
+				else if(v==LV2CateBut2){//Non-Al
 					Log.i("ButtonL2", "2");
-
+					//openLV3
+					startActivityForResult(intentToNoAl, nal);
+					finish();
 				}
 			}//end OnClick
 		};//end creation
