@@ -30,5 +30,13 @@
     <string name="LV2CateBut12">Biscuits/Crackers</string>
     <string name="LV2CateBut13">Cookies</string>
     <string name="title_activity_lv2_hb">Health &amp; Beauty</string>
+    <string name="LV2CateBut14">Body Care</string>
+    <string name="LV2CateBut15">Facial Care</string>
+    <string name="LV2CateBut16">Hair Care</string>
+    <string name="LV2CateBut17">Dental Care</string>
+    <string name="LV2CateBut18">Men Care</string>
+    <string name="LV2CateBut19">Women Care</string>
+    <string name="LV2CateBut20">Cosmetics</string>
+    <string name="LV2CateBut21">First Aid</string>
 
 </resources>

@@ -4,13 +4,62 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class LV2HBActivity extends Activity {
+	/*
+	 * view components
+	 */
+	//textview
+	private TextView LV2des;
+	//buttons
+	private Button LV2CateBut1;
+	private Button LV2CateBut2;
+	private Button LV2CateBut3;
+	private Button LV2CateBut4;
+	private Button LV2CateBut5;
+	private Button LV2CateBut6;
+	private Button LV2CateBut7;
+	private Button LV2CateBut8;
+	
+	//OnCLickListener
+	private OnClickListener LV2CLS;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lv2_hb);
+		//textview
+		LV2des = (TextView) findViewById(R.id.textView1);
+		LV2des.setContentDescription("Please choose a product category");
+		//buttons
+		LV2CateBut1 = (Button)findViewById(R.id.button1);
+		LV2CateBut1.setContentDescription("Body Care");
+		LV2CateBut2 = (Button)findViewById(R.id.button2);
+		LV2CateBut2.setContentDescription("Facial Care");
+		LV2CateBut3 = (Button)findViewById(R.id.button3);
+		LV2CateBut3.setContentDescription("Hair Care");
+		LV2CateBut4 = (Button)findViewById(R.id.button4);
+		LV2CateBut4.setContentDescription("Dental Care");
+		LV2CateBut5 = (Button)findViewById(R.id.button5);
+		LV2CateBut5.setContentDescription("Men Care");
+		LV2CateBut6 = (Button)findViewById(R.id.button6);
+		LV2CateBut6.setContentDescription("Women Care");
+		LV2CateBut7 = (Button)findViewById(R.id.button7);
+		LV2CateBut7.setContentDescription("Cosmetics");
+		LV2CateBut8 = (Button)findViewById(R.id.button8);
+		LV2CateBut8.setContentDescription("First Aid");
+		//set OnClickListener
+		LV2CateBut1.setOnClickListener(LV2CLS);
+		LV2CateBut2.setOnClickListener(LV2CLS);
+		LV2CateBut3.setOnClickListener(LV2CLS);
+		LV2CateBut4.setOnClickListener(LV2CLS);
+		LV2CateBut5.setOnClickListener(LV2CLS);
+		LV2CateBut6.setOnClickListener(LV2CLS);
+		LV2CateBut7.setOnClickListener(LV2CLS);
+		LV2CateBut8.setOnClickListener(LV2CLS);
 	}
 
 	@Override

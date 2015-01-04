@@ -64,7 +64,15 @@ public final class R {
         public static final int LV2CateBut11=0x7f050019;
         public static final int LV2CateBut12=0x7f05001a;
         public static final int LV2CateBut13=0x7f05001b;
+        public static final int LV2CateBut14=0x7f05001d;
+        public static final int LV2CateBut15=0x7f05001e;
+        public static final int LV2CateBut16=0x7f05001f;
+        public static final int LV2CateBut17=0x7f050020;
+        public static final int LV2CateBut18=0x7f050021;
+        public static final int LV2CateBut19=0x7f050022;
         public static final int LV2CateBut2=0x7f05000e;
+        public static final int LV2CateBut20=0x7f050023;
+        public static final int LV2CateBut21=0x7f050024;
         public static final int LV2CateBut3=0x7f050010;
         public static final int LV2CateBut4=0x7f050011;
         public static final int LV2CateBut5=0x7f050012;
