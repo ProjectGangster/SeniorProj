@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
 		intentToSnack = new Intent(MainActivity.this,LV2SnackActivity.class);
 		intentToHB = new Intent(MainActivity.this,LV2HBActivity.class);
 		intentToHP = new Intent(MainActivity.this,LV2HPActivity.class);
-		intentToCC = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToCC = new Intent(MainActivity.this,LV2CCActivity.class);
 		intentToPC = new Intent(MainActivity.this,LV2BevActivity.class);
 		intentToPro = new Intent(MainActivity.this,LV2BevActivity.class);
 		

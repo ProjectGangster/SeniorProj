@@ -47,5 +47,8 @@
     <string name="LV2CateBut27">Household Cleaners</string>
     <string name="LV2CateBut28">Cleaning Supply</string>
     <string name="LV2CateBut29">Miscellaneous</string>
+    <string name="title_activity_lv2_cc">Car Care</string>
+    <string name="LV2CateBut30">Car Care</string>
+    <string name="LV2CateBut31">Air Freshener</string>
 
 </resources>
