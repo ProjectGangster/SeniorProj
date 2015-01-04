@@ -50,5 +50,10 @@
     <string name="title_activity_lv2_cc">Car Care</string>
     <string name="LV2CateBut30">Car Care</string>
     <string name="LV2CateBut31">Air Freshener</string>
+    <string name="title_activity_lv2_pc">Pet Care</string>
+    <string name="LV2CateBut32">Pet Food</string>
+    <string name="LV2CateBut33">Pet Cleaning</string>
+    <string name="LV2CateBut34">Pet Accessories</string>
+    <string name="title_activity_lv2_pro">Promotion</string>
 
 </resources>

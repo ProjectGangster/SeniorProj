@@ -53,6 +53,14 @@
             android:name=".LV2CCActivity"
             android:label="@string/title_activity_lv2_cc" >
         </activity>
+        <activity
+            android:name=".LV2PCActivity"
+            android:label="@string/title_activity_lv2_pc" >
+        </activity>
+        <activity
+            android:name=".LV2ProActivity"
+            android:label="@string/title_activity_lv2_pro" >
+        </activity>
     </application>
 
 </manifest>

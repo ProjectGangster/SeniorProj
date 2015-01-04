@@ -85,8 +85,8 @@ public class MainActivity extends Activity {
 		intentToHB = new Intent(MainActivity.this,LV2HBActivity.class);
 		intentToHP = new Intent(MainActivity.this,LV2HPActivity.class);
 		intentToCC = new Intent(MainActivity.this,LV2CCActivity.class);
-		intentToPC = new Intent(MainActivity.this,LV2BevActivity.class);
-		intentToPro = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToPC = new Intent(MainActivity.this,LV2PCActivity.class);
+		intentToPro = new Intent(MainActivity.this,LV2ProActivity.class);
 		
 		//OnClickListener creation
 		lv1CLS = new OnClickListener() {
