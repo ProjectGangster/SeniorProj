@@ -27,7 +27,7 @@ public class LV2_BevActivity extends Activity {
 	/*
 	 * Intent
 	 */
-	private Intent intentFromLV1;
+	//private Intent intentFromLV1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class LV2_BevActivity extends Activity {
 		LV2CateBut2.setContentDescription("Non-Alcoholic");
 		
 		//intent
-		intentFromLV1 = getIntent();
+		//intentFromLV1 = getIntent();
 		
 		//OnClickListener creation
 		lv2CLS = new OnClickListener() {

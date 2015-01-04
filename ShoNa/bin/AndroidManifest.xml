@@ -25,12 +25,17 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LV2_BevActivity"
             android:label="@string/title_activity_lv2__bev" >
+        </activity>
+        <activity
+            android:name=".LV2_FoodActivity"
+            android:label="@string/title_activity_lv2__food" >
         </activity>
     </application>
 

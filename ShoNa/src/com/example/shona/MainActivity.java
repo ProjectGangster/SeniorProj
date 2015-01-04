@@ -35,10 +35,23 @@ public class MainActivity extends Activity {
 	 */
 	//intent
 	private Intent intentToBev;
+	private Intent intentToFood;
+	private Intent intentToSnack;
+	private Intent intentToHB;
+	private Intent intentToHP;
+	private Intent intentToCC;
+	private Intent intentToPC;
+	private Intent intentToPro;
 	
 	//code for communication between activity
 	protected int Bev = 21;
-	//protected int MODIFY_WAYPOINT = 9;
+	protected int Food = 22;
+	protected int Snack = 23;
+	protected int HB = 24;
+	protected int HP = 25;
+	protected int CC = 26;
+	protected int PC = 27;
+	protected int Pro = 28;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +80,13 @@ public class MainActivity extends Activity {
 		
 		//Intent creation
 		intentToBev = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToFood = new Intent(MainActivity.this,LV2_FoodActivity.class);
+		intentToSnack = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToHB = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToHP = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToCC = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToPC = new Intent(MainActivity.this,LV2_BevActivity.class);
+		intentToPro = new Intent(MainActivity.this,LV2_BevActivity.class);
 		
 		//OnClickListener creation
 		lv1CLS = new OnClickListener() {
@@ -77,37 +97,50 @@ public class MainActivity extends Activity {
 				if(v==LV1CateBut1){//Beverage
 					Log.i("ButtonL1", "1");
 					//openLV2
-					//setResult(RESULT_OK, intentToBev);
 					startActivityForResult(intentToBev, Bev);
 					finish();
 				}
 				else if(v==LV1CateBut2){//Food
 					Log.i("ButtonL1", "2");
-
+					//openLV2
+					startActivityForResult(intentToFood, Food);
+					finish();
 				}
 				else if(v==LV1CateBut3){//Snack
 					Log.i("ButtonL1", "3");
-
+					//openLV2
+					startActivityForResult(intentToSnack, Snack);
+					finish();
 				}
 				else if(v==LV1CateBut4){//Health & Beauty
 					Log.i("ButtonL1", "4");
-
+					//openLV2
+					startActivityForResult(intentToHB, HB);
+					finish();
 				}
 				else if(v==LV1CateBut5){//Household Product
 					Log.i("ButtonL1", "5");
-
+					//openLV2
+					startActivityForResult(intentToHP, HP);
+					finish();
 				}
 				else if(v==LV1CateBut6){//Car Care
 					Log.i("ButtonL1", "6");
-
+					//openLV2
+					startActivityForResult(intentToCC, CC);
+					finish();
 				}
 				else if(v==LV1CateBut7){//Pet Care
 					Log.i("ButtonL1", "7");
-
+					//openLV2
+					startActivityForResult(intentToPC, PC);
+					finish();
 				}
 				else if(v==LV1CateBut8){//Promotion Product
 					Log.i("ButtonL1", "8");
-
+					//openLV2
+					startActivityForResult(intentToPro, Pro);
+					finish();
 				}
 			}//end OnClick
 		};//end creation

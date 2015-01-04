@@ -16,5 +16,12 @@
     <string name="title_activity_lv2__bev">Beverage</string>
     <string name="LV2CateBut1">Alcoholic</string>
     <string name="LV2CateBut2">Non-Alcoholic</string>
+    <string name="title_activity_lv2__food">Food</string>
+    <string name="LV2CateBut3">Fresh Food</string>
+    <string name="LV2CateBut4">Frozen Food</string>
+    <string name="LV2CateBut5">Package Food</string>
+    <string name="LV2CateBut6">Organic Food</string>
+    <string name="LV2CateBut7">Bakery</string>
+    <string name="LV2CateBut8">Dairy</string>
 
 </resources>
