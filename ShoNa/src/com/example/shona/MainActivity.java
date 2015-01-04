@@ -1,27 +1,44 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	/**
+	/*
 	 * view components
 	 */
 	//textview
-	TextView LV1des;
+	private TextView LV1des;
 	//buttons
-	Button LV1CateBut1;
-	Button LV1CateBut2;
-	Button LV1CateBut3;
-	Button LV1CateBut4;
-	Button LV1CateBut5;
-	Button LV1CateBut6;
-	Button LV1CateBut7;
-	Button LV1CateBut8;
+	private Button LV1CateBut1;
+	private Button LV1CateBut2;
+	private Button LV1CateBut3;
+	private Button LV1CateBut4;
+	private Button LV1CateBut5;
+	private Button LV1CateBut6;
+	private Button LV1CateBut7;
+	private Button LV1CateBut8;
+	
+	//OnCLickListener
+	private OnClickListener lv1CLS;
+	
+	/*
+	 * Intent
+	 */
+	//intent
+	private Intent intentToBev;
+	
+	//code for communication between activity
+	protected int Bev = 21;
+	//protected int MODIFY_WAYPOINT = 9;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +64,65 @@ public class MainActivity extends Activity {
 		LV1CateBut7.setContentDescription("Pet Care");
 		LV1CateBut8 = (Button)findViewById(R.id.button8);
 		LV1CateBut8.setContentDescription("Promotion Product");
+		
+		//Intent creation
+		intentToBev = new Intent(MainActivity.this,LV2_BevActivity.class);
+		
+		//OnClickListener creation
+		lv1CLS = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(v==LV1CateBut1){//Beverage
+					Log.i("ButtonL1", "1");
+					//openLV2
+					//setResult(RESULT_OK, intentToBev);
+					startActivityForResult(intentToBev, Bev);
+					finish();
+				}
+				else if(v==LV1CateBut2){//Food
+					Log.i("ButtonL1", "2");
+
+				}
+				else if(v==LV1CateBut3){//Snack
+					Log.i("ButtonL1", "3");
+
+				}
+				else if(v==LV1CateBut4){//Health & Beauty
+					Log.i("ButtonL1", "4");
+
+				}
+				else if(v==LV1CateBut5){//Household Product
+					Log.i("ButtonL1", "5");
+
+				}
+				else if(v==LV1CateBut6){//Car Care
+					Log.i("ButtonL1", "6");
+
+				}
+				else if(v==LV1CateBut7){//Pet Care
+					Log.i("ButtonL1", "7");
+
+				}
+				else if(v==LV1CateBut8){//Promotion Product
+					Log.i("ButtonL1", "8");
+
+				}
+			}//end OnClick
+		};//end creation
+		
+		//set OnClickListener
+		LV1CateBut1.setOnClickListener(lv1CLS);
+		LV1CateBut2.setOnClickListener(lv1CLS);
+		LV1CateBut3.setOnClickListener(lv1CLS);
+		LV1CateBut4.setOnClickListener(lv1CLS);
+		LV1CateBut5.setOnClickListener(lv1CLS);
+		LV1CateBut6.setOnClickListener(lv1CLS);
+		LV1CateBut7.setOnClickListener(lv1CLS);
+		LV1CateBut8.setOnClickListener(lv1CLS);
 	}
+	
 	
 	@Override
 	protected void onResume() {
@@ -67,6 +142,16 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+		
+	    if(requestCode == Bev && resultCode == RESULT_OK){
+	    	
+	    }
+	    
 	}
 	
 	@Override

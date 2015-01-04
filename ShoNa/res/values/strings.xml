@@ -13,5 +13,8 @@
     <string name="LV1CateBut6">Car Care</string>
     <string name="LV1CateBut7">Pet Care</string>
     <string name="LV1CateBut8">Promotion</string>
+    <string name="title_activity_lv2__bev">Beverage</string>
+    <string name="LV2CateBut1">Alcoholic</string>
+    <string name="LV2CateBut2">Non-Alcoholic</string>
 
 </resources>
