@@ -9,7 +9,7 @@
     <string name="LV1CateBut2">Food</string>
     <string name="LV1CateBut3">Snacks</string>
     <string name="LV1CateBut4">Health &amp; Beauty</string>
-    <string name="LV1CateBut5">Household Product</string>
+    <string name="LV1CateBut5">Household Products</string>
     <string name="LV1CateBut6">Car Care</string>
     <string name="LV1CateBut7">Pet Care</string>
     <string name="LV1CateBut8">Promotion</string>
@@ -38,5 +38,14 @@
     <string name="LV2CateBut19">Women Care</string>
     <string name="LV2CateBut20">Cosmetics</string>
     <string name="LV2CateBut21">First Aid</string>
+    <string name="title_activity_lv2_hp">Household Products</string>
+    <string name="LV2CateBut22">Paper Products</string>
+    <string name="LV2CateBut23">Kitchen Essentials</string>
+    <string name="LV2CateBut24">Pest Control</string>
+    <string name="LV2CateBut25">Laundry</string>
+    <string name="LV2CateBut26">Dish Detergent</string>
+    <string name="LV2CateBut27">Household Cleaners</string>
+    <string name="LV2CateBut28">Cleaning Supply</string>
+    <string name="LV2CateBut29">Miscellaneous</string>
 
 </resources>

@@ -45,6 +45,10 @@
             android:name=".LV2HBActivity"
             android:label="@string/title_activity_lv2_hb" >
         </activity>
+        <activity
+            android:name=".LV2HPActivity"
+            android:label="@string/title_activity_lv2_hp" >
+        </activity>
     </application>
 
 </manifest>

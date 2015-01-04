@@ -70,20 +70,20 @@ public class MainActivity extends Activity {
 		LV1CateBut4 = (Button)findViewById(R.id.button4);
 		LV1CateBut4.setContentDescription("Health & Beauty");
 		LV1CateBut5 = (Button)findViewById(R.id.button5);
-		LV1CateBut5.setContentDescription("Household Product");
+		LV1CateBut5.setContentDescription("Household Products");
 		LV1CateBut6 = (Button)findViewById(R.id.button6);
 		LV1CateBut6.setContentDescription("Car Care");
 		LV1CateBut7 = (Button)findViewById(R.id.button7);
 		LV1CateBut7.setContentDescription("Pet Care");
 		LV1CateBut8 = (Button)findViewById(R.id.button8);
-		LV1CateBut8.setContentDescription("Promotion Product");
+		LV1CateBut8.setContentDescription("Promotion");
 		
 		//Intent creation
 		intentToBev = new Intent(MainActivity.this,LV2BevActivity.class);
 		intentToFood = new Intent(MainActivity.this,LV2FoodActivity.class);
 		intentToSnack = new Intent(MainActivity.this,LV2SnackActivity.class);
 		intentToHB = new Intent(MainActivity.this,LV2HBActivity.class);
-		intentToHP = new Intent(MainActivity.this,LV2BevActivity.class);
+		intentToHP = new Intent(MainActivity.this,LV2HPActivity.class);
 		intentToCC = new Intent(MainActivity.this,LV2BevActivity.class);
 		intentToPC = new Intent(MainActivity.this,LV2BevActivity.class);
 		intentToPro = new Intent(MainActivity.this,LV2BevActivity.class);
