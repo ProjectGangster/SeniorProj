@@ -1,6 +1,7 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,6 +27,24 @@ public class LV2FoodActivity extends Activity {
 	
 	//OnCLickListener
 	private OnClickListener lv2CLS;
+	
+	/*
+	 * Intent
+	 */
+	//intent
+	private Intent intentToFresh;
+	private Intent intentToFrozen;
+	private Intent intentToPack;
+	private Intent intentToCI;
+	private Intent intentToBake;
+	private Intent intentToDairy;
+	//code for communication between activity
+	protected int fresh = 33;
+	protected int frozen = 34;
+	protected int pack = 35;
+	protected int ci = 36;
+	protected int bake = 37;
+	protected int dairy = 38;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,50 +67,59 @@ public class LV2FoodActivity extends Activity {
 		LV2CateBut6 = (Button)findViewById(R.id.button6);
 		LV2CateBut6.setContentDescription("Dairy");
 		
+		//intent creation
+		intentToFresh = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
+		intentToFrozen = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
+		intentToPack = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
+		intentToCI = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
+		intentToBake = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
+		intentToDairy = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
+		
 		//OnClickListener creation
 		lv2CLS = new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(v==LV2CateBut1){//Beverage
+				if(v==LV2CateBut1){//fresh food
 					Log.i("ButtonL2", "1");
 					//openLV3
-					//startActivityForResult(intentToBev, Bev);
+					startActivityForResult(intentToFresh, fresh);
 					finish();
 				}
-				else if(v==LV2CateBut2){//Food
+				else if(v==LV2CateBut2){//frozen food
 					Log.i("ButtonL2", "2");
 					//openLV3
-					//startActivityForResult(intentToFood, Food);
+					startActivityForResult(intentToFrozen, frozen);
 					finish();
 				}
-				else if(v==LV2CateBut3){//Snack
+				else if(v==LV2CateBut3){//package
 					Log.i("ButtonL2", "3");
 					//openLV3
-					//startActivityForResult(intentToSnack, Snack);
+					startActivityForResult(intentToPack, pack);
 					finish();
 				}
-				else if(v==LV2CateBut4){//Health & Beauty
+				else if(v==LV2CateBut4){//cooking ingredients
 					Log.i("ButtonL2", "4");
 					//openLV3
-					//startActivityForResult(intentToHB, HB);
+					startActivityForResult(intentToCI, ci);
 					finish();
 				}
-				else if(v==LV2CateBut5){//Household Product
+				else if(v==LV2CateBut5){//bakery
 					Log.i("ButtonL2", "5");
 					//openLV3
-					//startActivityForResult(intentToHP, HP);
+					startActivityForResult(intentToBake, bake);
 					finish();
 				}
-				else if(v==LV2CateBut6){//Car Care
+				else if(v==LV2CateBut6){//dairy
 					Log.i("ButtonL2", "6");
 					//openLV3
-					//startActivityForResult(intentToCC, CC);
+					startActivityForResult(intentToDairy, dairy);
 					finish();
 				}
-			}
-		};
+			}//end OnClick
+		};//end creation
+		
 				
 		//set OnClickListener
 		LV2CateBut1.setOnClickListener(lv2CLS);
