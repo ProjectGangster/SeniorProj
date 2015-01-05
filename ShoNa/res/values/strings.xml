@@ -77,5 +77,10 @@
     <string name="LV3CateBut18">Tea</string>
     <string name="LV3CateBut19">Powder Health Tonics</string>
     <string name="title_activity_food_lv3fresh">Fresh Food</string>
+    <string name="LV3CateBut20">Fruits &amp; Vegetables</string>
+    <string name="LV3CateBut21">Meat &amp; Poultry</string>
+    <string name="LV3CateBut22">Seafood</string>
+    <string name="LV3CateBut23">Prepared Foods</string>
+    <string name="LV3CateBut24">Eggs</string>
 
 </resources>

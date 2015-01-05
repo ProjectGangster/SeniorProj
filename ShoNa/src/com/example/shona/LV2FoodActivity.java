@@ -68,7 +68,7 @@ public class LV2FoodActivity extends Activity {
 		LV2CateBut6.setContentDescription("Dairy");
 		
 		//intent creation
-		intentToFresh = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
+		intentToFresh = new Intent(LV2FoodActivity.this,FoodLV3freshActivity.class);
 		intentToFrozen = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
 		intentToPack = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
 		intentToCI = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);

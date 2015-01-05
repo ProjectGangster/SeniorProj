@@ -30,8 +30,8 @@ public final class R {
         public static final int button10=0x7f08000a;
         public static final int button2=0x7f080002;
         public static final int button3=0x7f080003;
-        public static final int button4=0x7f080005;
-        public static final int button5=0x7f080004;
+        public static final int button4=0x7f080004;
+        public static final int button5=0x7f080005;
         public static final int button6=0x7f080006;
         public static final int button7=0x7f080007;
         public static final int button8=0x7f080008;
@@ -121,6 +121,11 @@ public final class R {
         public static final int LV3CateBut18=0x7f050049;
         public static final int LV3CateBut19=0x7f05004a;
         public static final int LV3CateBut2=0x7f050038;
+        public static final int LV3CateBut20=0x7f05004c;
+        public static final int LV3CateBut21=0x7f05004d;
+        public static final int LV3CateBut22=0x7f05004e;
+        public static final int LV3CateBut23=0x7f05004f;
+        public static final int LV3CateBut24=0x7f050050;
         public static final int LV3CateBut3=0x7f050039;
         public static final int LV3CateBut4=0x7f05003a;
         public static final int LV3CateBut5=0x7f05003b;
