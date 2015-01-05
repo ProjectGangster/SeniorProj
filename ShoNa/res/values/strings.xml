@@ -97,5 +97,8 @@
     <string name="LV3CateBut34">Seasoning &amp; Spices</string>
     <string name="LV3CateBut35">Baking</string>
     <string name="LV3CateBut36">Oils</string>
+    <string name="title_activity_food_lv3bake">Bakery</string>
+    <string name="LV3CateBut37">Breads</string>
+    <string name="LV3CateBut38">Cake</string>
 
 </resources>
