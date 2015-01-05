@@ -89,5 +89,13 @@
     <string name="LV3CateBut27">Canned Foods</string>
     <string name="LV3CateBut28">Dried/Processed Foods</string>
     <string name="LV3CateBut29">Cereal</string>
+    <string name="title_activity_food_lv3ci">Cooking Ingredients</string>
+    <string name="LV3CateBut30">Rice</string>
+    <string name="LV3CateBut31">Noodles &amp; Pasta</string>
+    <string name="LV3CateBut32">Sauce</string>
+    <string name="LV3CateBut33">Sugar &amp; Sweeteners</string>
+    <string name="LV3CateBut34">Seasoning &amp; Spices</string>
+    <string name="LV3CateBut35">Baking</string>
+    <string name="LV3CateBut36">Oils</string>
 
 </resources>

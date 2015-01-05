@@ -71,7 +71,7 @@ public class LV2FoodActivity extends Activity {
 		intentToFresh = new Intent(LV2FoodActivity.this,FoodLV3freshActivity.class);
 		intentToFrozen = new Intent(LV2FoodActivity.this,FoodLV3frozenActivity.class);
 		intentToPack = new Intent(LV2FoodActivity.this,FoodLV3packActivity.class);
-		intentToCI = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
+		intentToCI = new Intent(LV2FoodActivity.this,FoodLV3ciActivity.class);
 		intentToBake = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
 		intentToDairy = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
 		

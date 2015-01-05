@@ -81,6 +81,10 @@
             android:name=".FoodLV3packActivity"
             android:label="@string/title_activity_food_lv3pack" >
         </activity>
+        <activity
+            android:name=".FoodLV3ciActivity"
+            android:label="@string/title_activity_food_lv3ci" >
+        </activity>
     </application>
 
 </manifest>
