@@ -41,32 +41,34 @@ public final class R {
     public static final class layout {
         public static final int activity_food_lv3fresh=0x7f030000;
         public static final int activity_food_lv3frozen=0x7f030001;
-        public static final int activity_lv2_bev=0x7f030002;
-        public static final int activity_lv2_cc=0x7f030003;
-        public static final int activity_lv2_food=0x7f030004;
-        public static final int activity_lv2_hb=0x7f030005;
-        public static final int activity_lv2_hp=0x7f030006;
-        public static final int activity_lv2_pc=0x7f030007;
-        public static final int activity_lv2_pro=0x7f030008;
-        public static final int activity_lv2_snack=0x7f030009;
-        public static final int activity_lv3_al=0x7f03000a;
-        public static final int activity_lv3_nal=0x7f03000b;
-        public static final int activity_main=0x7f03000c;
+        public static final int activity_food_lv3pack=0x7f030002;
+        public static final int activity_lv2_bev=0x7f030003;
+        public static final int activity_lv2_cc=0x7f030004;
+        public static final int activity_lv2_food=0x7f030005;
+        public static final int activity_lv2_hb=0x7f030006;
+        public static final int activity_lv2_hp=0x7f030007;
+        public static final int activity_lv2_pc=0x7f030008;
+        public static final int activity_lv2_pro=0x7f030009;
+        public static final int activity_lv2_snack=0x7f03000a;
+        public static final int activity_lv3_al=0x7f03000b;
+        public static final int activity_lv3_nal=0x7f03000c;
+        public static final int activity_main=0x7f03000d;
     }
     public static final class menu {
         public static final int food_lv3fresh=0x7f070000;
         public static final int food_lv3frozen=0x7f070001;
-        public static final int lv2=0x7f070002;
-        public static final int lv2_bev=0x7f070003;
-        public static final int lv2_cc=0x7f070004;
-        public static final int lv2_food=0x7f070005;
-        public static final int lv2_h=0x7f070006;
-        public static final int lv2_hb=0x7f070007;
-        public static final int lv2_pc=0x7f070008;
-        public static final int lv2_snack=0x7f070009;
-        public static final int lv3_al=0x7f07000a;
-        public static final int lv3_nal=0x7f07000b;
-        public static final int main=0x7f07000c;
+        public static final int food_lv3pack=0x7f070002;
+        public static final int lv2=0x7f070003;
+        public static final int lv2_bev=0x7f070004;
+        public static final int lv2_cc=0x7f070005;
+        public static final int lv2_food=0x7f070006;
+        public static final int lv2_h=0x7f070007;
+        public static final int lv2_hb=0x7f070008;
+        public static final int lv2_pc=0x7f070009;
+        public static final int lv2_snack=0x7f07000a;
+        public static final int lv3_al=0x7f07000b;
+        public static final int lv3_nal=0x7f07000c;
+        public static final int main=0x7f07000d;
     }
     public static final class string {
         public static final int LV1CateBut1=0x7f050004;
@@ -128,6 +130,11 @@ public final class R {
         public static final int LV3CateBut22=0x7f05004e;
         public static final int LV3CateBut23=0x7f05004f;
         public static final int LV3CateBut24=0x7f050050;
+        public static final int LV3CateBut25=0x7f050053;
+        public static final int LV3CateBut26=0x7f050054;
+        public static final int LV3CateBut27=0x7f050055;
+        public static final int LV3CateBut28=0x7f050056;
+        public static final int LV3CateBut29=0x7f050057;
         public static final int LV3CateBut3=0x7f050039;
         public static final int LV3CateBut4=0x7f05003a;
         public static final int LV3CateBut5=0x7f05003b;
@@ -141,6 +148,7 @@ public final class R {
         public static final int hello_world=0x7f050001;
         public static final int title_activity_food_lv3fresh=0x7f05004b;
         public static final int title_activity_food_lv3frozen=0x7f050051;
+        public static final int title_activity_food_lv3pack=0x7f050052;
         public static final int title_activity_lv2__bev=0x7f05000c;
         public static final int title_activity_lv2__food=0x7f05000f;
         public static final int title_activity_lv2__snack=0x7f050016;

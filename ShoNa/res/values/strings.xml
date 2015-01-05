@@ -83,5 +83,11 @@
     <string name="LV3CateBut23">Prepared Foods</string>
     <string name="LV3CateBut24">Fruits</string>
     <string name="title_activity_food_lv3frozen">Frozen Foods</string>
+    <string name="title_activity_food_lv3pack">Package Foods</string>
+    <string name="LV3CateBut25">Instant Noodles</string>
+    <string name="LV3CateBut26">Instant Soup</string>
+    <string name="LV3CateBut27">Canned Foods</string>
+    <string name="LV3CateBut28">Dried/Processed Foods</string>
+    <string name="LV3CateBut29">Cereal</string>
 
 </resources>
