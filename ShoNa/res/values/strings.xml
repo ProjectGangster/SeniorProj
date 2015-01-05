@@ -76,5 +76,6 @@
     <string name="LV3CateBut17">Coffee Creamers</string>
     <string name="LV3CateBut18">Tea</string>
     <string name="LV3CateBut19">Powder Health Tonics</string>
+    <string name="title_activity_food_lv3fresh">Fresh Food</string>
 
 </resources>

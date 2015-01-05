@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class BevLV3ALActivity extends Activity {
+public class BevLV3alActivity extends Activity {
 	/*
 	 * view components
 	 */

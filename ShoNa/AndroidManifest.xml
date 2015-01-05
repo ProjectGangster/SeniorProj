@@ -62,12 +62,16 @@
             android:label="@string/title_activity_lv2_pro" >
         </activity>
         <activity
-            android:name=".BevLV3ALActivity"
+            android:name=".BevLV3alActivity"
             android:label="@string/title_activity_lv3_al" >
         </activity>
         <activity
-            android:name=".BevLV3NALActivity"
+            android:name=".BevLV3nalActivity"
             android:label="@string/title_activity_lv3_nal" >
+        </activity>
+        <activity
+            android:name=".FoodLV3freshActivity"
+            android:label="@string/title_activity_food_lv3fresh" >
         </activity>
     </application>
 

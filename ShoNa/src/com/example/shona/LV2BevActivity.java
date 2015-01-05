@@ -48,8 +48,8 @@ public class LV2BevActivity extends Activity {
 		LV2CateBut2.setContentDescription("Non-Alcoholic");
 		
 		//intent creation
-		intentToAl = new Intent(LV2BevActivity.this,BevLV3ALActivity.class);
-		intentToNoAl = new Intent(LV2BevActivity.this,BevLV3NALActivity.class);
+		intentToAl = new Intent(LV2BevActivity.this,BevLV3alActivity.class);
+		intentToNoAl = new Intent(LV2BevActivity.this,BevLV3nalActivity.class);
 		
 		//OnClickListener creation
 		lv2CLS = new OnClickListener() {
