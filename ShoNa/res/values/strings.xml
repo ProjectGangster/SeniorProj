@@ -100,5 +100,11 @@
     <string name="title_activity_food_lv3bake">Bakery</string>
     <string name="LV3CateBut37">Breads</string>
     <string name="LV3CateBut38">Cake</string>
+    <string name="title_activity_food_lv3dairy">Eggs &amp; Dairy</string>
+    <string name="LV3CateBut39">Jams</string>
+    <string name="LV3CateBut40">Peanut Butter</string>
+    <string name="LV3CateBut41">Honey</string>
+    <string name="LV3CateBut42">Chocolate Spreads</string>
+    <string name="LV3CateBut43">Other Spreads</string>
 
 </resources>

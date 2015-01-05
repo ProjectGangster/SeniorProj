@@ -89,6 +89,10 @@
             android:name=".FoodLV3bakeActivity"
             android:label="@string/title_activity_food_lv3bake" >
         </activity>
+        <activity
+            android:name=".FoodLV3dairyActivity"
+            android:label="@string/title_activity_food_lv3dairy" >
+        </activity>
     </application>
 
 </manifest>
