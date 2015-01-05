@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class FoodLV3freshActivity extends Activity {
+public class FoodLV3frozenActivity extends Activity {
 	/*
 	 * view components
 	 */
@@ -23,16 +23,17 @@ public class FoodLV3freshActivity extends Activity {
 	
 	//OnCLickListener
 	private OnClickListener LV3CLS;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_food_lv3fresh);
+		setContentView(R.layout.activity_food_lv3frozen);
 		//textview
 		LV3des = (TextView) findViewById(R.id.textView1);
 		LV3des.setContentDescription("Please choose a product category");
 		//buttons
 		LV3CateBut1 = (Button)findViewById(R.id.button1);
-		LV3CateBut1.setContentDescription("Vegetables");
+		LV3CateBut1.setContentDescription("Bakery");
 		LV3CateBut2 = (Button)findViewById(R.id.button2);
 		LV3CateBut2.setContentDescription("Meat & Poultry");
 		LV3CateBut3 = (Button)findViewById(R.id.button3);
@@ -40,7 +41,7 @@ public class FoodLV3freshActivity extends Activity {
 		LV3CateBut4 = (Button)findViewById(R.id.button4);
 		LV3CateBut4.setContentDescription("Prepared Foods");
 		LV3CateBut5 = (Button)findViewById(R.id.button5);
-		LV3CateBut5.setContentDescription("Fruits");
+		LV3CateBut5.setContentDescription("Snacks");
 		
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);
@@ -53,7 +54,7 @@ public class FoodLV3freshActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.food_lv3fresh, menu);
+		getMenuInflater().inflate(R.menu.food_lv3frozen, menu);
 		return true;
 	}
 

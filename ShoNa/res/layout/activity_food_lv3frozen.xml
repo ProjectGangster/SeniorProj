@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.shona.FoodLV3freshActivity" >
+    tools:context="com.example.shona.FoodLV3frozenActivity" >
 
     <TextView
         android:id="@+id/textView1"
@@ -31,7 +31,7 @@
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut20" />
+            android:text="@string/LV2CateBut7" />
 
         <Button
             android:id="@+id/button2"
@@ -55,7 +55,7 @@
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut14" />
+            android:text="@string/LV1CateBut3" />
     
     </LinearLayout>
 </RelativeLayout>

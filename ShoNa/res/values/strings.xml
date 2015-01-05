@@ -16,13 +16,13 @@
     <string name="title_activity_lv2__bev">Beverage</string>
     <string name="LV2CateBut1">Alcoholic</string>
     <string name="LV2CateBut2">Non-Alcoholic</string>
-    <string name="title_activity_lv2__food">Food</string>
-    <string name="LV2CateBut3">Fresh Food</string>
-    <string name="LV2CateBut4">Frozen Food</string>
-    <string name="LV2CateBut5">Package Food</string>
+    <string name="title_activity_lv2__food">Foods</string>
+    <string name="LV2CateBut3">Fresh Foods</string>
+    <string name="LV2CateBut4">Frozen Foods</string>
+    <string name="LV2CateBut5">Package Foods</string>
     <string name="LV2CateBut6">Cooking Ingredients</string>
     <string name="LV2CateBut7">Bakery</string>
-    <string name="LV2CateBut8">Dairy</string>
+    <string name="LV2CateBut8">Eggs &amp; Dairy</string>
     <string name="title_activity_lv2__snack">Snacks</string>
     <string name="LV2CateBut9">Confectionery</string>
     <string name="LV2CateBut10">Chips</string>
@@ -76,11 +76,12 @@
     <string name="LV3CateBut17">Coffee Creamers</string>
     <string name="LV3CateBut18">Tea</string>
     <string name="LV3CateBut19">Powder Health Tonics</string>
-    <string name="title_activity_food_lv3fresh">Fresh Food</string>
-    <string name="LV3CateBut20">Fruits &amp; Vegetables</string>
+    <string name="title_activity_food_lv3fresh">Fresh Foods</string>
+    <string name="LV3CateBut20">Vegetables</string>
     <string name="LV3CateBut21">Meat &amp; Poultry</string>
     <string name="LV3CateBut22">Seafood</string>
     <string name="LV3CateBut23">Prepared Foods</string>
-    <string name="LV3CateBut24">Eggs</string>
+    <string name="LV3CateBut24">Fruits</string>
+    <string name="title_activity_food_lv3frozen">Frozen Foods</string>
 
 </resources>

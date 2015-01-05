@@ -65,11 +65,11 @@ public class LV2FoodActivity extends Activity {
 		LV2CateBut5 = (Button)findViewById(R.id.button5);
 		LV2CateBut5.setContentDescription("Bakery");
 		LV2CateBut6 = (Button)findViewById(R.id.button6);
-		LV2CateBut6.setContentDescription("Dairy");
+		LV2CateBut6.setContentDescription("Eggs & Dairy");
 		
 		//intent creation
 		intentToFresh = new Intent(LV2FoodActivity.this,FoodLV3freshActivity.class);
-		intentToFrozen = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
+		intentToFrozen = new Intent(LV2FoodActivity.this,FoodLV3frozenActivity.class);
 		intentToPack = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
 		intentToCI = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
 		intentToBake = new Intent(LV2FoodActivity.this,BevLV3alActivity.class);
@@ -111,7 +111,7 @@ public class LV2FoodActivity extends Activity {
 					startActivityForResult(intentToBake, bake);
 					finish();
 				}
-				else if(v==LV2CateBut6){//dairy
+				else if(v==LV2CateBut6){//eggs & dairy
 					Log.i("ButtonL2", "6");
 					//openLV3
 					startActivityForResult(intentToDairy, dairy);

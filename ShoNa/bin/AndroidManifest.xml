@@ -73,6 +73,10 @@
             android:name=".FoodLV3freshActivity"
             android:label="@string/title_activity_food_lv3fresh" >
         </activity>
+        <activity
+            android:name=".FoodLV3frozenActivity"
+            android:label="@string/title_activity_food_lv3frozen" >
+        </activity>
     </application>
 
 </manifest>
