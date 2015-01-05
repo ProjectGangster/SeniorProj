@@ -106,5 +106,9 @@
     <string name="LV3CateBut41">Honey</string>
     <string name="LV3CateBut42">Chocolate Spreads</string>
     <string name="LV3CateBut43">Other Spreads</string>
+    <string name="LV3CateBut44">Eggs</string>
+    <string name="LV3CateBut45">Butter &amp; Magarine</string>
+    <string name="LV3CateBut46">Cheese</string>
+    <string name="LV3CateBut47">Yogurt</string>
 
 </resources>

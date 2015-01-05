@@ -73,7 +73,7 @@ public class LV2FoodActivity extends Activity {
 		intentToPack = new Intent(LV2FoodActivity.this,FoodLV3packActivity.class);
 		intentToCI = new Intent(LV2FoodActivity.this,FoodLV3ciActivity.class);
 		intentToBake = new Intent(LV2FoodActivity.this,FoodLV3bakeActivity.class);
-		intentToDairy = new Intent(LV2FoodActivity.this,BevLV3nalActivity.class);
+		intentToDairy = new Intent(LV2FoodActivity.this,FoodLV3dairyActivity.class);
 		
 		//OnClickListener creation
 		lv2CLS = new OnClickListener() {

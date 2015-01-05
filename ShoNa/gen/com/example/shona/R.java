@@ -157,6 +157,10 @@ public final class R {
         public static final int LV3CateBut41=0x7f050066;
         public static final int LV3CateBut42=0x7f050067;
         public static final int LV3CateBut43=0x7f050068;
+        public static final int LV3CateBut44=0x7f050069;
+        public static final int LV3CateBut45=0x7f05006a;
+        public static final int LV3CateBut46=0x7f05006b;
+        public static final int LV3CateBut47=0x7f05006c;
         public static final int LV3CateBut5=0x7f05003b;
         public static final int LV3CateBut6=0x7f05003c;
         public static final int LV3CateBut7=0x7f05003d;
