@@ -226,5 +226,8 @@
     <string name="LV3CateBut131">Shoe Polish &amp; Wax</string>
     <string name="LV3CateBut132">Foot Pads &amp; Medication</string>
     <string name="LV3CateBut133">Bed &amp; Bath Hardware</string>
+    <string name="title_activity_check_out">Check Out</string>
+    <string name="title_activity_nav_to_cashier">Navigation to The Cashier</string>
+    <string name="title_activity_nav_to_product">Navigation to The Product</string>
 
 </resources>

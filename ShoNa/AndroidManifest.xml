@@ -165,6 +165,18 @@
             android:name=".HbLV3miActivity"
             android:label="@string/title_activity_hb_lv3mi" >
         </activity>
+        <activity
+            android:name=".CheckOutActivity"
+            android:label="@string/title_activity_check_out" >
+        </activity>
+        <activity
+            android:name=".NavToCashierActivity"
+            android:label="@string/title_activity_nav_to_cashier" >
+        </activity>
+        <activity
+            android:name=".NavToProductActivity"
+            android:label="@string/title_activity_nav_to_product" >
+        </activity>
     </application>
 
 </manifest>
