@@ -109,6 +109,10 @@
             android:name=".HbLV3dcActivity"
             android:label="@string/title_activity_hb_lv3dc" >
         </activity>
+        <activity
+            android:name=".HbLV3mcActivity"
+            android:label="@string/title_activity_hb_lv3mc" >
+        </activity>
     </application>
 
 </manifest>

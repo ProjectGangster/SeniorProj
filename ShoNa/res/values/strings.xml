@@ -137,5 +137,8 @@
     <string name="LV3CateBut68">Toothpaste</string>
     <string name="LV3CateBut69">Toothbrushes</string>
     <string name="LV3CateBut70">Mouthwash</string>
+    <string name="title_activity_hb_lv3mc">Men Care</string>
+    <string name="LV3CateBut71">Body Care</string>
+    <string name="LV3CateBut72">Lubricant &amp; Condoms</string>
 
 </resources>
