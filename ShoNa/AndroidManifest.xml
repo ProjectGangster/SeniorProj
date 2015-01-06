@@ -93,6 +93,10 @@
             android:name=".FoodLV3dairyActivity"
             android:label="@string/title_activity_food_lv3dairy" >
         </activity>
+        <activity
+            android:name=".HbLV3bcActivity"
+            android:label="@string/title_activity_hb_lv3bc" >
+        </activity>
     </application>
 
 </manifest>
