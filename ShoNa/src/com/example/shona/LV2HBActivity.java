@@ -80,7 +80,7 @@ public class LV2HBActivity extends Activity {
 		
 		//Intent creation
 		intentToBc = new Intent(LV2HBActivity.this,HbLV3bcActivity.class);
-		intentToFc = new Intent(LV2HBActivity.this,LV2FoodActivity.class);
+		intentToFc = new Intent(LV2HBActivity.this,HbLV3fcActivity.class);
 		intentToHc = new Intent(LV2HBActivity.this,LV2SnackActivity.class);
 		intentToDc = new Intent(LV2HBActivity.this,LV2HBActivity.class);
 		intentToMc = new Intent(LV2HBActivity.this,LV2HPActivity.class);

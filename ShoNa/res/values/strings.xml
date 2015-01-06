@@ -121,5 +121,11 @@
     <string name="LV3CateBut55">Talcum Powder</string>
     <string name="LV3CateBut56">Cotton</string>
     <string name="LV3CateBut57">Shaving</string>
+    <string name="title_activity_hb_lv3fc">Facial Care</string>
+    <string name="LV3CateBut58">Facial Cleanser</string>
+    <string name="LV3CateBut59">Facial Moisturizers</string>
+    <string name="LV3CateBut60">Special Treatment</string>
+    <string name="LV3CateBut61">Facial Sunscreen</string>
+    <string name="LV3CateBut62">Facial Blotters</string>
 
 </resources>
