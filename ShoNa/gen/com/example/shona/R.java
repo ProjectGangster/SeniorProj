@@ -46,19 +46,20 @@ public final class R {
         public static final int activity_food_lv3frozen=0x7f030004;
         public static final int activity_food_lv3pack=0x7f030005;
         public static final int activity_hb_lv3bc=0x7f030006;
-        public static final int activity_hb_lv3fc=0x7f030007;
-        public static final int activity_hb_lv3hc=0x7f030008;
-        public static final int activity_lv2_bev=0x7f030009;
-        public static final int activity_lv2_cc=0x7f03000a;
-        public static final int activity_lv2_food=0x7f03000b;
-        public static final int activity_lv2_hb=0x7f03000c;
-        public static final int activity_lv2_hp=0x7f03000d;
-        public static final int activity_lv2_pc=0x7f03000e;
-        public static final int activity_lv2_pro=0x7f03000f;
-        public static final int activity_lv2_snack=0x7f030010;
-        public static final int activity_lv3_al=0x7f030011;
-        public static final int activity_lv3_nal=0x7f030012;
-        public static final int activity_main=0x7f030013;
+        public static final int activity_hb_lv3dc=0x7f030007;
+        public static final int activity_hb_lv3fc=0x7f030008;
+        public static final int activity_hb_lv3hc=0x7f030009;
+        public static final int activity_lv2_bev=0x7f03000a;
+        public static final int activity_lv2_cc=0x7f03000b;
+        public static final int activity_lv2_food=0x7f03000c;
+        public static final int activity_lv2_hb=0x7f03000d;
+        public static final int activity_lv2_hp=0x7f03000e;
+        public static final int activity_lv2_pc=0x7f03000f;
+        public static final int activity_lv2_pro=0x7f030010;
+        public static final int activity_lv2_snack=0x7f030011;
+        public static final int activity_lv3_al=0x7f030012;
+        public static final int activity_lv3_nal=0x7f030013;
+        public static final int activity_main=0x7f030014;
     }
     public static final class menu {
         public static final int food_lv3bake=0x7f070000;
@@ -68,19 +69,20 @@ public final class R {
         public static final int food_lv3frozen=0x7f070004;
         public static final int food_lv3pack=0x7f070005;
         public static final int hb_lv3bc=0x7f070006;
-        public static final int hb_lv3fc=0x7f070007;
-        public static final int hb_lv3hc=0x7f070008;
-        public static final int lv2=0x7f070009;
-        public static final int lv2_bev=0x7f07000a;
-        public static final int lv2_cc=0x7f07000b;
-        public static final int lv2_food=0x7f07000c;
-        public static final int lv2_h=0x7f07000d;
-        public static final int lv2_hb=0x7f07000e;
-        public static final int lv2_pc=0x7f07000f;
-        public static final int lv2_snack=0x7f070010;
-        public static final int lv3_al=0x7f070011;
-        public static final int lv3_nal=0x7f070012;
-        public static final int main=0x7f070013;
+        public static final int hb_lv3dc=0x7f070007;
+        public static final int hb_lv3fc=0x7f070008;
+        public static final int hb_lv3hc=0x7f070009;
+        public static final int lv2=0x7f07000a;
+        public static final int lv2_bev=0x7f07000b;
+        public static final int lv2_cc=0x7f07000c;
+        public static final int lv2_food=0x7f07000d;
+        public static final int lv2_h=0x7f07000e;
+        public static final int lv2_hb=0x7f07000f;
+        public static final int lv2_pc=0x7f070010;
+        public static final int lv2_snack=0x7f070011;
+        public static final int lv3_al=0x7f070012;
+        public static final int lv3_nal=0x7f070013;
+        public static final int main=0x7f070014;
     }
     public static final class string {
         public static final int LV1CateBut1=0x7f050004;
@@ -189,7 +191,10 @@ public final class R {
         public static final int LV3CateBut65=0x7f050081;
         public static final int LV3CateBut66=0x7f050082;
         public static final int LV3CateBut67=0x7f050083;
+        public static final int LV3CateBut68=0x7f050085;
+        public static final int LV3CateBut69=0x7f050086;
         public static final int LV3CateBut7=0x7f05003d;
+        public static final int LV3CateBut70=0x7f050087;
         public static final int LV3CateBut8=0x7f05003e;
         public static final int LV3CateBut9=0x7f05003f;
         public static final int action_settings=0x7f050002;
@@ -203,6 +208,7 @@ public final class R {
         public static final int title_activity_food_lv3frozen=0x7f050051;
         public static final int title_activity_food_lv3pack=0x7f050052;
         public static final int title_activity_hb_lv3bc=0x7f05006d;
+        public static final int title_activity_hb_lv3dc=0x7f050084;
         public static final int title_activity_hb_lv3fc=0x7f050078;
         public static final int title_activity_hb_lv3hc=0x7f05007e;
         public static final int title_activity_lv2__bev=0x7f05000c;

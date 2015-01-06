@@ -82,7 +82,7 @@ public class LV2HBActivity extends Activity {
 		intentToBc = new Intent(LV2HBActivity.this,HbLV3bcActivity.class);
 		intentToFc = new Intent(LV2HBActivity.this,HbLV3fcActivity.class);
 		intentToHc = new Intent(LV2HBActivity.this,HbLV3hcActivity.class);
-		intentToDc = new Intent(LV2HBActivity.this,LV2HPActivity.class);
+		intentToDc = new Intent(LV2HBActivity.this,HbLV3dcActivity.class);
 		intentToMc = new Intent(LV2HBActivity.this,LV2HPActivity.class);
 		intentToWc = new Intent(LV2HBActivity.this,LV2CCActivity.class);
 		intentToCo = new Intent(LV2HBActivity.this,LV2PCActivity.class);

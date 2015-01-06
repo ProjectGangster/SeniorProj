@@ -133,5 +133,9 @@
     <string name="LV3CateBut65">Hair Treatments</string>
     <string name="LV3CateBut66">Hair Styling</string>
     <string name="LV3CateBut67">Hair Coloring</string>
+    <string name="title_activity_hb_lv3dc">Dental Care</string>
+    <string name="LV3CateBut68">Toothpaste</string>
+    <string name="LV3CateBut69">Toothbrushes</string>
+    <string name="LV3CateBut70">Mouthwash</string>
 
 </resources>
