@@ -144,5 +144,10 @@
     <string name="LV3CateBut73">Sanitary Protection</string>
     <string name="LV3CateBut74">Pantry Liners</string>
     <string name="LV3CateBut75">Feminine Wash</string>
+    <string name="title_activity_hb_lv3co">Cosmetics</string>
+    <string name="LV3CateBut76">Makeup</string>
+    <string name="LV3CateBut77">Makeup Remover</string>
+    <string name="LV3CateBut78">Makeup Accessories</string>
+    <string name="LV3CateBut79">Nail Polish &amp; Treatment</string>
 
 </resources>
