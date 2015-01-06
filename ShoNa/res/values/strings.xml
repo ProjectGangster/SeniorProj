@@ -140,5 +140,9 @@
     <string name="title_activity_hb_lv3mc">Men Care</string>
     <string name="LV3CateBut71">Body Care</string>
     <string name="LV3CateBut72">Lubricant &amp; Condoms</string>
+    <string name="title_activity_hb_lv3wc">Women Care</string>
+    <string name="LV3CateBut73">Sanitary Protection</string>
+    <string name="LV3CateBut74">Pantry Liners</string>
+    <string name="LV3CateBut75">Feminine Wash</string>
 
 </resources>
