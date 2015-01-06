@@ -149,5 +149,8 @@
     <string name="LV3CateBut77">Makeup Remover</string>
     <string name="LV3CateBut78">Makeup Accessories</string>
     <string name="LV3CateBut79">Nail Polish &amp; Treatment</string>
+    <string name="title_activity_hb_lv3fa">First Aid</string>
+    <string name="LV3CateBut80">Bandages</string>
+    <string name="LV3CateBut81">First Aid Kits</string>
 
 </resources>

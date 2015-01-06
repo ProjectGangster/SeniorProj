@@ -86,7 +86,7 @@ public class LV2HBActivity extends Activity {
 		intentToMc = new Intent(LV2HBActivity.this,HbLV3mcActivity.class);
 		intentToWc = new Intent(LV2HBActivity.this,HbLV3wcActivity.class);
 		intentToCo = new Intent(LV2HBActivity.this,HbLV3coActivity.class);
-		intentToFa = new Intent(LV2HBActivity.this,LV2ProActivity.class);
+		intentToFa = new Intent(LV2HBActivity.this,HbLV3faActivity.class);
 		
 		//OnClickListener creation
 		LV2CLS = new OnClickListener() {
