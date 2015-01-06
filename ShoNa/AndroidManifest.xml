@@ -133,6 +133,38 @@
             android:name=".CcLV3carActivity"
             android:label="@string/title_activity_cc_lv3car" >
         </activity>
+        <activity
+            android:name=".HbLV3ppActivity"
+            android:label="@string/title_activity_hb_lv3pp" >
+        </activity>
+        <activity
+            android:name=".HbLV3keActivity"
+            android:label="@string/title_activity_hb_lv3ke" >
+        </activity>
+        <activity
+            android:name=".HbLV3pcActivity"
+            android:label="@string/title_activity_hb_lv3pc" >
+        </activity>
+        <activity
+            android:name=".HbLV3laActivity"
+            android:label="@string/title_activity_hb_lv3la" >
+        </activity>
+        <activity
+            android:name=".HbLV3ddActivity"
+            android:label="@string/title_activity_hb_lv3dd" >
+        </activity>
+        <activity
+            android:name=".HbLV3hocActivity"
+            android:label="@string/title_activity_hb_lv3hoc" >
+        </activity>
+        <activity
+            android:name=".HbLV3csActivity"
+            android:label="@string/title_activity_hb_lv3cs" >
+        </activity>
+        <activity
+            android:name=".HbLV3miActivity"
+            android:label="@string/title_activity_hb_lv3mi" >
+        </activity>
     </application>
 
 </manifest>
