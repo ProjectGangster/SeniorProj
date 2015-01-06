@@ -152,5 +152,22 @@
     <string name="title_activity_hb_lv3fa">First Aid</string>
     <string name="LV3CateBut80">Bandages</string>
     <string name="LV3CateBut81">First Aid Kits</string>
+    <string name="title_activity_cc_lv3aif">Air Fresheners</string>
+    <string name="LV3CateBut145">Car Shampoos</string>
+    <string name="LV3CateBut146">Car Waxes</string>
+    <string name="LV3CateBut147">Car Care</string>
+    <string name="title_activity_cc_lv3car">Car Care</string>
+    <string name="LV3CateBut156">Car Air Fresheners</string>
+    <string name="LV3CateBut155">Continuous Air Fresheners</string>
+    <string name="LV3CateBut154">Aerosol Air Fresheners</string>
+    <string name="LV3CateBut153">Air Deodorizer Blocks</string>
+    <string name="LV3CateBut148">Tire &amp; Chrome Cleaners</string>
+    <string name="LV3CateBut149">Motor Oil</string>
+    <string name="LV3CateBut150">Engine Coolant</string>
+    <string name="LV3CateBut151">Wiper Washer Fluid</string>
+    <string name="LV3CateBut152">Car Accessories</string>
+    
+    
+    
 
 </resources>

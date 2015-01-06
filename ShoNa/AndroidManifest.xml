@@ -125,6 +125,14 @@
             android:name=".HbLV3faActivity"
             android:label="@string/title_activity_hb_lv3fa" >
         </activity>
+        <activity
+            android:name=".CcLV3aifActivity"
+            android:label="@string/title_activity_cc_lv3aif" >
+        </activity>
+        <activity
+            android:name=".CcLV3carActivity"
+            android:label="@string/title_activity_cc_lv3car" >
+        </activity>
     </application>
 
 </manifest>
