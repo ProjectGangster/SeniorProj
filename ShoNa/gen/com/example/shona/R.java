@@ -309,8 +309,10 @@ public final class R {
         public static final int LV3CateBut99=0x7f0500ba;
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
+        public static final int cancelButton=0x7f0500e5;
         public static final int chooseCatDes=0x7f050003;
         public static final int hello_world=0x7f050001;
+        public static final int okButton=0x7f0500e4;
         public static final int title_activity_cc_lv3aif=0x7f050097;
         public static final int title_activity_cc_lv3car=0x7f05009b;
         public static final int title_activity_check_out=0x7f0500e1;

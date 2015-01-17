@@ -229,5 +229,7 @@
     <string name="title_activity_check_out">Check Out</string>
     <string name="title_activity_nav_to_cashier">Navigation to The Cashier</string>
     <string name="title_activity_nav_to_product">Navigation to The Product</string>
+    <string name="okButton">OK</string>
+    <string name="cancelButton">Cancel</string>
 
 </resources>
