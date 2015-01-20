@@ -1,3 +1,3 @@
 # SeniorProj
-Using iBeacon
--Beacon attributes
+Using iBeacon from Estimote
+https://github.com/Estimote/Android-SDK
