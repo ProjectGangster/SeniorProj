@@ -62,13 +62,11 @@ public class LV2CCActivity extends Activity {
 					Log.i("ButtonL2", "1");
 					//openLV3
 					startActivityForResult(intentToCac, cac);
-					finish();
 				}
 				else if(v==LV2CateBut2){//aif
 					Log.i("ButtonL2", "2");
 					//openLV3
 					startActivityForResult(intentToAif, aif);
-					finish();
 				}
 			}
 		};//end creation
@@ -77,7 +75,18 @@ public class LV2CCActivity extends Activity {
 		LV2CateBut1.setOnClickListener(LV2CLS);
 		LV2CateBut2.setOnClickListener(LV2CLS);
 	}
-
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    if(MainActivity.toHome){
+			finish();
+		}
+	    else{
+	    	//do sth
+	    }
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
