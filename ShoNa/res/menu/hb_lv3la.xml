@@ -1,11 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.shona.HbLV3laActivity" >
+    tools:context="com.example.shona.HpLV3laActivity" >
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+    <item android:id="@+id/menu" 
+        android:title="@string/menu_settings" 
+        android:showAsAction="ifRoom">
+        <menu>
+	    <item android:id="@+id/home_settings"
+	        android:title="@string/home_settings"
+	        android:orderInCategory="100"
+	        android:showAsAction="ifRoom">
+	    </item>
+	    <item android:id="@+id/back_settings"
+	        android:title="@string/back_settings"
+	        android:orderInCategory="100"
+	        android:showAsAction="ifRoom">
+	    </item>
+		</menu>
+	</item>
 
 </menu>

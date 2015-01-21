@@ -2,10 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.shona.LV2ProActivity" >
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+    <item android:id="@+id/menu" 
+        android:title="@string/menu_settings" 
+        android:showAsAction="ifRoom">
+        <menu>
+	    <item android:id="@+id/back_settings"
+	        android:title="@string/back_settings"
+	        android:orderInCategory="100"
+	        android:showAsAction="ifRoom">
+	    </item>
+		</menu>
+	</item>
 
 </menu>

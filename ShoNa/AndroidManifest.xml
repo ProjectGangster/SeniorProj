@@ -21,7 +21,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/android:Theme.Holo"  >
 
         <activity
             android:name=".MainActivity"
@@ -136,35 +136,35 @@
             android:label="@string/title_activity_cc_lv3car" >
         </activity>
         <activity
-            android:name=".HbLV3ppActivity"
+            android:name=".HpLV3ppActivity"
             android:label="@string/title_activity_hb_lv3pp" >
         </activity>
         <activity
-            android:name=".HbLV3keActivity"
+            android:name=".HpLV3keActivity"
             android:label="@string/title_activity_hb_lv3ke" >
         </activity>
         <activity
-            android:name=".HbLV3pcActivity"
+            android:name=".HpLV3pcActivity"
             android:label="@string/title_activity_hb_lv3pc" >
         </activity>
         <activity
-            android:name=".HbLV3laActivity"
+            android:name=".HpLV3laActivity"
             android:label="@string/title_activity_hb_lv3la" >
         </activity>
         <activity
-            android:name=".HbLV3ddActivity"
+            android:name=".HpLV3ddActivity"
             android:label="@string/title_activity_hb_lv3dd" >
         </activity>
         <activity
-            android:name=".HbLV3hocActivity"
+            android:name=".HpLV3hcActivity"
             android:label="@string/title_activity_hb_lv3hoc" >
         </activity>
         <activity
-            android:name=".HbLV3csActivity"
+            android:name=".HpLV3csActivity"
             android:label="@string/title_activity_hb_lv3cs" >
         </activity>
         <activity
-            android:name=".HbLV3miActivity"
+            android:name=".HpLV3miActivity"
             android:label="@string/title_activity_hb_lv3mi" >
         </activity>
         <activity

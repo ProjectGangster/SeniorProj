@@ -1,5 +1,6 @@
 package com.example.barcodeshopping;
 import com.example.parser.HandleJSON;
+import com.example.parser.HandleJSON1;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 //import com.example.parser;
@@ -23,7 +24,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
     
 	private EditText location,country,temperature,humidity,pressure;
-	private HandleJSON obj;
+	private HandleJSON1 obj;
     private Button scanBtn;
     private TextView formatTxt, contentTxt;
     
@@ -59,11 +60,25 @@ public class MainActivity extends Activity implements OnClickListener{
     }
     public void onClick(View v){
     	//respond to clicks
-    	if(v.getId()==R.id.scan_button){
-    		//scan
-    			IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-    			scanIntegrator.initiateScan();
-    		}
+    	/*
+    	 * test code
+    	 * */
+    	String pid = "1";
+		String finalUrl = "http://www.numpun.lnw.mn/shona/API/productlist.php?ID="+pid;
+	    country.setText(finalUrl);
+	    obj = new HandleJSON1(finalUrl);
+	    obj.fetchJSON();
+
+	    while(obj.parsingComplete);
+	     country.setText(obj.getCountry());
+	     
+	    /*end*/ 
+    	
+//    	if(v.getId()==R.id.scan_button){
+//    		//scan
+//    			IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+//    			scanIntegrator.initiateScan();
+//    		}
     	}
     
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -76,9 +91,9 @@ public class MainActivity extends Activity implements OnClickListener{
     		formatTxt.setText("FORMAT: " + scanFormat);
     		contentTxt.setText("CONTENT: " + scanContent);
     		String pid = "1";
-    		String finalUrl = "http://www.numpun.lnw.mn/shona/API/productdetail.php?ID="+pid;
+    		String finalUrl = "http://www.numpun.lnw.mn/shona/API/productlist.php?ID="+pid;
     	    country.setText(finalUrl);
-    	    obj = new HandleJSON(finalUrl);
+    	    obj = new HandleJSON1(finalUrl);
     	    obj.fetchJSON();
 
     	    while(obj.parsingComplete);

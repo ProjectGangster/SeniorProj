@@ -27,6 +27,7 @@ public class BevLV3alActivity extends Activity {
 	
 	//OnCLickListener
 	private OnClickListener LV3CLS;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,13 +76,21 @@ public class BevLV3alActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		switch (item.getItemId()) {
+		case R.id.back_settings:
+			//go to checkout
+			setResult(RESULT_OK);
+			finish();
+			break;
+		case R.id.home_settings:
+			//go to home
+			MainActivity.toHome = true;
+			setResult(RESULT_OK);
+			finish();
+			break;
+		default:
+			break;
 		}
-		return super.onOptionsItemSelected(item);
+		return false;
 	}
 }

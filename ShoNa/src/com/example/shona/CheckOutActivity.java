@@ -15,7 +15,7 @@ public class CheckOutActivity extends Activity {
 	//intent
 	private Intent intentToCashier;
 	//code for communication between activity
-	protected int cash = 100;
+	protected int cashier = 100;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,7 +34,7 @@ public class CheckOutActivity extends Activity {
     	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 			//activate button OnClickListener creation
 			public void onClick(DialogInterface arg0, int arg1) {
-				startActivityForResult(intentToCashier, cash);
+				startActivityForResult(intentToCashier, cashier);
 			}
 		});//end activate button
     	dialog.setPositiveButton(R.string.cancelButton, null);

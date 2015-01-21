@@ -4,15 +4,15 @@
     <string name="app_name">ShoNa</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="chooseCatDes">Choose a product category</string>
-    <string name="LV1CateBut1">Beverage</string>
-    <string name="LV1CateBut2">Food</string>
-    <string name="LV1CateBut3">Snacks</string>
-    <string name="LV1CateBut4">Health &amp; Beauty</string>
-    <string name="LV1CateBut5">Household Products</string>
-    <string name="LV1CateBut6">Car Care</string>
-    <string name="LV1CateBut7">Pet Care</string>
-    <string name="LV1CateBut8">Promotion</string>
+    <string name="chooseCatDes">กรุณาเลือกประเภทสินค้า</string>
+    <string name="LV1CateBut1">เครื่องดื่ม</string>
+    <string name="LV1CateBut2">อาหาร</string>
+    <string name="LV1CateBut3">ขนมขบเคี้ยว</string>
+    <string name="LV1CateBut4">สุขภาพและความงาม</string>
+    <string name="LV1CateBut5">ผลิตภัณฑ์ในบ้าน</string>
+    <string name="LV1CateBut6">ผลิตภัณฑ์ดูแลรถยนต์</string>
+    <string name="LV1CateBut7">ผลิตภัณฑ์ดูแลสัตว์เลี้ยง</string>
+    <string name="LV1CateBut8">โปรโมชั่น</string>
     <string name="title_activity_lv2__bev">Beverage</string>
     <string name="LV2CateBut1">Alcoholic</string>
     <string name="LV2CateBut2">Non-Alcoholic</string>
@@ -231,5 +231,9 @@
     <string name="title_activity_nav_to_product">Navigation to The Product</string>
     <string name="okButton">OK</string>
     <string name="cancelButton">Cancel</string>
+    <string name="menu_settings">Menu</string>
+    <string name="checkout_settings">Checkout</string>
+    <string name="back_settings">Back</string>
+    <string name="home_settings">Home</string>
 
 </resources>

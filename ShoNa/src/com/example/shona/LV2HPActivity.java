@@ -79,14 +79,14 @@ public class LV2HPActivity extends Activity {
 		LV2CateBut8.setContentDescription("Miscellaneous");
 		
 		//Intent creation
-		intentToPp = new Intent(LV2HPActivity.this,HbLV3ppActivity.class);
-		intentToKe = new Intent(LV2HPActivity.this,HbLV3keActivity.class);
-		intentToPc = new Intent(LV2HPActivity.this,HbLV3pcActivity.class);
-		intentToLa = new Intent(LV2HPActivity.this,HbLV3laActivity.class);
-		intentToDd = new Intent(LV2HPActivity.this,HbLV3ddActivity.class);
-		intentToHoc = new Intent(LV2HPActivity.this,HbLV3hocActivity.class);
-		intentToCs = new Intent(LV2HPActivity.this,HbLV3csActivity.class);
-		intentToMi = new Intent(LV2HPActivity.this,HbLV3miActivity.class);
+		intentToPp = new Intent(LV2HPActivity.this,HpLV3ppActivity.class);
+		intentToKe = new Intent(LV2HPActivity.this,HpLV3keActivity.class);
+		intentToPc = new Intent(LV2HPActivity.this,HpLV3pcActivity.class);
+		intentToLa = new Intent(LV2HPActivity.this,HpLV3laActivity.class);
+		intentToDd = new Intent(LV2HPActivity.this,HpLV3ddActivity.class);
+		intentToHoc = new Intent(LV2HPActivity.this,HpLV3hcActivity.class);
+		intentToCs = new Intent(LV2HPActivity.this,HpLV3csActivity.class);
+		intentToMi = new Intent(LV2HPActivity.this,HpLV3miActivity.class);
 		
 		//OnClickListener creation
 		LV2CLS = new OnClickListener() {
@@ -165,13 +165,15 @@ public class LV2HPActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		switch (item.getItemId()) {
+		case R.id.back_settings:
+			//go to checkout
+			setResult(RESULT_OK);
+			finish();
+			break;
+		default:
+			break;
 		}
-		return super.onOptionsItemSelected(item);
+		return false;
 	}
 }
