@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class HbLV3ddActivity extends Activity {
+public class HpLV3keActivity extends Activity {
 	/*
 	 * view components
 	 */
@@ -23,25 +23,25 @@ public class HbLV3ddActivity extends Activity {
 	
 	//OnCLickListener
 	private OnClickListener LV3CLS;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_hb_lv3dd);
+		setContentView(R.layout.activity_hb_lv3ke);
 		//textview
 		LV3des = (TextView) findViewById(R.id.textView1);
 		LV3des.setContentDescription("Please choose a product category");
 		//buttons
 		LV3CateBut1 = (Button)findViewById(R.id.button1);
-		LV3CateBut1.setContentDescription("Liquid Dish Detergent");
+		LV3CateBut1.setContentDescription("Utensils");
 		LV3CateBut2 = (Button)findViewById(R.id.button2);
-		LV3CateBut2.setContentDescription("Baby Dish Detergent");
+		LV3CateBut2.setContentDescription("Disposable Ware");
 		LV3CateBut3 = (Button)findViewById(R.id.button3);
-		LV3CateBut3.setContentDescription("Powder Dish Detergent");
+		LV3CateBut3.setContentDescription("Food Containers");
 		LV3CateBut4 = (Button)findViewById(R.id.button4);
-		LV3CateBut4.setContentDescription("Fruit & Vegetable Wash");
+		LV3CateBut4.setContentDescription("Food Wraps");
 		LV3CateBut5 = (Button)findViewById(R.id.button5);
-		LV3CateBut5.setContentDescription("Auto Dish Washing Detergent");
+		LV3CateBut5.setContentDescription("Party Supplies");
 		
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);
@@ -49,13 +49,13 @@ public class HbLV3ddActivity extends Activity {
 		LV3CateBut3.setOnClickListener(LV3CLS);
 		LV3CateBut4.setOnClickListener(LV3CLS);
 		LV3CateBut5.setOnClickListener(LV3CLS);
-
+		
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.hb_lv3dd, menu);
+		getMenuInflater().inflate(R.menu.hb_lv3ke, menu);
 		return true;
 	}
 

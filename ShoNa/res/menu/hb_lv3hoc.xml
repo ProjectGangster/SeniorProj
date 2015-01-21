@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.shona.HbLV3hocActivity" >
+    tools:context="com.example.shona.HpLV3hcActivity" >
 
     <item
         android:id="@+id/action_settings"
