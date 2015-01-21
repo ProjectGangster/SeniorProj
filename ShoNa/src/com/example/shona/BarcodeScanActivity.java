@@ -8,55 +8,68 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class CheckOutActivity extends Activity {
-	/*
-	 * Intent
-	 */
+public class BarcodeScanActivity extends Activity {
 	//intent
-	private Intent intentToCashier;
-	//code for communication between activity
-	protected int cashier = 100;
+	private Intent intentToCheckout;
+	//code
+	protected int check = 997;
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_check_out);
-		//show all products
+		setContentView(R.layout.activity_barcode_scan);
 		
-		
-    	
-		//intent
-		intentToCashier = new Intent(CheckOutActivity.this,NavToCashierActivity.class);
-		
+		//intent creation
+		intentToCheckout = new Intent(BarcodeScanActivity.this,CheckOutActivity.class);
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-    	dialog.setTitle("Are you sure to go to the cashier?");
+    	dialog.setTitle("Checkout?");
     	//activate button OnClickListener
     	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 			//activate button OnClickListener creation
 			public void onClick(DialogInterface arg0, int arg1) {
-				startActivityForResult(intentToCashier, cashier);
+				startActivityForResult(intentToCheckout, check);
 			}
 		});//end activate button
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
-		
 	}
 
 	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    if(MainActivity.toHome){
+			finish();
+		}
+	    else{
+	    	//do sth
+	    }
+	}
+	
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.check_out, menu);
+		getMenuInflater().inflate(R.menu.barcode_scan, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case R.id.back_settings:
+			//go to checkout
+			setResult(RESULT_OK);
+			finish();
+			break;
 		case R.id.home_settings:
 			//go to home
 			MainActivity.toHome = true;
 			setResult(RESULT_OK);
 			finish();
+			break;
+		case R.id.checkout_settings:
+			//go to home
+			startActivityForResult(intentToCheckout, check);
 			break;
 		default:
 			break;

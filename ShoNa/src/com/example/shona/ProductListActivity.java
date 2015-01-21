@@ -1,51 +1,67 @@
 package com.example.shona;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ExpandableListView;
 
-public class CheckOutActivity extends Activity {
+public class ProductListActivity extends Activity {
 	/*
-	 * Intent
+	 * layout components
 	 */
+	private ExpandableListView listView;
+	
 	//intent
-	private Intent intentToCashier;
-	//code for communication between activity
-	protected int cashier = 100;
+	private Intent intentFromLV3;
+	private Intent intentToNavPro;	
+	//code
+	protected int navPro = 995;
+	
+	//product types
+	private int type = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_check_out);
-		//show all products
+		setContentView(R.layout.activity_product_list);
+		//layout
+		//listView = (ExpandableListView)findViewById(R.id.expandableListView1);
 		
+		//get product type
+		intentFromLV3 = getIntent();
+		type = intentFromLV3.getIntExtra("proType", 0);
+		Log.i("PROTYPEEEEE", ""+type);
 		
-    	
-		//intent
-		intentToCashier = new Intent(CheckOutActivity.this,NavToCashierActivity.class);
-		
+		//intent creation
+		intentToNavPro = new Intent(ProductListActivity.this,NavToProductActivity.class);
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-    	dialog.setTitle("Are you sure to go to the cashier?");
+    	dialog.setTitle("Product List");
     	//activate button OnClickListener
     	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 			//activate button OnClickListener creation
 			public void onClick(DialogInterface arg0, int arg1) {
-				startActivityForResult(intentToCashier, cashier);
+				startActivityForResult(intentToNavPro, navPro);
 			}
 		});//end activate button
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
-		
+	
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.check_out, menu);
+		getMenuInflater().inflate(R.menu.product_list, menu);
 		return true;
 	}
 
