@@ -1,9 +1,12 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +30,15 @@ public class BevLV3alActivity extends Activity {
 	
 	//OnCLickListener
 	private OnClickListener LV3CLS;
+	
+	/*
+	 * Intent
+	 */
+	private Intent intentToList;
+	protected static final int al = 31;
+	
+	//protuct type
+	private int type = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +67,47 @@ public class BevLV3alActivity extends Activity {
 		LV3CateBut9 = (Button)findViewById(R.id.button9);
 		LV3CateBut9.setContentDescription("Accessories");
 		
+		//intent creation
+		intentToList = new Intent(BevLV3alActivity.this,ProductListActivity.class);
+		
+		//OnClickListener creation
+		LV3CLS = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(v==LV3CateBut1){//spirit
+					type = 1;
+				}
+				else if(v==LV3CateBut2){//ke
+
+				}
+				else if(v==LV3CateBut3){//pc
+
+				}
+				else if(v==LV3CateBut4){//la
+
+				}
+				else if(v==LV3CateBut5){//dd
+
+				}
+				else if(v==LV3CateBut6){//hoc
+
+				}
+				else if(v==LV3CateBut7){//cs
+
+				}
+				else if(v==LV3CateBut8){//mi
+
+				}
+				else if(v==LV3CateBut9){//mi
+
+				}
+				//openLV3
+				intentToList.putExtra("proType", type);
+				startActivityForResult(intentToList, al);
+			}
+		};
+		
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);
 		LV3CateBut2.setOnClickListener(LV3CLS);
@@ -67,6 +120,17 @@ public class BevLV3alActivity extends Activity {
 		LV3CateBut9.setOnClickListener(LV3CLS);
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    if(MainActivity.toHome){
+			finish();
+		}
+	    else{
+	    	//do sth
+	    }
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

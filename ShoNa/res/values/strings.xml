@@ -235,5 +235,8 @@
     <string name="checkout_settings">Checkout</string>
     <string name="back_settings">Back</string>
     <string name="home_settings">Home</string>
+    <string name="title_activity_barcode_scan">Barcode Scan</string>
+    <string name="title_activity_product_list">Product List</string>
+    <string name="title_activity_product_detials">Product Detials</string>
 
 </resources>

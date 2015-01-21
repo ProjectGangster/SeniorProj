@@ -98,49 +98,41 @@ public class LV2HBActivity extends Activity {
 					Log.i("ButtonL2", "1");
 					//openLV3
 					startActivityForResult(intentToBc, bc);
-					finish();
 				}
 				else if(v==LV2CateBut2){//fc
 					Log.i("ButtonL2", "2");
 					//openLV3
 					startActivityForResult(intentToFc, fc);
-					finish();
 				}
 				else if(v==LV2CateBut3){//hc
 					Log.i("ButtonL2", "3");
 					//openLV3
 					startActivityForResult(intentToHc, hc);
-					finish();
 				}
 				else if(v==LV2CateBut4){//dc
 					Log.i("ButtonL2", "4");
 					//openLV3
 					startActivityForResult(intentToDc, dc);
-					finish();
 				}
 				else if(v==LV2CateBut5){//mc
 					Log.i("ButtonL2", "5");
 					//openLV3
 					startActivityForResult(intentToMc, mc);
-					finish();
 				}
 				else if(v==LV2CateBut6){//wc
 					Log.i("ButtonL2", "6");
 					//openLV3
 					startActivityForResult(intentToWc, wc);
-					finish();
 				}
 				else if(v==LV2CateBut7){//co
 					Log.i("ButtonL2", "7");
 					//openLV3
 					startActivityForResult(intentToCo, co);
-					finish();
 				}
 				else if(v==LV2CateBut8){//fa
 					Log.i("ButtonL2", "8");
 					//openLV3
 					startActivityForResult(intentToFa, fa);
-					finish();
 				}
 			}//end OnClick
 		};//end creation
@@ -157,6 +149,17 @@ public class LV2HBActivity extends Activity {
 		LV2CateBut8.setOnClickListener(LV2CLS);
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    if(MainActivity.toHome){
+			finish();
+		}
+	    else{
+	    	//do sth
+	    }
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

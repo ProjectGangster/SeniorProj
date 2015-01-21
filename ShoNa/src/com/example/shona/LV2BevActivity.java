@@ -81,12 +81,7 @@ public class LV2BevActivity extends Activity {
 			finish();
 		}
 	    else{
-	    	switch (requestCode) {
-    		case al:
-    			break;
-    		case nal:
-    			break;
-	    	}
+	    	//do sth
 	    }
 	}
 

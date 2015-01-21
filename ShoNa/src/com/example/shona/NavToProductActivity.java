@@ -1,16 +1,39 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class NavToProductActivity extends Activity {
-
+	//intent
+	private Intent intentToProductDetails;
+	//code
+	protected int details = 994;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nav_to_product);
+		
+		//intent creation
+		intentToProductDetails = new Intent(NavToProductActivity.this,ProductDetailsActivity.class);
+		//ask if user wants to go to the cashier
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+    	dialog.setTitle("Nav pro");
+    	//activate button OnClickListener
+    	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
+			//activate button OnClickListener creation
+			public void onClick(DialogInterface arg0, int arg1) {
+				startActivityForResult(intentToProductDetails, details);
+				finish();
+			}
+		});//end activate button
+    	dialog.setPositiveButton(R.string.cancelButton, null);
+    	dialog.show();
 	}
 
 	@Override
@@ -22,13 +45,21 @@ public class NavToProductActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		switch (item.getItemId()) {
+		case R.id.back_settings:
+			//go to checkout
+			setResult(RESULT_OK);
+			finish();
+			break;
+		case R.id.home_settings:
+			//go to home
+			MainActivity.toHome = true;
+			setResult(RESULT_OK);
+			finish();
+			break;
+		default:
+			break;
 		}
-		return super.onOptionsItemSelected(item);
+		return false;
 	}
 }

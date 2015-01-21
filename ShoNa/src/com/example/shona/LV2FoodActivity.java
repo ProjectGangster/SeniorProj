@@ -85,37 +85,31 @@ public class LV2FoodActivity extends Activity {
 					Log.i("ButtonL2", "1");
 					//openLV3
 					startActivityForResult(intentToFresh, fresh);
-					finish();
 				}
 				else if(v==LV2CateBut2){//frozen food
 					Log.i("ButtonL2", "2");
 					//openLV3
 					startActivityForResult(intentToFrozen, frozen);
-					finish();
 				}
 				else if(v==LV2CateBut3){//package
 					Log.i("ButtonL2", "3");
 					//openLV3
 					startActivityForResult(intentToPack, pack);
-					finish();
 				}
 				else if(v==LV2CateBut4){//cooking ingredients
 					Log.i("ButtonL2", "4");
 					//openLV3
 					startActivityForResult(intentToCI, ci);
-					finish();
 				}
 				else if(v==LV2CateBut5){//bakery
 					Log.i("ButtonL2", "5");
 					//openLV3
 					startActivityForResult(intentToBake, bake);
-					finish();
 				}
 				else if(v==LV2CateBut6){//eggs & dairy
 					Log.i("ButtonL2", "6");
 					//openLV3
 					startActivityForResult(intentToDairy, dairy);
-					finish();
 				}
 			}//end OnClick
 		};//end creation
@@ -130,6 +124,17 @@ public class LV2FoodActivity extends Activity {
 		LV2CateBut6.setOnClickListener(lv2CLS);
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    if(MainActivity.toHome){
+			finish();
+		}
+	    else{
+	    	//do sth
+	    }
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
