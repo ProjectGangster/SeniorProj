@@ -231,5 +231,8 @@
     <string name="title_activity_nav_to_product">Navigation to The Product</string>
     <string name="okButton">OK</string>
     <string name="cancelButton">Cancel</string>
+    <string name="menu_settings">Menu</string>
+    <string name="checkout_settings">Checkout</string>
+    <string name="back_settings">Back</string>
 
 </resources>

@@ -27,7 +27,7 @@ public class LV2BevActivity extends Activity {
 	/*
 	 * Intent
 	 */
-	//intent
+	//intent to next lv
 	private Intent intentToAl;
 	private Intent intentToNoAl;
 	//code for communication between activity
@@ -56,7 +56,6 @@ public class LV2BevActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				if(v==LV2CateBut1){//Al
 					Log.i("ButtonL2", "1");
 					//openLV3
@@ -86,13 +85,15 @@ public class LV2BevActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		switch (item.getItemId()) {
+		case R.id.back_settings:
+			//go to checkout
+			setResult(RESULT_OK);
+			finish();
+			break;
+		default:
+			break;
 		}
-		return super.onOptionsItemSelected(item);
+		return false;
 	}
 }

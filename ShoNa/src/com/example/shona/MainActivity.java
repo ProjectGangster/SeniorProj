@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 	/*
 	 * Intent
 	 */
-	//intent
+	//intent to next lv
 	private Intent intentToBev;
 	private Intent intentToFood;
 	private Intent intentToSnack;
@@ -42,8 +42,13 @@ public class MainActivity extends Activity {
 	private Intent intentToCC;
 	private Intent intentToPC;
 	private Intent intentToPro;
+	//menu item
+	private Intent intentToCheckout;
 	
-	//code for communication between activity
+	/*
+	 * code for communication between activity
+	 */
+	//to next lv
 	protected int Bev = 21;
 	protected int Food = 22;
 	protected int Snack = 23;
@@ -52,6 +57,8 @@ public class MainActivity extends Activity {
 	protected int CC = 26;
 	protected int PC = 27;
 	protected int Pro = 28;
+	//menu item
+	protected int checkout = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,7 @@ public class MainActivity extends Activity {
 		LV1CateBut8.setContentDescription("Promotion");
 		
 		//Intent creation
+		//next lv
 		intentToBev = new Intent(MainActivity.this,LV2BevActivity.class);
 		intentToFood = new Intent(MainActivity.this,LV2FoodActivity.class);
 		intentToSnack = new Intent(MainActivity.this,LV2SnackActivity.class);
@@ -87,60 +95,52 @@ public class MainActivity extends Activity {
 		intentToCC = new Intent(MainActivity.this,LV2CCActivity.class);
 		intentToPC = new Intent(MainActivity.this,LV2PCActivity.class);
 		intentToPro = new Intent(MainActivity.this,LV2ProActivity.class);
+		//menu item
+		intentToCheckout = new Intent(MainActivity.this,CheckOutActivity.class);
 		
 		//OnClickListener creation
 		lv1CLS = new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				if(v==LV1CateBut1){//Beverage
 					Log.i("ButtonL1", "1");
 					//openLV2
 					startActivityForResult(intentToBev, Bev);
-					finish();
 				}
 				else if(v==LV1CateBut2){//Food
 					Log.i("ButtonL1", "2");
 					//openLV2
 					startActivityForResult(intentToFood, Food);
-					finish();
 				}
 				else if(v==LV1CateBut3){//Snacks
 					Log.i("ButtonL1", "3");
 					//openLV2
 					startActivityForResult(intentToSnack, Snack);
-					finish();
 				}
 				else if(v==LV1CateBut4){//Health & Beauty
 					Log.i("ButtonL1", "4");
 					//openLV2
 					startActivityForResult(intentToHB, HB);
-					finish();
 				}
 				else if(v==LV1CateBut5){//Household Product
 					Log.i("ButtonL1", "5");
 					//openLV2
 					startActivityForResult(intentToHP, HP);
-					finish();
 				}
 				else if(v==LV1CateBut6){//Car Care
 					Log.i("ButtonL1", "6");
 					//openLV2
 					startActivityForResult(intentToCC, CC);
-					finish();
 				}
 				else if(v==LV1CateBut7){//Pet Care
 					Log.i("ButtonL1", "7");
 					//openLV2
 					startActivityForResult(intentToPC, PC);
-					finish();
 				}
 				else if(v==LV1CateBut8){//Promotion Product
 					Log.i("ButtonL1", "8");
 					//openLV2
 					startActivityForResult(intentToPro, Pro);
-					finish();
 				}
 			}//end OnClick
 		};//end creation
@@ -180,9 +180,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
 	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
-		
 	    if(requestCode == Bev && resultCode == RESULT_OK){
-	    	
+	    	Log.i("menu item", "from bev");
 	    }
 	    
 	}
@@ -196,15 +195,13 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		switch (item.getItemId()) {
-		case R.id.action_settings:
-			finish();
+		case R.id.checkout_settings:
+			//go to checkout
+			startActivityForResult(intentToCheckout, checkout);
 			break;
 		default:
-			return super.onOptionsItemSelected(item);
+			break;
 		}
 		return false;
 	}

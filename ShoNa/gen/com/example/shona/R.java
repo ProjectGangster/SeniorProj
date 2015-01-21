@@ -26,6 +26,7 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f08000c;
+        public static final int back_settings=0x7f08000e;
         public static final int button1=0x7f080001;
         public static final int button10=0x7f08000a;
         public static final int button11=0x7f08000b;
@@ -37,6 +38,8 @@ public final class R {
         public static final int button7=0x7f080007;
         public static final int button8=0x7f080008;
         public static final int button9=0x7f080009;
+        public static final int checkout_settings=0x7f08000f;
+        public static final int menu=0x7f08000d;
         public static final int textView1=0x7f080000;
     }
     public static final class layout {
@@ -309,9 +312,12 @@ public final class R {
         public static final int LV3CateBut99=0x7f0500ba;
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
+        public static final int back_settings=0x7f0500e8;
         public static final int cancelButton=0x7f0500e5;
+        public static final int checkout_settings=0x7f0500e7;
         public static final int chooseCatDes=0x7f050003;
         public static final int hello_world=0x7f050001;
+        public static final int menu_settings=0x7f0500e6;
         public static final int okButton=0x7f0500e4;
         public static final int title_activity_cc_lv3aif=0x7f050097;
         public static final int title_activity_cc_lv3car=0x7f05009b;
