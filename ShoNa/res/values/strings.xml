@@ -234,5 +234,6 @@
     <string name="menu_settings">Menu</string>
     <string name="checkout_settings">Checkout</string>
     <string name="back_settings">Back</string>
+    <string name="home_settings">Home</string>
 
 </resources>

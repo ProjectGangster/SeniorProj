@@ -60,6 +60,9 @@ public class MainActivity extends Activity {
 	//menu item
 	protected int checkout = 1;
 
+	//back to home
+	public static boolean toHome = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -180,6 +183,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
 	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    toHome = false;
 	    if(requestCode == Bev && resultCode == RESULT_OK){
 	    	Log.i("menu item", "from bev");
 	    }
@@ -201,6 +205,7 @@ public class MainActivity extends Activity {
 			startActivityForResult(intentToCheckout, checkout);
 			break;
 		default:
+			toHome = false;
 			break;
 		}
 		return false;

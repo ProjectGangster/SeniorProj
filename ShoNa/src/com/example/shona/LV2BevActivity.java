@@ -31,8 +31,8 @@ public class LV2BevActivity extends Activity {
 	private Intent intentToAl;
 	private Intent intentToNoAl;
 	//code for communication between activity
-	protected int al = 31;
-	protected int nal = 32;
+	protected static final int al = 31;
+	protected static final int nal = 32;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +60,11 @@ public class LV2BevActivity extends Activity {
 					Log.i("ButtonL2", "1");
 					//openLV3
 					startActivityForResult(intentToAl, al);
-					finish();
 				}
 				else if(v==LV2CateBut2){//Non-Al
 					Log.i("ButtonL2", "2");
 					//openLV3
 					startActivityForResult(intentToNoAl, nal);
-					finish();
 				}
 			}//end OnClick
 		};//end creation
@@ -74,6 +72,22 @@ public class LV2BevActivity extends Activity {
 		//set OnClickListener
 		LV2CateBut1.setOnClickListener(lv2CLS);
 		LV2CateBut2.setOnClickListener(lv2CLS);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intentFromAnother){
+	    super.onActivityResult(requestCode, resultCode, intentFromAnother);
+	    if(MainActivity.toHome){
+			finish();
+		}
+	    else{
+	    	switch (requestCode) {
+    		case al:
+    			break;
+    		case nal:
+    			break;
+	    	}
+	    }
 	}
 
 	@Override
