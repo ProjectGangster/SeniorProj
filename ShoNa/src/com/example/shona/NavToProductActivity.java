@@ -13,11 +13,16 @@ public class NavToProductActivity extends Activity {
 	private Intent intentToProductDetails;
 	//code
 	protected int details = 994;
+	//product id
+	private int id = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nav_to_product);
+		
+		//get product id
+		id = getIntent().getIntExtra("proID", 0);
 		
 		//intent creation
 		intentToProductDetails = new Intent(NavToProductActivity.this,ProductDetailsActivity.class);
@@ -28,12 +33,17 @@ public class NavToProductActivity extends Activity {
     	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 			//activate button OnClickListener creation
 			public void onClick(DialogInterface arg0, int arg1) {
+				intentToProductDetails.putExtra("proID", getId());
 				startActivityForResult(intentToProductDetails, details);
 				finish();
 			}
 		});//end activate button
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	@Override

@@ -39,7 +39,6 @@ public class ProductDetailsActivity extends Activity {
 	
 	//product
 	private int id = 0;
-	private Product product;
 	private Product temp;
 
 	@Override

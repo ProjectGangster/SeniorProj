@@ -1,7 +1,5 @@
 package com.example.shona;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,16 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ExpandableListView;
 
 public class ProductListActivity extends Activity {
-	/*
-	 * layout components
-	 */
-	private ExpandableListView listView;
-	
 	//intent
 	private Intent intentFromLV3;
 	private Intent intentToNavPro;	
@@ -27,15 +17,13 @@ public class ProductListActivity extends Activity {
 	protected int navPro = 995;
 	
 	//product types
-	private int type = 1;
+	private int type = 0;
 	
 	private ProductList_HandleJSON obj;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_list);
-		//layout
-		listView = (ExpandableListView)findViewById(R.id.expandableListView1);
 		
 		//get product type
 		intentFromLV3 = getIntent();
@@ -51,6 +39,7 @@ public class ProductListActivity extends Activity {
     	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 			//activate button OnClickListener creation
 			public void onClick(DialogInterface arg0, int arg1) {
+				intentToNavPro.putExtra("proID", getType());
 				startActivityForResult(intentToNavPro, navPro);
 			}
 		});//end activate button
@@ -64,6 +53,10 @@ public class ProductListActivity extends Activity {
 
 	    while(obj.parsingComplete);
 	     //listView.add
+	}
+
+	public int getType() {
+		return type;
 	}
 
 	@Override

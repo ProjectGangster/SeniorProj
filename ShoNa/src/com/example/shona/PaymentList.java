@@ -9,7 +9,6 @@ public class PaymentList {
 	private List<Product> list;
 	private Product product;
 	private String[] showList;
-	private String temp = "";
 	private double sum = 0.0;
 	//constructor
 	public PaymentList(){
@@ -18,12 +17,14 @@ public class PaymentList {
 	}
 	public void addList(int id){
 		//loop to check if id matches from DB
-		---if(product.getId()==id){
-			list.add(product);
-			//temp for total price
-			showList[showList.length-1] = ""+product.getName()+"	"+product.getPrice();
-			updateTotalPrice();
-		}
+		for(int i=0;i<ProductList_HandleJSON.getPList().size();i++){
+			product = ProductList_HandleJSON.getPList().get(i);
+			if(product.getId()==id){
+				list.add(product);
+				showList[showList.length-1] = ""+product.getName()+"	"+product.getPrice();
+				updateTotalPrice();
+			}//end if
+		}//end for
 	}//end
 	public String[] getShowList(){
 		//show name and price of products in the list
