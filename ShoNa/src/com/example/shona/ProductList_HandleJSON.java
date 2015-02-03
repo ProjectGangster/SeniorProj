@@ -22,7 +22,7 @@ import android.util.Log;
 
 public class ProductList_HandleJSON {
 
-   ArrayList<Product> PList = new ArrayList<Product>();
+   static ArrayList<Product> PList = new ArrayList<Product>();
    //PList.add(new Player(1));
    
    
@@ -35,7 +35,7 @@ public class ProductList_HandleJSON {
 	  this.urlString = "http://www.numpun.lnw.mn/shona/API/productlist.php?ID="+"CatNumber"; 
    }
    
-   public ArrayList<Product> getPList() {
+   public static ArrayList<Product> getPList() {
 		return PList;
 	}
   
@@ -105,7 +105,4 @@ public class ProductList_HandleJSON {
       java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
       return s.hasNext() ? s.next() : "";
    }
-}
-final class Product{
-	private int i;
 }

@@ -226,10 +226,17 @@
     <string name="LV3CateBut131">Shoe Polish &amp; Wax</string>
     <string name="LV3CateBut132">Foot Pads &amp; Medication</string>
     <string name="LV3CateBut133">Bed &amp; Bath Hardware</string>
-    <string name="title_activity_check_out">Check Out</string>
-    <string name="title_activity_nav_to_cashier">Navigation to The Cashier</string>
-    <string name="title_activity_nav_to_product">Navigation to The Product</string>
-    <string name="okButton">OK</string>
-    <string name="cancelButton">Cancel</string>
+    <string name="title_activity_check_out">ชำระเงิน</string>
+    <string name="title_activity_nav_to_cashier">นำทางไปยังจุดชำระเงิน</string>
+    <string name="title_activity_nav_to_product">นำทางไปยังสินค้า</string>
+    <string name="okButton">ตกลง</string>
+    <string name="cancelButton">ยกเลิก</string>
+    <string name="menu_settings">เมนู</string>
+    <string name="checkout_settings">ชำระเงิน</string>
+    <string name="back_settings">กลับ</string>
+    <string name="home_settings">หน้าหลัก</string>
+    <string name="title_activity_barcode_scan">สแกนบาร์โค้ด</string>
+    <string name="title_activity_product_list">รายการสินค้า</string>
+    <string name="title_activity_product_detials">รายละเอียดสินค้า</string>
 
 </resources>
