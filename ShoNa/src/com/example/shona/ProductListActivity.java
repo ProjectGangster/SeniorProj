@@ -27,14 +27,15 @@ public class ProductListActivity extends Activity {
 	protected int navPro = 995;
 	
 	//product types
-	private int type = 0;
+	private int type = 1;
 	
+	private ProductList_HandleJSON obj;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_list);
 		//layout
-		//listView = (ExpandableListView)findViewById(R.id.expandableListView1);
+		listView = (ExpandableListView)findViewById(R.id.expandableListView1);
 		
 		//get product type
 		intentFromLV3 = getIntent();
@@ -55,7 +56,14 @@ public class ProductListActivity extends Activity {
 		});//end activate button
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
-	
+    	
+    	
+    	int category=0;
+    	obj = new ProductList_HandleJSON(category);
+	    obj.fetchJSON();
+
+	    while(obj.parsingComplete);
+	     //listView.add
 	}
 
 	@Override
