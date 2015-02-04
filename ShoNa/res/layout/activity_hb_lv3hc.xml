@@ -29,22 +29,16 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut63" />
-
-        <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut64" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut65" />
+            android:text="@string/LV3CateBut67" />
 
         <Button
             android:id="@+id/button4"
@@ -53,10 +47,16 @@
             android:text="@string/LV3CateBut66" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut67" />
+            android:text="@string/LV3CateBut65" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut63" />
         
         </LinearLayout>
 
