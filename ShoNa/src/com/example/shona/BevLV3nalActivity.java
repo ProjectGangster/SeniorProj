@@ -1,9 +1,12 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +15,8 @@ public class BevLV3nalActivity extends Activity {
 	/*
 	 * view components
 	 */
+	//intend
+	private Intent intentToPList;
 	//textview
 	private TextView LV3des;
 	//buttons
@@ -25,15 +30,20 @@ public class BevLV3nalActivity extends Activity {
 	private Button LV3CateBut8;
 	private Button LV3CateBut9;
 	private Button LV3CateBut10;
+	//code for communication between activity
+	protected int milk = 10;
 	
 	//OnCLickListener
-	private OnClickListener LV3CLS;
+	private OnClickListener LV3CLS;	
 	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lv3_nal);
+		//intend
+		intentToPList = new Intent(BevLV3nalActivity.this,ProductListActivity.class);
+		
 		//textview
 		LV3des = (TextView) findViewById(R.id.textView1);
 		LV3des.setContentDescription("Please choose a product category");
@@ -58,7 +68,20 @@ public class BevLV3nalActivity extends Activity {
 		LV3CateBut9.setContentDescription("Tea");
 		LV3CateBut10 = (Button)findViewById(R.id.button10);
 		LV3CateBut10.setContentDescription("Powder Health Tonics");
-		
+		//OnClickListener creation
+		LV3CLS = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(v==LV3CateBut1){//fresh food
+					Log.i("ButtonL3", "1");
+					//openList
+					intentToPList.putExtra("catid", milk);
+					startActivityForResult(intentToPList, milk);
+				}
+			}
+		};
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);
 		LV3CateBut2.setOnClickListener(LV3CLS);
@@ -69,7 +92,7 @@ public class BevLV3nalActivity extends Activity {
 		LV3CateBut7.setOnClickListener(LV3CLS);
 		LV3CateBut8.setOnClickListener(LV3CLS);
 		LV3CateBut9.setOnClickListener(LV3CLS);
-		LV3CateBut10.setOnClickListener(LV3CLS);
+		LV3CateBut10.setOnClickListener(LV3CLS);		
 	}
 
 	@Override

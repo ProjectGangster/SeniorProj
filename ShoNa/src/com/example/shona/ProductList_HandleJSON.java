@@ -47,23 +47,18 @@ public class ProductList_HandleJSON {
          
          JSONArray jArray = reader.getJSONArray("Product_list");
          
+         int id;
+         double price;
+         String name,desc;
          for(int i =0;i<jArray.length();i++){
-        	 Product a = new Product();
+        	 id = jArray.getJSONObject(i).getInt("id");
+        	 name = jArray.getJSONObject(i).getString("Name");
+        	 price = jArray.getJSONObject(i).getDouble("price");
+        	 desc = jArray.getJSONObject(i).getString("Detail");        	 
+        	 Product a = new Product(id,name,price,desc);
         	 PList.add(a);
          }
-         //country = jArray.getJSONObject(0).getString("Name");
-         //reader[0].get("Name");
-         //JSONObject sys  = reader.getJSONObject("sys");
-         //country = sys.getString("country");
-
-//         JSONObject main  = reader.getJSONObject("main");
-//         temperature = main.getString("temp");
-//
-//         pressure = main.getString("pressure");
-//         humidity = main.getString("humidity");
-
          parsingComplete = false;
-
 
 
         } catch (Exception e) {
@@ -105,7 +100,4 @@ public class ProductList_HandleJSON {
       java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
       return s.hasNext() ? s.next() : "";
    }
-}
-final class Product{
-	private int i;
 }

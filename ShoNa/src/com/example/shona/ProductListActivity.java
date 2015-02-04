@@ -39,7 +39,8 @@ public class ProductListActivity extends Activity {
 		
 		//get product type
 		intentFromLV3 = getIntent();
-		type = intentFromLV3.getIntExtra("proType", 0);
+		//type = intentFromLV3.getIntExtra("proType", 0);
+		type = intentFromLV3.getIntExtra("catid", 0);
 		Log.i("PROTYPEEEEE", ""+type);
 		
 		//intent creation
@@ -58,11 +59,17 @@ public class ProductListActivity extends Activity {
     	dialog.show();
     	
     	
-    	int category=0;
-    	obj = new ProductList_HandleJSON(category);
+    	//int category=0;
+    	obj = new ProductList_HandleJSON(type);
 	    obj.fetchJSON();
 
 	    while(obj.parsingComplete);
+	    ArrayList<Product> product = obj.getPList();
+	    for(int i=0;i<product.size();i++){
+	    	listview.add
+	    }
+	    
+	  
 	     //listView.add
 	}
 
