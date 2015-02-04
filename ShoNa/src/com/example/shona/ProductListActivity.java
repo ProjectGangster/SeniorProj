@@ -62,8 +62,12 @@ public class ProductListActivity extends Activity {
 //
 //	    while(obj.parsingComplete);
     	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
-    	
-    	ArrayAdapter<Product> Adapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_1, product);
+    	ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < product.size(); ++i) {
+          list.add(product.get(i).getName());
+          //.add("test"+i);
+        }
+    	ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
     	listview.setAdapter(Adapter);
 	    
 	  

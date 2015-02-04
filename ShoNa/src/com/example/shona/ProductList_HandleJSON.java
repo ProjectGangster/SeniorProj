@@ -78,7 +78,7 @@ public class ProductList_HandleJSON {
          for(int i =0;i<jArray.length();i++){
         	 id = jArray.getJSONObject(i).getInt("id");
         	 name = jArray.getJSONObject(i).getString("Name");
-        	 price = jArray.getJSONObject(i).getDouble("price");
+        	 price = jArray.getJSONObject(i).getDouble("Price");
         	 desc = jArray.getJSONObject(i).getString("Detail");
         	 brand = jArray.getJSONObject(i).getString("Brand");
         	 vol = jArray.getJSONObject(i).getDouble("Volumn");	
@@ -105,7 +105,7 @@ public class ProductList_HandleJSON {
 	         String name,desc,brand;         
 	         	 id = reader.getInt("id");
 	        	 name = reader.getString("Name");
-	        	 price = reader.getDouble("price");
+	        	 price = reader.getDouble("Price");
 	        	 desc = reader.getString("Detail");
 	        	 brand = reader.getString("Brand");
 	        	 vol = reader.getDouble("Volumn");	
