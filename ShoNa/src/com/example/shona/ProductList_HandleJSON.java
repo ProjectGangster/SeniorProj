@@ -73,7 +73,7 @@ public class ProductList_HandleJSON {
          JSONArray jArray = reader.getJSONArray("Product_list");
          
          int id;
-<<<<<<< HEAD
+
          double price,vol;
          String name,desc,brand;         
          for(int i =0;i<jArray.length();i++){
@@ -85,18 +85,7 @@ public class ProductList_HandleJSON {
         	 vol = jArray.getJSONObject(i).getDouble("Volumn");	
         	 Product a = new Product(id,name,brand,vol,price,desc);
         	 PList.add(a);
-=======
-         double price;
-         String name,desc;
-         
-         for(int i =0;i<jArray.length();i++){
-        	 id = jArray.getJSONObject(i).getInt("id");
-        	 name = jArray.getJSONObject(i).getString("Name");
-        	 price = jArray.getJSONObject(i).getDouble("price");
-        	 desc = jArray.getJSONObject(i).getString("Detail");        	 
-        	 //Product a = new Product(id,name,price,desc);
-        	 //PList.add(a);
->>>>>>> 84dcbe6848eb86e676bff5ffac76ad78e377feb8
+
          }
          parsingComplete = false;
 
