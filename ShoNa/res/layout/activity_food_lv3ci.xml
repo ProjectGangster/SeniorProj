@@ -27,11 +27,11 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut30" />
+       <Button
+           android:id="@+id/button6"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/LV3CateBut35" />
 
         <Button
             android:id="@+id/button2"
@@ -40,34 +40,34 @@
             android:text="@string/LV3CateBut31" />
 
         <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut36" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut30" />
+
+        <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut32" />
 
         <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut33" />
-
-        <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut34" />
-        
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut35" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut36" />
+            android:text="@string/LV3CateBut33" />
     
     </LinearLayout>
 

@@ -29,16 +29,10 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut97" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut98" />
+            android:text="@string/LV3CateBut100" />
 
         <Button
             android:id="@+id/button3"
@@ -47,10 +41,16 @@
             android:text="@string/LV3CateBut99" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut100" />
+            android:text="@string/LV3CateBut98" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut97" />
 
         <Button
             android:id="@+id/button5"

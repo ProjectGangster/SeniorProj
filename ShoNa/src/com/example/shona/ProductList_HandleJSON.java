@@ -50,13 +50,14 @@ public class ProductList_HandleJSON {
          int id;
          double price;
          String name,desc;
+         
          for(int i =0;i<jArray.length();i++){
         	 id = jArray.getJSONObject(i).getInt("id");
         	 name = jArray.getJSONObject(i).getString("Name");
         	 price = jArray.getJSONObject(i).getDouble("price");
         	 desc = jArray.getJSONObject(i).getString("Detail");        	 
-        	 Product a = new Product(id,name,price,desc);
-        	 PList.add(a);
+        	 //Product a = new Product(id,name,price,desc);
+        	 //PList.add(a);
          }
          parsingComplete = false;
 

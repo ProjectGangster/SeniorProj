@@ -1,5 +1,7 @@
 package com.example.shona;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -52,12 +54,12 @@ public class ProductListActivity extends Activity {
     	obj = new ProductList_HandleJSON(type);
 	    obj.fetchJSON();
 
-	    while(obj.parsingComplete);
+	    /*while(obj.parsingComplete);
 	    ArrayList<Product> product = obj.getPList();
 	    for(int i=0;i<product.size();i++){
 	    	listview.add
 	    }
-	    
+	    */
 	  
 	     //listView.add
 	}

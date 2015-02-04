@@ -29,6 +29,12 @@
         android:orientation="vertical" >
 
         <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut62" />
+
+        <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,22 +47,16 @@
             android:text="@string/LV3CateBut59" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut60" />
-
-        <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut61" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut62" />
+            android:text="@string/LV3CateBut60" />
         
        </LinearLayout>
 </RelativeLayout>

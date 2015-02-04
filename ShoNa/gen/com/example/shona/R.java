@@ -34,10 +34,10 @@ public final class R {
         public static final int button2=0x7f080002;
         public static final int button3=0x7f080003;
         public static final int button4=0x7f080004;
-        public static final int button5=0x7f080005;
+        public static final int button5=0x7f080007;
         public static final int button6=0x7f080006;
-        public static final int button7=0x7f080007;
-        public static final int button8=0x7f080008;
+        public static final int button7=0x7f080008;
+        public static final int button8=0x7f080005;
         public static final int button9=0x7f080009;
         public static final int checkout_settings=0x7f080019;
         public static final int expandableListView1=0x7f080015;
@@ -234,6 +234,7 @@ public final class R {
         public static final int LV3CateBut154=0x7f05009e;
         public static final int LV3CateBut155=0x7f05009d;
         public static final int LV3CateBut156=0x7f05009c;
+        public static final int LV3CateBut157=0x7f0500f3;
         public static final int LV3CateBut16=0x7f050047;
         public static final int LV3CateBut17=0x7f050048;
         public static final int LV3CateBut18=0x7f050049;

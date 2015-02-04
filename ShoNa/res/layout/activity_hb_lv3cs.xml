@@ -29,22 +29,10 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut120" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut121" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut122" />
+            android:text="@string/LV3CateBut124" />
 
         <Button
             android:id="@+id/button4"
@@ -53,28 +41,10 @@
             android:text="@string/LV3CateBut112" />
 
         <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut124" />
-        
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut125" />
-
-        <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut126" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut127" />
 
         <Button
             android:id="@+id/button9"
@@ -88,5 +58,35 @@
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut129" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut125" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut127" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut120" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut122" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut121" />
+    </LinearLayout>
+
 </RelativeLayout>

@@ -29,6 +29,18 @@
         android:orientation="vertical" >
 
         <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut152" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut147" />
+
+        <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,10 +53,16 @@
             android:text="@string/LV3CateBut146" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut147" />
+            android:text="@string/LV3CateBut150" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LV3CateBut149" />
 
         <Button
             android:id="@+id/button4"
@@ -53,28 +71,10 @@
             android:text="@string/LV3CateBut148" />
 
         <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut149" />
-        
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut150" />
-
-        <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut151" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut152" />
 
     </LinearLayout>
 

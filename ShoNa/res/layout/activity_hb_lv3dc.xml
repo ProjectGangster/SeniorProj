@@ -28,23 +28,23 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical" >
 
+       <Button
+           android:id="@+id/button3"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/LV3CateBut70" />
+
+       <Button
+           android:id="@+id/button2"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/LV3CateBut69" />
+
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LV3CateBut68" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut69" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LV3CateBut70" />
         
         </LinearLayout>
 

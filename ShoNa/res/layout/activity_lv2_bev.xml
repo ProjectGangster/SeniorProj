@@ -18,21 +18,25 @@
         android:text="@string/chooseCatDes"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-   <Button
-       android:id="@+id/button1"
-       android:layout_width="120dp"
-       android:layout_height="60dp"
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
        android:layout_alignLeft="@+id/textView1"
        android:layout_below="@+id/textView1"
-       android:layout_marginTop="30dp"
-       android:text="@string/LV2CateBut1" />
-   
-   <Button
-       android:id="@+id/button2"
-       android:layout_width="120dp"
-       android:layout_height="60dp"
-       android:layout_alignBottom="@+id/button1"
-       android:layout_alignRight="@+id/textView1"
-       android:text="@string/LV2CateBut2" />
+       android:orientation="vertical" >
+
+       <Button
+           android:id="@+id/button1"
+           android:layout_width="match_parent"
+           android:layout_height="60dp"
+           android:text="@string/LV2CateBut1" />
+
+       <Button
+           android:id="@+id/button2"
+           android:layout_width="match_parent"
+           android:layout_height="60dp"
+           android:text="@string/LV2CateBut2" />
+
+   </LinearLayout>
 
 </RelativeLayout>
