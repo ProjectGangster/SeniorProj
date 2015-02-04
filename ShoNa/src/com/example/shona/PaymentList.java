@@ -17,14 +17,13 @@ public class PaymentList {
 	}
 	public void addList(int id){
 		//loop to check if id matches from DB
-		for(int i=0;i<ProductList_HandleJSON.getPList().size();i++){
-			product = ProductList_HandleJSON.getPList().get(i);
-			if(product.getId()==id){
-				list.add(product);
-				showList[showList.length-1] = ""+product.getName()+"	"+product.getPrice();
-				updateTotalPrice();
-			}//end if
-		}//end for
+		
+			product = ProductList_HandleJSON.getPDetail(id);
+			
+			list.add(product);
+			showList[showList.length-1] = ""+product.getName()+"	"+product.getPrice();
+			updateTotalPrice();			
+		
 	}//end
 	public String[] getShowList(){
 		//show name and price of products in the list

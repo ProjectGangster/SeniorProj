@@ -74,23 +74,20 @@ public class ProductDetailsActivity extends Activity {
 		proDes.setContentDescription("");
 		
 		//search the product from id
-		for(int i=0;i<ProductList_HandleJSON.getPList().size();i++){
-			temp = ProductList_HandleJSON.getPList().get(i);
-			if(temp.getId()==id){
+		
+		temp = ProductList_HandleJSON.getPDetail(id);
 				//connect product details to the ui
-				proName.setText(temp.getName());
-				proName.setContentDescription(""+temp.getName());
-				proBrand.setText(temp.getBrand());
-				proBrand.setContentDescription(""+temp.getBrand());
-				proVol.setText(""+temp.getVolume());
-				proVol.setContentDescription(""+temp.getVolume());
-				proPrice.setText(""+temp.getPrice());
-				proPrice.setContentDescription(""+temp.getPrice());
-				proDes.setText(temp.getDescription());
-				proDes.setContentDescription(""+temp.getDescription());
-			}
-		}
-
+		proName.setText(temp.getName());
+		proName.setContentDescription(""+temp.getName());
+		proBrand.setText(temp.getBrand());
+		proBrand.setContentDescription(""+temp.getBrand());
+		proVol.setText(""+temp.getVolume());
+		proVol.setContentDescription(""+temp.getVolume());
+		proPrice.setText(""+temp.getPrice());
+		proPrice.setContentDescription(""+temp.getPrice());
+		proDes.setText(temp.getDescription());
+		proDes.setContentDescription(""+temp.getDescription());
+			
 		//buttons
 		okbutt = (Button)findViewById(R.id.button1);
 		okbutt.setContentDescription("OK");

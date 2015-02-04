@@ -8,9 +8,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class ProductListActivity extends Activity {
 	//intent
+	private ListView listview;
 	private Intent intentFromLV3;
 	private Intent intentToNavPro;	
 	//code
@@ -25,6 +31,8 @@ public class ProductListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_list);
 		
+		//listview = 
+		listview = (ListView) findViewById(R.id.ListView1);
 		//get product type
 		intentFromLV3 = getIntent();
 		//type = intentFromLV3.getIntExtra("proType", 0);
@@ -49,14 +57,14 @@ public class ProductListActivity extends Activity {
     	
     	
     	//int category=0;
-    	obj = new ProductList_HandleJSON(type);
-	    obj.fetchJSON();
-
-	    while(obj.parsingComplete);
-	    ArrayList<Product> product = obj.getPList();
-	    for(int i=0;i<product.size();i++){
-	    	listview.add
-	    }
+//    	obj = new ProductList_HandleJSON(type);
+//	    obj.fetchJSON();
+//
+//	    while(obj.parsingComplete);
+    	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
+    	
+    	ArrayAdapter<Product> Adapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_1, product);
+    	listview.setAdapter(Adapter);
 	    
 	  
 	     //listView.add

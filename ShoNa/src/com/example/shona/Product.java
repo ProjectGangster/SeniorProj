@@ -1,21 +1,21 @@
 package com.example.shona;
 
 public class Product {
-<<<<<<< HEAD
-	protected int id;
-	protected String name;
-	protected double price;
-	protected String description;
-	
-	public Product(int id, String name, Double price, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.description = description;
-	}
-	
-=======
+
+//	protected int id;
+//	protected String name;
+//	protected double price;
+//	protected String description;
+//	
+//	public Product(int id, String name, Double price, String description) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.price = price;
+//		this.description = description;
+//	}
+//	
+
 	private int id = 0;
 	private String name = "";
 	private String brand = "";
@@ -25,8 +25,8 @@ public class Product {
 	public Product(int id,String n,String b,double v, double p, String des){
 		this.id = id;
 		this.name = n;
-		this.brand = b;
-		this.volume = v;
+		//this.brand = b;
+		//this.volume = v;
 		this.price = p;
 		this.description = des;
 	}
@@ -66,5 +66,4 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
->>>>>>> 37497e096bf8871572ac25cc8c65667fe40b8a5f
 }
