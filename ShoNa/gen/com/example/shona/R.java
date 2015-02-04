@@ -25,7 +25,9 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int back_settings=0x7f08000f;
+        public static final int TextView01=0x7f08000d;
+        public static final int TextView02=0x7f08000e;
+        public static final int back_settings=0x7f080018;
         public static final int button1=0x7f080001;
         public static final int button10=0x7f08000a;
         public static final int button11=0x7f08000b;
@@ -37,11 +39,18 @@ public final class R {
         public static final int button7=0x7f080007;
         public static final int button8=0x7f080008;
         public static final int button9=0x7f080009;
-        public static final int checkout_settings=0x7f080010;
-        public static final int expandableListView1=0x7f08000c;
-        public static final int home_settings=0x7f08000e;
-        public static final int menu=0x7f08000d;
+        public static final int checkout_settings=0x7f080019;
+        public static final int expandableListView1=0x7f080015;
+        public static final int home_settings=0x7f080017;
+        public static final int menu=0x7f080016;
         public static final int textView1=0x7f080000;
+        public static final int textView2=0x7f08000c;
+        public static final int textView3=0x7f08000f;
+        public static final int textView4=0x7f080010;
+        public static final int textView5=0x7f080011;
+        public static final int textView6=0x7f080012;
+        public static final int textView7=0x7f080013;
+        public static final int textView8=0x7f080014;
     }
     public static final class layout {
         public static final int activity_barcode_scan=0x7f030000;
@@ -327,6 +336,12 @@ public final class R {
         public static final int home_settings=0x7f0500e9;
         public static final int menu_settings=0x7f0500e6;
         public static final int okButton=0x7f0500e4;
+        public static final int proBrandText=0x7f0500ee;
+        public static final int proDesText=0x7f0500f1;
+        public static final int proNameText=0x7f0500ed;
+        public static final int proPriceText=0x7f0500f0;
+        public static final int proTempText=0x7f0500f2;
+        public static final int proVolText=0x7f0500ef;
         public static final int title_activity_barcode_scan=0x7f0500ea;
         public static final int title_activity_cc_lv3aif=0x7f050097;
         public static final int title_activity_cc_lv3car=0x7f05009b;
