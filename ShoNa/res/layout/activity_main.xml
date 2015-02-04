@@ -61,7 +61,7 @@
 
         <Button
             android:id="@+id/button8"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="@string/LV1CateBut8" />
 
@@ -69,7 +69,6 @@
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
             android:text="@string/LV1CateBut3" />
 
     </LinearLayout>
