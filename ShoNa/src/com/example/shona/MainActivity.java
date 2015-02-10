@@ -62,6 +62,8 @@ public class MainActivity extends Activity {
 
 	//back to home
 	public static boolean toHome = false;
+	//payment list
+	public static PaymentList payList = new PaymentList();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

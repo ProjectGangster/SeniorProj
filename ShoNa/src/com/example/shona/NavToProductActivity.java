@@ -11,6 +11,7 @@ import android.view.MenuItem;
 public class NavToProductActivity extends Activity {
 	//intent
 	private Intent intentToProductDetails;
+	private Intent nav;
 	//code
 	protected int details = 994;
 	//product id
@@ -26,6 +27,10 @@ public class NavToProductActivity extends Activity {
 		
 		//intent creation
 		intentToProductDetails = new Intent(NavToProductActivity.this,ProductDetailsActivity.class);
+		nav = new Intent(NavToProductActivity.this,NavActivity.class);
+		nav.putExtra("nType", 1);
+		startActivity(nav);
+		
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	dialog.setTitle("Nav pro");
@@ -58,6 +63,7 @@ public class NavToProductActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.back_settings:
 			//go to checkout
+			MainActivity.toHome = false;
 			setResult(RESULT_OK);
 			finish();
 			break;

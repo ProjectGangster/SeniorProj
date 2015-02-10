@@ -10,13 +10,13 @@
 
     <!-- Needed permissions in order to scan for beacons. -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /><uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- Declaration that this app is usable on phones with Bluetooth Low Energy. -->
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
-    
 
     <application
         android:allowBackup="true"
@@ -173,10 +173,6 @@
             android:label="@string/title_activity_check_out" >
         </activity>
         <activity
-            android:name=".NavToCashierActivity"
-            android:label="@string/title_activity_nav_to_cashier" >
-        </activity>
-        <activity
             android:name=".NavToProductActivity"
             android:label="@string/title_activity_nav_to_product" >
         </activity>
@@ -197,6 +193,10 @@
         <activity
             android:name=".ProductDetailsActivity"
             android:label="@string/title_activity_product_detials" >
+        </activity>
+        <activity
+            android:name=".NavActivity"
+            android:label="@string/title_activity_nav" >
         </activity>
     </application>
 
