@@ -19,8 +19,10 @@ public class BarcodeScanActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_barcode_scan);
 		
+		
 		//intent creation
 		intentToCheckout = new Intent(BarcodeScanActivity.this,CheckOutActivity.class);
+		
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	dialog.setTitle("Checkout?");

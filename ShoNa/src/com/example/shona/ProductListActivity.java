@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
@@ -57,30 +58,29 @@ public class ProductListActivity extends Activity {
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
     	
-    	
-    	//int category=0;
-
-//    	obj = new ProductList_HandleJSON(type);
-//	    obj.fetchJSON();
-//
-//	    while(obj.parsingComplete);
     	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
-    	ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < product.size(); ++i) {
-          list.add(product.get(i).getName());
+    	ArrayList<Product> list = new ArrayList<Product>();    	
+    	ListAdapter Adapter = new ListAdapter(this, list);
+    	listview.setAdapter(Adapter);  
+    	    	
+    	for (int i = 0; i < product.size(); ++i) {
+          //list.add(product.get(i));
           //.add("test"+i);
+    		Adapter.addProduct(product.get(i));
         }
-    	ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
-    	listview.setAdapter(Adapter);
-	    
+    	Adapter.notifyDataSetChanged();
 
-	  
-	     //listView.add
+    	listview.setSelection(Adapter.getCount() - 1);
+	    //listView.add
+    	
+
 	}
 
 	public int getType() {
 		return type;
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

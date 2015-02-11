@@ -1,9 +1,12 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +24,16 @@ public class FoodLV3packActivity extends Activity {
 	private Button LV3CateBut4;
 	private Button LV3CateBut5;
 	
+	//intend
+	private Intent intentToPList;
+				
+	//code for communication between activity	
+	protected int b1 = 30;
+	protected int b2 = 31;
+	protected int b3 = 32;
+	protected int b4 = 33;
+	protected int b5 = 34;
+		
 	//OnCLickListener
 	private OnClickListener LV3CLS;
 	
@@ -42,6 +55,51 @@ public class FoodLV3packActivity extends Activity {
 		LV3CateBut4.setContentDescription("Dried or Processed Foods");
 		LV3CateBut5 = (Button)findViewById(R.id.button5);
 		LV3CateBut5.setContentDescription("Cereal");
+		
+		
+		//intend
+		intentToPList = new Intent(FoodLV3packActivity.this,ProductListActivity.class);
+								
+		//OnClickListener creation
+		LV3CLS = new OnClickListener() {
+						
+		@Override
+			public void onClick(View v) {
+			// TODO Auto-generated method stub
+				int n=0;
+				if(v==LV3CateBut1){//
+					Log.i("ButtonL3", "1");
+					//openList
+					intentToPList.putExtra("catid", b1);
+					n = b1;
+				}
+				else if(v==LV3CateBut2){//
+					Log.i("ButtonL3", "2");
+					//openList
+					intentToPList.putExtra("catid", b2);
+					n = b2;
+				}
+				else if(v==LV3CateBut3){//
+					Log.i("ButtonL3", "3");
+					//openList
+					intentToPList.putExtra("catid", b3);
+					n = b3;
+				}
+				else if(v==LV3CateBut4){//
+					Log.i("ButtonL3", "4");
+					//openList
+					intentToPList.putExtra("catid", b4);
+					n = b4;
+				}
+				else if(v==LV3CateBut5){//
+					Log.i("ButtonL3", "5");
+					//openList
+					intentToPList.putExtra("catid", b5);
+					n = b5;
+				}
+				startActivityForResult(intentToPList, n);
+			}
+		};
 		
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);

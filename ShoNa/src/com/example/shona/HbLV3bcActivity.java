@@ -1,9 +1,12 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +28,23 @@ public class HbLV3bcActivity extends Activity {
 	private Button LV3CateBut8;
 	private Button LV3CateBut9;
 	private Button LV3CateBut10;
+	
+
+	//intend
+	private Intent intentToPList;
+	
+	//code for communication between activity	
+	protected int b1 = 59;
+	protected int b2 = 60;
+	protected int b3 = 61;
+	protected int b4 = 62;
+	protected int b5 = 63;
+	protected int b6 = 64;
+	protected int b7 = 65;
+	protected int b8 = 66;
+	protected int b9 = 67;
+	protected int b10 = 68;
+	
 	
 	//OnCLickListener
 	private OnClickListener LV3CLS;
@@ -57,6 +77,80 @@ public class HbLV3bcActivity extends Activity {
 		LV3CateBut9.setContentDescription("Cotton");
 		LV3CateBut10 = (Button)findViewById(R.id.button10);
 		LV3CateBut10.setContentDescription("Shaving");
+		
+		//intend
+		intentToPList = new Intent(HbLV3bcActivity.this,ProductListActivity.class);
+				
+		//OnClickListener creation
+		LV3CLS = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				int n=0;
+				if(v==LV3CateBut1){//
+					Log.i("ButtonL3", "1");
+					//openList
+					intentToPList.putExtra("catid", b1);
+					n = b1;
+				}
+				else if(v==LV3CateBut2){//
+					Log.i("ButtonL3", "2");
+					//openList
+					intentToPList.putExtra("catid", b2);
+					n = b2;
+				}
+				else if(v==LV3CateBut3){//
+					Log.i("ButtonL3", "3");
+					//openList
+					intentToPList.putExtra("catid", b3);
+					n = b3;
+				}
+				else if(v==LV3CateBut4){//
+					Log.i("ButtonL3", "4");
+					//openList
+					intentToPList.putExtra("catid", b4);
+					n = b4;
+				}
+				else if(v==LV3CateBut5){//
+					Log.i("ButtonL3", "5");
+					//openList
+					intentToPList.putExtra("catid", b5);
+					n = b5;
+				}
+				else if(v==LV3CateBut6){//
+					Log.i("ButtonL3", "6");
+					//openList
+					intentToPList.putExtra("catid", b6);
+					n = b6;
+				}
+				else if(v==LV3CateBut7){//
+					Log.i("ButtonL3", "7");
+					//openList
+					intentToPList.putExtra("catid", b7);
+					n = b7;
+				}
+				else if(v==LV3CateBut8){//
+					Log.i("ButtonL3", "8");
+					//openList
+					intentToPList.putExtra("catid", b8);
+					n = b8;
+				}
+				else if(v==LV3CateBut9){//
+					Log.i("ButtonL3", "9");
+					//openList
+					intentToPList.putExtra("catid", b9);
+					n = b9;
+				}
+				else if(v==LV3CateBut10){//
+					Log.i("ButtonL3", "10");
+					//openList
+					intentToPList.putExtra("catid", b10);
+					n = b10;					
+				}
+				startActivityForResult(intentToPList, n);
+			}
+		};
 		
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);

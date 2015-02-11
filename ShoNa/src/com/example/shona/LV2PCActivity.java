@@ -3,8 +3,10 @@ package com.example.shona;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +21,15 @@ public class LV2PCActivity extends Activity {
 	private Button LV2CateBut1;
 	private Button LV2CateBut2;
 	private Button LV2CateBut3;
+	
+	//intend
+	private Intent intentToPList;
+				
+	//code for communication between activity	
+	protected int b1 = 162;
+	protected int b2 = 163;
+	protected int b3 = 164;
+
 	
 	//OnCLickListener
 	private OnClickListener LV2CLS;
@@ -37,7 +48,39 @@ public class LV2PCActivity extends Activity {
 		LV2CateBut2.setContentDescription("Pet Cleaning");
 		LV2CateBut3 = (Button)findViewById(R.id.button3);
 		LV2CateBut3.setContentDescription("Pet Accessories");
-		
+
+		//intend
+		intentToPList = new Intent(LV2PCActivity.this,ProductListActivity.class);
+						
+		//OnClickListener creation
+		LV2CLS = new OnClickListener() {
+				
+		@Override
+		public void onClick(View v) {
+		// TODO Auto-generated method stub
+			int n=0;
+			if(v==LV2CateBut1){//
+				Log.i("ButtonL2", "1");
+				//openList
+				intentToPList.putExtra("catid", b1);
+				n = b1;
+			}
+			else if(v==LV2CateBut2){//
+				Log.i("ButtonL2", "2");
+				//openList
+				intentToPList.putExtra("catid", b2);
+				n = b2;
+			}
+			else if(v==LV2CateBut3){//
+				Log.i("ButtonL2", "3");
+				//openList
+				intentToPList.putExtra("catid", b3);
+				n = b3;
+			}
+			
+			startActivityForResult(intentToPList, n);
+		}
+	};
 		//set OnClickListener
 		LV2CateBut1.setOnClickListener(LV2CLS);
 		LV2CateBut2.setOnClickListener(LV2CLS);

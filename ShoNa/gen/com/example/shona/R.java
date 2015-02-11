@@ -28,7 +28,7 @@ public final class R {
         public static final int ListView1=0x7f080015;
         public static final int TextView01=0x7f08000d;
         public static final int TextView02=0x7f08000e;
-        public static final int back_settings=0x7f080018;
+        public static final int back_settings=0x7f08001a;
         public static final int button1=0x7f080001;
         public static final int button10=0x7f08000a;
         public static final int button11=0x7f08000b;
@@ -40,9 +40,11 @@ public final class R {
         public static final int button7=0x7f080008;
         public static final int button8=0x7f080005;
         public static final int button9=0x7f080009;
-        public static final int checkout_settings=0x7f080019;
-        public static final int home_settings=0x7f080017;
-        public static final int menu=0x7f080016;
+        public static final int checkout_settings=0x7f08001b;
+        public static final int firstLine=0x7f080016;
+        public static final int home_settings=0x7f080019;
+        public static final int menu=0x7f080018;
+        public static final int secondLine=0x7f080017;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f08000c;
         public static final int textView3=0x7f08000f;
@@ -94,6 +96,7 @@ public final class R {
         public static final int activity_nav_to_product=0x7f030026;
         public static final int activity_product_detials=0x7f030027;
         public static final int activity_product_list=0x7f030028;
+        public static final int productlist=0x7f030029;
     }
     public static final class menu {
         public static final int barcode_scan=0x7f070000;

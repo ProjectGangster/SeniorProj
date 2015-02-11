@@ -1,9 +1,12 @@
 package com.example.shona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +17,19 @@ public class FoodLV3ciActivity extends Activity {
 	 */
 	//textview
 	private TextView LV3des;
+	
+	//intend
+	private Intent intentToPList;
+		
+	//code for communication between activity	
+	protected int b1 = 35;
+	protected int b2 = 36;
+	protected int b3 = 37;
+	protected int b4 = 38;
+	protected int b5 = 39;
+	protected int b6 = 40;
+	protected int b7 = 41;
+		
 	//buttons
 	private Button LV3CateBut1;
 	private Button LV3CateBut2;
@@ -49,6 +65,62 @@ public class FoodLV3ciActivity extends Activity {
 		LV3CateBut7 = (Button)findViewById(R.id.button7);
 		LV3CateBut7.setContentDescription("Oils");
 		
+		//intend
+		intentToPList = new Intent(FoodLV3ciActivity.this,ProductListActivity.class);
+						
+		//OnClickListener creation
+		LV3CLS = new OnClickListener() {
+				
+		@Override
+		public void onClick(View v) {
+		// TODO Auto-generated method stub
+			int n=0;
+			if(v==LV3CateBut1){//
+				Log.i("ButtonL3", "1");
+				//openList
+				intentToPList.putExtra("catid", b1);
+				n = b1;
+			}
+			else if(v==LV3CateBut2){//
+				Log.i("ButtonL3", "2");
+				//openList
+				intentToPList.putExtra("catid", b2);
+				n = b2;
+			}
+			else if(v==LV3CateBut3){//
+				Log.i("ButtonL3", "3");
+				//openList
+				intentToPList.putExtra("catid", b3);
+				n = b3;
+			}
+			else if(v==LV3CateBut4){//
+				Log.i("ButtonL3", "4");
+				//openList
+				intentToPList.putExtra("catid", b4);
+				n = b4;
+			}
+			else if(v==LV3CateBut5){//
+				Log.i("ButtonL3", "5");
+				//openList
+				intentToPList.putExtra("catid", b5);
+				n = b5;
+			}
+			else if(v==LV3CateBut6){//
+				Log.i("ButtonL3", "6");
+				//openList
+				intentToPList.putExtra("catid", b6);
+				n = b6;
+			}
+			else if(v==LV3CateBut7){//
+				Log.i("ButtonL3", "7");
+				//openList
+				intentToPList.putExtra("catid", b7);
+				n = b7;
+			}					
+			startActivityForResult(intentToPList, n);
+		}
+	};
+			
 		//set OnClickListener
 		LV3CateBut1.setOnClickListener(LV3CLS);
 		LV3CateBut2.setOnClickListener(LV3CLS);
