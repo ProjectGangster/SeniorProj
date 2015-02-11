@@ -74,7 +74,7 @@ public class ProductDetailsActivity extends Activity {
 		proDes.setContentDescription("");
 		
 		//search the product from id
-		
+		/*
 		temp = ProductList_HandleJSON.getPDetail(id);
 				//connect product details to the ui
 		proName.setText(temp.getName());
@@ -87,7 +87,8 @@ public class ProductDetailsActivity extends Activity {
 		proPrice.setContentDescription(""+temp.getPrice());
 		proDes.setText(temp.getDescription());
 		proDes.setContentDescription(""+temp.getDescription());
-			
+		*/
+		
 		//buttons
 		okbutt = (Button)findViewById(R.id.button1);
 		okbutt.setContentDescription("OK");
@@ -137,6 +138,7 @@ public class ProductDetailsActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.back_settings:
 			//go to checkout
+			MainActivity.toHome = false;
 			setResult(RESULT_OK);
 			finish();
 			break;
@@ -148,6 +150,7 @@ public class ProductDetailsActivity extends Activity {
 			break;
 		case R.id.checkout_settings:
 			//go to home
+			MainActivity.toHome = false;
 			startActivityForResult(intentToCheckout, check);
 			break;
 		default:

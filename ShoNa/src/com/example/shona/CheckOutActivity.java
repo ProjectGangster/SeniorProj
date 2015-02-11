@@ -7,39 +7,48 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class CheckOutActivity extends Activity {
-	/*
-	 * Intent
-	 */
+	//button
+	private Button proceed;
 	//intent
-	private Intent intentToCashier;
-	//code for communication between activity
-	protected int cashier = 100;
+	private Intent intentNav;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_check_out);
+		//buttons
+		proceed = (Button)findViewById(R.id.button1);
+		proceed.setContentDescription("proceed");
 		//show all products
+		MainActivity.payList.getShowList();
 		
-		
-    	
-		//intent
-		intentToCashier = new Intent(CheckOutActivity.this,NavToCashierActivity.class);
-		
-		//ask if user wants to go to the cashier
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-    	dialog.setTitle("Are you sure to go to the cashier?");
-    	//activate button OnClickListener
-    	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
-			//activate button OnClickListener creation
-			public void onClick(DialogInterface arg0, int arg1) {
-				startActivityForResult(intentToCashier, cashier);
+		//intent creation
+		intentNav = new Intent(CheckOutActivity.this, NavActivity.class);
+				
+		//setOnCLick
+		proceed.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//ask if user wants to go to the cashier
+				AlertDialog.Builder dialog = new AlertDialog.Builder(v.getContext());
+		    	dialog.setTitle("Are you sure to go to the cashier?");
+		    	//activate button OnClickListener
+		    	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
+					//activate button OnClickListener creation
+					public void onClick(DialogInterface arg0, int arg1) {
+						intentNav.putExtra("nType", 2);
+						startActivity(intentNav);
+					}
+				});//end activate button
+		    	dialog.setPositiveButton(R.string.cancelButton, null);
+		    	dialog.show();
 			}
-		});//end activate button
-    	dialog.setPositiveButton(R.string.cancelButton, null);
-    	dialog.show();
-		
+		});
 	}
 
 	@Override

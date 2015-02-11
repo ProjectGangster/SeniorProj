@@ -346,6 +346,7 @@ public final class R {
         public static final int proPriceText=0x7f0500f0;
         public static final int proTempText=0x7f0500f2;
         public static final int proVolText=0x7f0500ef;
+        public static final int proceedButton=0x7f0500f5;
         public static final int title_activity_barcode_scan=0x7f0500ea;
         public static final int title_activity_cc_lv3aif=0x7f050097;
         public static final int title_activity_cc_lv3car=0x7f05009b;
@@ -382,6 +383,7 @@ public final class R {
         public static final int title_activity_lv2_pro=0x7f050035;
         public static final int title_activity_lv3_al=0x7f050036;
         public static final int title_activity_lv3_nal=0x7f050040;
+        public static final int title_activity_nav=0x7f0500f4;
         public static final int title_activity_nav_to_cashier=0x7f0500e2;
         public static final int title_activity_nav_to_product=0x7f0500e3;
         public static final int title_activity_product_detials=0x7f0500ec;

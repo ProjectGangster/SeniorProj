@@ -60,6 +60,7 @@ public class BarcodeScanActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.back_settings:
 			//go to checkout
+			MainActivity.toHome = false;
 			setResult(RESULT_OK);
 			finish();
 			break;
@@ -71,6 +72,7 @@ public class BarcodeScanActivity extends Activity {
 			break;
 		case R.id.checkout_settings:
 			//go to home
+			MainActivity.toHome = false;
 			startActivityForResult(intentToCheckout, check);
 			break;
 		default:
