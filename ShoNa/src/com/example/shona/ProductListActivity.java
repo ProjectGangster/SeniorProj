@@ -58,15 +58,13 @@ public class ProductListActivity extends Activity {
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
     	
-<<<<<<< HEAD
     	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
     	ArrayList<Product> list = new ArrayList<Product>();    	
     	ListAdapter Adapter = new ListAdapter(this, list);
     	listview.setAdapter(Adapter);  
     	    	
-    	for (int i = 0; i < product.size(); ++i) {
+    	//for (int i = 0; i < product.size(); ++i) {
           //list.add(product.get(i));
-=======
     	
     	//int category=0;
 
@@ -78,21 +76,17 @@ public class ProductListActivity extends Activity {
     	ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < product.size(); ++i) {
           list.add(product.get(i).getName());
->>>>>>> 07d14fc04345d92f67f6b6ec9dd830a2fd0b6c0d
           //.add("test"+i);
     		Adapter.addProduct(product.get(i));
         }
-<<<<<<< HEAD
     	Adapter.notifyDataSetChanged();
 
     	listview.setSelection(Adapter.getCount() - 1);
 	    //listView.add
     	
-=======
     	ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
     	listview.setAdapter(Adapter);
 	    */
->>>>>>> 07d14fc04345d92f67f6b6ec9dd830a2fd0b6c0d
 
 	}
 
