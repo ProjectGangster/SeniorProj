@@ -58,23 +58,15 @@ public class ProductListActivity extends Activity {
     	dialog.setPositiveButton(R.string.cancelButton, null);
     	dialog.show();
     	
-<<<<<<< HEAD
 
-=======
->>>>>>> 3cae976c76b53ac8a26c35f15601a4e0836d7141
     	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
     	ArrayList<Product> list = new ArrayList<Product>();    	
     	ListAdapter Adapter = new ListAdapter(this, list);
     	listview.setAdapter(Adapter);  
     	    	
-<<<<<<< HEAD
     	//for (int i = 0; i < product.size(); ++i) 
           //list.add(product.get(i));
 
-=======
-    	//for (int i = 0; i < product.size(); ++i) {
-          //list.add(product.get(i));
->>>>>>> 3cae976c76b53ac8a26c35f15601a4e0836d7141
     	
     	//int category=0;
 
@@ -85,11 +77,7 @@ public class ProductListActivity extends Activity {
 //    	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
 //    	ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < product.size(); ++i) {
-<<<<<<< HEAD
           //list.add(product.get(i).getName());
-=======
-          list.add(product.get(i).getName());
->>>>>>> 3cae976c76b53ac8a26c35f15601a4e0836d7141
           //.add("test"+i);
     		Adapter.addProduct(product.get(i));
         }
@@ -98,16 +86,10 @@ public class ProductListActivity extends Activity {
     	//listview.setSelection(Adapter.getCount() - 1);
 	    //listView.add
     	
-<<<<<<< HEAD
     	//ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
     	//listview.setAdapter(Adapter);
 	    
     	
-=======
-    	ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
-    	listview.setAdapter(Adapter);
-	    */
->>>>>>> 3cae976c76b53ac8a26c35f15601a4e0836d7141
 
     	
 	}
