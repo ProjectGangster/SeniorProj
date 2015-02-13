@@ -247,5 +247,6 @@
     <string name="LV3CateBut157">Cream</string>
     <string name="title_activity_nav">Navigation</string>
     <string name="proceedButton">Proceed</string>
+    <string name="title_activity_navi">Navigation</string>
 
 </resources>

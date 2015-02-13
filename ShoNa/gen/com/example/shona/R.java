@@ -28,6 +28,7 @@ public final class R {
         public static final int ListView1=0x7f080015;
         public static final int TextView01=0x7f08000d;
         public static final int TextView02=0x7f08000e;
+        public static final int action_settings=0x7f08001c;
         public static final int back_settings=0x7f08001a;
         public static final int button1=0x7f080001;
         public static final int button10=0x7f08000a;
@@ -94,9 +95,10 @@ public final class R {
         public static final int activity_main=0x7f030024;
         public static final int activity_nav_to_cashier=0x7f030025;
         public static final int activity_nav_to_product=0x7f030026;
-        public static final int activity_product_detials=0x7f030027;
-        public static final int activity_product_list=0x7f030028;
-        public static final int productlist=0x7f030029;
+        public static final int activity_navi=0x7f030027;
+        public static final int activity_product_detials=0x7f030028;
+        public static final int activity_product_list=0x7f030029;
+        public static final int productlist=0x7f03002a;
     }
     public static final class menu {
         public static final int barcode_scan=0x7f070000;
@@ -138,8 +140,9 @@ public final class R {
         public static final int main=0x7f070024;
         public static final int nav_to_cashier=0x7f070025;
         public static final int nav_to_product=0x7f070026;
-        public static final int product_detials=0x7f070027;
-        public static final int product_list=0x7f070028;
+        public static final int navi=0x7f070027;
+        public static final int product_detials=0x7f070028;
+        public static final int product_list=0x7f070029;
     }
     public static final class string {
         public static final int LV1CateBut1=0x7f050004;
@@ -386,6 +389,7 @@ public final class R {
         public static final int title_activity_nav=0x7f0500f4;
         public static final int title_activity_nav_to_cashier=0x7f0500e2;
         public static final int title_activity_nav_to_product=0x7f0500e3;
+        public static final int title_activity_navi=0x7f0500f6;
         public static final int title_activity_product_detials=0x7f0500ec;
         public static final int title_activity_product_list=0x7f0500eb;
     }

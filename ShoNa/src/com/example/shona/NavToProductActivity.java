@@ -27,7 +27,7 @@ public class NavToProductActivity extends Activity {
 		
 		//intent creation
 		intentToProductDetails = new Intent(NavToProductActivity.this,ProductDetailsActivity.class);
-		nav = new Intent(NavToProductActivity.this,NavActivity.class);
+		nav = new Intent(NavToProductActivity.this,NaviActivity.class);
 		nav.putExtra("nType", 1);
 		startActivity(nav);
 		

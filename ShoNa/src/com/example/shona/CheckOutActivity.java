@@ -28,7 +28,7 @@ public class CheckOutActivity extends Activity {
 		MainActivity.payList.getShowList();
 		
 		//intent creation
-		intentNav = new Intent(CheckOutActivity.this, NavActivity.class);
+		intentNav = new Intent(CheckOutActivity.this, NaviActivity.class);
 				
 		//setOnCLick
 		proceed.setOnClickListener(new OnClickListener() {
