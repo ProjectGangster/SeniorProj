@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
@@ -70,6 +71,7 @@ public class NaviActivity extends Activity {
 				        	  Log.i("----------------", "beacon no."+i);
 				        	  Log.i("----------------", "uuid"+beacon.getProximityUUID());
 				        	  dis[i] = calculateAccuracy(beacon.getMeasuredPower(), beacon.getRssi());
+				        	  
 			        	  }
 			          }
 			        });
@@ -115,7 +117,7 @@ public class NaviActivity extends Activity {
 	      }
 	    });
 	}
-
+	//from http://stackoverflow.com/questions/20416218/understanding-ibeacon-distancing/20434019#20434019
 	protected static double calculateAccuracy(int txPower, double rssi) {
 		  if (rssi == 0) {
 		    return -1.0; // if we cannot determine accuracy, return -1.
@@ -130,6 +132,34 @@ public class NaviActivity extends Activity {
 		    return accuracy;
 		  }
 	}   
+	
+	//from http://stackoverflow.com/questions/20332856/triangulate-example-for-ibeacons
+	public static Location getLocationWithTrilateration(Location beaconA, Location beaconB, Location beaconC, double distanceA, double distanceB, double distanceC){
+
+	    double bAlat = beaconA.getLatitude();
+	    double bAlong = beaconA.getLongitude();
+	    double bBlat = beaconB.getLatitude();
+	    double bBlong = beaconB.getLongitude();
+	    double bClat = beaconC.getLatitude();
+	    double bClong = beaconC.getLongitude();
+
+	    double W, Z, foundBeaconLat, foundBeaconLong, foundBeaconLongFilter;
+	    W = distanceA * distanceA - distanceB * distanceB - bAlat * bAlat - bAlong * bAlong + bBlat * bBlat + bBlong * bBlong;
+	    Z = distanceB * distanceB - distanceC * distanceC - bBlat * bBlat - bBlong * bBlong + bClat * bClat + bClong * bClong;
+
+	    foundBeaconLat = (W * (bClong - bBlong) - Z * (bBlong - bAlong)) / (2 * ((bBlat - bAlat) * (bClong - bBlong) - (bClat - bBlat) * (bBlong - bAlong)));
+	    foundBeaconLong = (W - 2 * foundBeaconLat * (bBlat - bAlat)) / (2 * (bBlong - bAlong));
+	    //`foundBeaconLongFilter` is a second measure of `foundBeaconLong` to mitigate errors
+	    foundBeaconLongFilter = (Z - 2 * foundBeaconLat * (bClat - bBlat)) / (2 * (bClong - bBlong));
+
+	    foundBeaconLong = (foundBeaconLong + foundBeaconLongFilter) / 2;
+
+	    Location foundLocation = new Location("Location");
+	        foundLocation.setLatitude(foundBeaconLat);
+	        foundLocation.setLongitude(foundBeaconLong);
+
+	    return foundLocation;
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
