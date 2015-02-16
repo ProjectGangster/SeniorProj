@@ -72,8 +72,7 @@ public class ProductList_HandleJSON {
          
          JSONArray jArray = reader.getJSONArray("Product_list");
          
-         int id;
-
+         int id,shelf,x,y;	       
          double price,vol;
          String name,desc,brand;         
          for(int i =0;i<jArray.length();i++){
@@ -82,9 +81,13 @@ public class ProductList_HandleJSON {
         	 price = jArray.getJSONObject(i).getDouble("Price");
         	 desc = jArray.getJSONObject(i).getString("Detail");
         	 brand = jArray.getJSONObject(i).getString("Brand");
-        	 vol = jArray.getJSONObject(i).getDouble("Volumn");	
-        	 Product a = new Product(id,name,brand,vol,price,desc);
-        	 PList.add(a);
+        	 vol = jArray.getJSONObject(i).getDouble("Volume");	
+        	 shelf = reader.getInt("Shelf");
+        	 x = reader.getInt("X");
+        	 y = reader.getInt("Y");
+        	 
+        	 Product a = new Product(id,name,brand,vol,price,desc,shelf,x,y);
+	         PList.add(a);
 
          }
          parsingComplete = false;
@@ -102,7 +105,7 @@ public class ProductList_HandleJSON {
 	    	  Log.d("test", in);
 	    	  JSONObject reader = new JSONObject(in);
 	    	 
-	         int id;
+	         int id,shelf,x,y;
 	         double price,vol;
 	         String name,desc,brand;         
 	         	 id = reader.getInt("id");
@@ -110,8 +113,12 @@ public class ProductList_HandleJSON {
 	        	 price = reader.getDouble("Price");
 	        	 desc = reader.getString("Detail");
 	        	 brand = reader.getString("Brand");
-	        	 vol = reader.getDouble("Volumn");	
-	        	 Product a = new Product(id,name,brand,vol,price,desc);
+	        	 vol = reader.getDouble("Volume");	
+	        	 shelf = reader.getInt("Shelf");
+	        	 x = reader.getInt("X");
+	        	 y = reader.getInt("Y");
+	        	 //public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
+	        	 Product a = new Product(id,name,brand,vol,price,desc,shelf,x,y);
 	        	 this.P = a; 
 	         
 	        	 parsingComplete = false;

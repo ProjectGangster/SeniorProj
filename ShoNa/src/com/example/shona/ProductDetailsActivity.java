@@ -55,22 +55,22 @@ public class ProductDetailsActivity extends Activity {
 		//textview
 		proNameText = (TextView) findViewById(R.id.textView1);
 		proNameText.setContentDescription("Name");
-		proName = (TextView) findViewById(R.id.textView2);
+		proName = (TextView) findViewById(R.id.text1);
 		proBrandText = (TextView) findViewById(R.id.TextView02);
 		proBrandText.setContentDescription("Brand");
-		proBrand = (TextView) findViewById(R.id.TextView01);
+		proBrand = (TextView) findViewById(R.id.text2);
 		proBrand.setContentDescription("");
 		proVolText = (TextView) findViewById(R.id.textView3);
 		proVolText.setContentDescription("Volumn");
-		proVol = (TextView) findViewById(R.id.textView4);
+		proVol = (TextView) findViewById(R.id.text3);
 		proVol.setContentDescription("");
 		proPriceText = (TextView) findViewById(R.id.textView5);
 		proPriceText.setContentDescription("Price");
-		proPrice = (TextView) findViewById(R.id.textView6);
+		proPrice = (TextView) findViewById(R.id.text4);
 		proPrice.setContentDescription("");
 		proDesText = (TextView) findViewById(R.id.textView7);
 		proDesText.setContentDescription("Description");
-		proDes = (TextView) findViewById(R.id.textView8);
+		proDes = (TextView) findViewById(R.id.text5);
 		proDes.setContentDescription("");
 		
 		//search the product from id
