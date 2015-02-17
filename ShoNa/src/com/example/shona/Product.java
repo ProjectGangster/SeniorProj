@@ -10,17 +10,17 @@ public class Product {
 	private String description = "n/a";
 	private int shelf = 0;
 	private int x,y = 0;
-	public Product(int id,String n,String b,double v, double p, String des){//,int s,int x,int y){
+	public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
 		this.id = id;
 		this.name = n;
 		this.brand = b;
 		this.volume = v;
 		this.price = p;
 		this.description = des;
-		/*this.shelf = s;
+		this.shelf = s;
 		this.x = s;
 		this.y = y;
-		*/
+		
 	}
 	public int getId() {
 		return id;

@@ -82,9 +82,9 @@ public class ProductList_HandleJSON {
         	 desc = jArray.getJSONObject(i).getString("Detail");
         	 brand = jArray.getJSONObject(i).getString("Brand");
         	 vol = jArray.getJSONObject(i).getDouble("Volume");	
-        	 shelf = reader.getInt("Shelf");
-        	 x = reader.getInt("X");
-        	 y = reader.getInt("Y");
+        	 shelf = jArray.getJSONObject(i).getInt("Shelf");
+        	 x = jArray.getJSONObject(i).getInt("X");
+        	 y = jArray.getJSONObject(i).getInt("Y");
         	 
         	 Product a = new Product(id,name,brand,vol,price,desc,shelf,x,y);
 	         PList.add(a);
