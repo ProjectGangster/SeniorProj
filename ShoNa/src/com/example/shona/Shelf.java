@@ -1,74 +1,52 @@
 package com.example.shona;
 
+import android.location.Location;
+
 public class Shelf {
-	//product type
-	private int type = 1;
-	private double shelfLat[];
-	private double shelfLong[];
+	//product numType
+	private static int numType = 1;
+	//shelf location
+	private Location shelfStartLocation = new Location("shelf start Location");
+	private Location shelfEndLocation = new Location("shelf end Location");
+	//zone location
+	private static Location[] zoneStart;
+	private static Location[] zone = new Location[2];
 	
+	@SuppressWarnings("static-access")
 	public Shelf(int numType,double startLat,double startLong,double endLat,double endLong){
-		this.type = numType;
-		shelfLat = new double[numType+1];
-		shelfLong = new double[numType+1];		
-		shelfLat[0] = startLat;
-		shelfLong[0] = startLong;
-		shelfLat[numType] = endLat;
-		shelfLong[numType] = endLong;
+		this.numType = numType;
+		shelfStartLocation.setLatitude(startLat);
+		shelfStartLocation.setLongitude(startLong);
+		shelfEndLocation.setLatitude(endLat);
+		shelfEndLocation.setLongitude(endLong);
+		zoneStart = new Location[numType];
+		zoneStart[0] = shelfStartLocation;
+		zoneStart[numType] = shelfEndLocation;
 	}
 	
-	//add product type into shelf
+	//add product numType into shelf
 	public void addTypeLatLong(int numType,double endLat,double endLong){
-		shelfLat[numType-1] = endLat;
-		shelfLong[numType-1] = endLong;
+		zoneStart[numType].setLatitude(endLat);
+		zoneStart[numType].setLongitude(endLong);
 	}
 	
-	public double[][] getTypeZone(int numType){
-		double position[][] = new double[2][2];
-		if(getType()==1){
-			//if the shelf has only 1 type of product
-			position[0][0] = shelfLat[0];
-			position[0][1] = shelfLong[0];
-			position[1][0] = shelfLat[1];
-			position[1][1] = shelfLong[1];
+	public static Location[] getZone(int numType){
+		//check if given parameter is out of bound
+		if(numType<=getType()){
+			zone[0] = zoneStart[numType-1];//start
+			zone[1] = zoneStart[numType];//end
 		}
-		else if(numType<=getType()){
-			position[0][0] = shelfLat[numType-1];
-			position[0][1] = shelfLong[numType-1];
-			position[1][0] = shelfLat[numType];
-			position[1][1] = shelfLong[numType];
-		}
-		else{
-			//not exist
-			position[0][0] = -1;
-			position[0][1] = -1;
-			position[1][0] = -1;
-			position[1][1] = -1;
-		}
-		return position;
+		return zone;
 	}
 
-	public int getType() {
-		return type;
+	public static int getType() {
+		return numType;
 	}
 
+	@SuppressWarnings("static-access")
 	public void setType(int type) {
-		this.type = type;
+		this.numType = type;
 	}
 
-	public double[] getShelfLat() {
-		return shelfLat;
-	}
-
-	public void setShelfLat(double[] shelfLat) {
-		this.shelfLat = shelfLat;
-	}
-
-	public double[] getShelfLong() {
-		return shelfLong;
-	}
-
-	public void setShelfLong(double[] shelfLong) {
-		this.shelfLong = shelfLong;
-	}
 	
 }

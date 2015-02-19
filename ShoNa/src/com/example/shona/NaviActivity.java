@@ -47,11 +47,31 @@ public class NaviActivity extends Activity{
 	private double latitude3 = 0.0;
 	private double longitude3 = 0.0;
 	
+	//navigation type: 0=default, 1=to product, 2=to cashier
+	private int navType = 0;
+	//destination location
+	private Location destination[] = new Location[2];
+	//product
+	private int proType = 1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_navi);
 		
+		//get navigation type
+		navType = getIntent().getIntExtra("navType", 0);
+		//check navigation type
+		if(navType==1){
+			//to product
+			proType = getIntent().getIntExtra("proType", 1);
+			destination = Shelf.getZone(proType);
+		}
+		else if(navType==2){
+			//to cashier
+//destination[0] = ;
+//destination[1] = ;
+		}
 		//beaconManager
 		beaconManager = new BeaconManager(this);
 		//check Bluetooth signal
@@ -81,7 +101,6 @@ public class NaviActivity extends Activity{
 			          public void run() {
 			            // Note that beacons reported here are already sorted by estimated
 			            // distance between device and beacon.
-			            //getActionBar().setSubtitle("Found beacons: " + blist.size());
 			        	  Log.i("----------------", "Found beacons: "+blist.size());
 			        	  dis = new double[blist.size()];
 			        	  id = new String[blist.size()];
@@ -186,7 +205,8 @@ public class NaviActivity extends Activity{
 				}
 			}//end dist
 		}//end closeDis
-//getLat/Long from DB
+		
+//-------------------------------getLat/Long from DB
 		
 		//setLat/Long of 3 closest
 		b1.setLatitude(latitude1);
@@ -269,6 +289,16 @@ public class NaviActivity extends Activity{
 
 	public static Location getUserPo() {
 		return userPo;
+	}
+
+
+	public Location[] getDestination() {
+		return destination;
+	}
+
+
+	public void setDestination(Location[] destination) {
+		this.destination = destination;
 	}
 
 
