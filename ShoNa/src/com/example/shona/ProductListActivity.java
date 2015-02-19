@@ -43,7 +43,7 @@ public class ProductListActivity extends Activity {
 		Log.i("PROTYPEEEEE", ""+type);
 		
 		//intent creation
-		intentToNavPro = new Intent(ProductListActivity.this,NavToProductActivity.class);
+		intentToNavPro = new Intent(ProductListActivity.this,NaviActivity.class);
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	dialog.setTitle("Product List");

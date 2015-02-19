@@ -47,7 +47,6 @@ public class ProductDetailsActivity extends Activity {
 		setContentView(R.layout.activity_product_detials);
 		
 		//intent creation
-		intentToBC = new Intent(ProductDetailsActivity.this,BarcodeScanActivity.class);
 		intentToCheckout = new Intent(ProductDetailsActivity.this,CheckOutActivity.class);
 		id = getIntent().getIntExtra("proID", 0);
 		
@@ -94,7 +93,7 @@ public class ProductDetailsActivity extends Activity {
 		okbutt.setContentDescription("OK");
 		
 		//setOnClickListener
-		okbutt.setOnClickListener(new OnClickListener() {
+		/*okbutt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if(v==okbutt){
@@ -113,6 +112,7 @@ public class ProductDetailsActivity extends Activity {
 				}
 			}
 		});
+		*/
 	}
 
 	@Override
