@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
@@ -64,18 +66,26 @@ public class ProductListActivity extends Activity {
     	ListAdapter Adapter = new ListAdapter(this, list);
     	listview.setAdapter(Adapter);  
     	    	
-    	//for (int i = 0; i < product.size(); ++i) 
-          //list.add(product.get(i));
+    	listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    		@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+    			Product p = (Product) parent.getAdapter().getItem(position);
+    			Log.d("Product Click", p.getName()+"");
+    			intentToNavPro.putExtra("Pid", p.getId());
+    			intentToNavPro.putExtra("Shelf", p.getShelf());
+    			intentToNavPro.putExtra("X", p.getX());
+    			intentToNavPro.putExtra("Y", p.getY());
+				
+    			startActivityForResult(intentToNavPro,1);
+    			
+    			
 
-    	
-    	//int category=0;
-
-//    	obj = new ProductList_HandleJSON(type);
-//	    obj.fetchJSON();
-//
-//	    while(obj.parsingComplete);
-//    	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
-//    	ArrayList<String> list = new ArrayList<String>();
+				
+			}
+    	});
+    	 
         for (int i = 0; i < product.size(); ++i) {
           //list.add(product.get(i).getName());
           //.add("test"+i);
