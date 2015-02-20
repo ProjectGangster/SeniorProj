@@ -2,7 +2,7 @@ package com.example.shona;
 
 public class Product {
 
-	private int id = 0;
+	private String id = "0";
 	private String name = "";
 	private String brand = "";
 	private double volume = 0.0;
@@ -10,7 +10,7 @@ public class Product {
 	private String description = "n/a";
 	private int shelf = 0;
 	private int x,y = 0;
-	public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
+	public Product(String id,String n,String b,double v, double p, String des,int s,int x,int y){
 		this.id = id;
 		this.name = n;
 		this.brand = b;
@@ -22,10 +22,10 @@ public class Product {
 		this.y = y;
 		
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {

@@ -18,7 +18,7 @@ public class PaymentList {
 	public void addList(int id){
 		//loop to check if id matches from DB
 		
-			product = ProductList_HandleJSON.getPDetail(id);
+			product = ProductList_HandleJSON.getPDetail(id+"");
 			
 			list.add(product);
 			showList[showList.length-1] = ""+product.getName()+"	"+product.getPrice();

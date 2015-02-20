@@ -38,7 +38,7 @@ public class ProductDetailsActivity extends Activity {
 	protected int check = 997; 
 	
 	//product
-	private int id = 0;
+	private String id;
 	private Product temp;
 
 	@Override
@@ -48,9 +48,9 @@ public class ProductDetailsActivity extends Activity {
 		
 		//intent creation
 		intentToCheckout = new Intent(ProductDetailsActivity.this,CheckOutActivity.class);
-		id = getIntent().getIntExtra("proID", 0);
+		id = getIntent().getStringExtra("PID");
 		
-				
+		//id = "7612100053812";
 		//textview
 		proNameText = (TextView) findViewById(R.id.textView1);
 		proNameText.setContentDescription("Name");
@@ -73,7 +73,7 @@ public class ProductDetailsActivity extends Activity {
 		proDes.setContentDescription("");
 		
 		//search the product from id
-		/*
+		
 		temp = ProductList_HandleJSON.getPDetail(id);
 				//connect product details to the ui
 		proName.setText(temp.getName());
@@ -86,7 +86,7 @@ public class ProductDetailsActivity extends Activity {
 		proPrice.setContentDescription(""+temp.getPrice());
 		proDes.setText(temp.getDescription());
 		proDes.setContentDescription(""+temp.getDescription());
-		*/
+		
 		
 		//buttons
 		okbutt = (Button)findViewById(R.id.button1);

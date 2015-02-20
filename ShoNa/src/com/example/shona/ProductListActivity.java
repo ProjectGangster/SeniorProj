@@ -45,7 +45,7 @@ public class ProductListActivity extends Activity {
 		Log.i("PROTYPEEEEE", ""+productType);
 		
 		//intent creation
-		intentToNavPro = new Intent(ProductListActivity.this,NaviActivity.class);
+		intentToNavPro = new Intent(ProductListActivity.this,NavToProductActivity.class);
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	dialog.setTitle("Product List");
@@ -62,7 +62,7 @@ public class ProductListActivity extends Activity {
     	dialog.show();
     	
 
-    	ArrayList<Product> product = ProductList_HandleJSON.getPList(productType);
+    	ArrayList<Product> product = ProductList_HandleJSON.getPList(productType+"");
     	ArrayList<Product> list = new ArrayList<Product>();    	
     	ListAdapter Adapter = new ListAdapter(this, list);
     	listview.setAdapter(Adapter);  

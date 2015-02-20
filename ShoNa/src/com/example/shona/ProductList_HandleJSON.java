@@ -32,11 +32,11 @@ public class ProductList_HandleJSON {
    
    public volatile boolean parsingComplete = true;
    
-   public ProductList_HandleJSON(int CatNumber,int x){
+   public ProductList_HandleJSON(String CatNumber,int x){
 	  if(x==0)
 		  this.urlString = "http://www.numpun.lnw.mn/shona/API/productlist.php?ID="+CatNumber;
 	  else if(x==1)
-		  this.urlString = "http://www.numpun.lnw.mn/shona/API/productdatail.php?ID="+CatNumber;
+		  this.urlString = "http://www.numpun.lnw.mn/shona/API/productdetail.php?ID="+CatNumber;
    }
    public Product getProduct() {
 	   return P;
@@ -44,7 +44,7 @@ public class ProductList_HandleJSON {
    public ArrayList<Product> getPList() {
 	   return PList;
    }
-   public static ArrayList<Product> getPList(int CatNumber) {
+   public static ArrayList<Product> getPList(String CatNumber) {
 	   //String url = "http://www.numpun.lnw.mn/shona/API/productlist.php?ID="+"CatNumber";
 	   ProductList_HandleJSON obj = new ProductList_HandleJSON(CatNumber,0);
 	   obj.fetchJSON();
@@ -54,7 +54,7 @@ public class ProductList_HandleJSON {
 	   return obj.getPList();
 	}
    
-   public static Product getPDetail(int PID) {
+   public static Product getPDetail(String PID) {
 	   //String url = "http://www.numpun.lnw.mn/shona/API/productlist.php?ID="+"CatNumber";
 	   ProductList_HandleJSON obj = new ProductList_HandleJSON(PID,1);
 	   obj.fetchJSON1();
@@ -72,11 +72,11 @@ public class ProductList_HandleJSON {
          
          JSONArray jArray = reader.getJSONArray("Product_list");
          
-         int id,shelf,x,y;	       
+         int shelf,x,y;	       
          double price,vol;
-         String name,desc,brand;         
+         String id,name,desc,brand;         
          for(int i =0;i<jArray.length();i++){
-        	 id = jArray.getJSONObject(i).getInt("id");
+        	 id = jArray.getJSONObject(i).getString("id");
         	 name = jArray.getJSONObject(i).getString("Name");
         	 price = jArray.getJSONObject(i).getDouble("Price");
         	 desc = jArray.getJSONObject(i).getString("Detail");
@@ -105,10 +105,10 @@ public class ProductList_HandleJSON {
 	    	  Log.d("test", in);
 	    	  JSONObject reader = new JSONObject(in);
 	    	 
-	         int id,shelf,x,y;
+	         int shelf,x,y;
 	         double price,vol;
-	         String name,desc,brand;         
-	         	 id = reader.getInt("id");
+	         String id,name,desc,brand;         
+	         	 id = reader.getString("id");
 	        	 name = reader.getString("Name");
 	        	 price = reader.getDouble("Price");
 	        	 desc = reader.getString("Detail");
