@@ -41,7 +41,7 @@ public class CheckOutActivity extends Activity {
 		    	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 					//activate button OnClickListener creation
 					public void onClick(DialogInterface arg0, int arg1) {
-						intentNav.putExtra("nType", 2);
+						intentNav.putExtra("navType", 2);
 						startActivity(intentNav);
 					}
 				});//end activate button

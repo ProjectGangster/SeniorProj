@@ -465,8 +465,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int ListView1=0x7f0b002d;
-        public static final int TextView01=0x7f0b0025;
-        public static final int TextView02=0x7f0b0026;
+        public static final int TextView02=0x7f0b0025;
         public static final int action_settings=0x7f0b0034;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
@@ -508,14 +507,15 @@ containing a value of this type.
         public static final int selectionDetails=0x7f0b000d;
         public static final int strict_sandbox=0x7f0b000b;
         public static final int terrain=0x7f0b0006;
+        public static final int text1=0x7f0b0024;
+        public static final int text2=0x7f0b002c;
+        public static final int text3=0x7f0b0029;
+        public static final int text4=0x7f0b0028;
+        public static final int text5=0x7f0b002b;
         public static final int textView1=0x7f0b0017;
-        public static final int textView2=0x7f0b0024;
-        public static final int textView3=0x7f0b0027;
-        public static final int textView4=0x7f0b0028;
-        public static final int textView5=0x7f0b0029;
-        public static final int textView6=0x7f0b002a;
-        public static final int textView7=0x7f0b002b;
-        public static final int textView8=0x7f0b002c;
+        public static final int textView3=0x7f0b0026;
+        public static final int textView5=0x7f0b0027;
+        public static final int textView7=0x7f0b002a;
         public static final int wrap_content=0x7f0b000f;
     }
     public static final class integer {

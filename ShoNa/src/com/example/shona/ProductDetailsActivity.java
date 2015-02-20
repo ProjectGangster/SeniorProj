@@ -47,7 +47,6 @@ public class ProductDetailsActivity extends Activity {
 		setContentView(R.layout.activity_product_detials);
 		
 		//intent creation
-		intentToBC = new Intent(ProductDetailsActivity.this,BarcodeScanActivity.class);
 		intentToCheckout = new Intent(ProductDetailsActivity.this,CheckOutActivity.class);
 		id = getIntent().getIntExtra("proID", 0);
 		
@@ -100,12 +99,12 @@ public class ProductDetailsActivity extends Activity {
 				if(v==okbutt){
 					//ask if user wants to go to scan the bc
 					AlertDialog.Builder dialog = new AlertDialog.Builder(v.getContext());
-			    	dialog.setTitle("Please scan the barcode of this product");
+			    	dialog.setTitle("Do you want to check out?");
 			    	//activate button OnClickListener
 			    	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 						//activate button OnClickListener creation
 						public void onClick(DialogInterface arg0, int arg1) {
-							startActivityForResult(intentToBC, bc);
+							startActivityForResult(intentToCheckout, bc);
 						}
 					});//end activate button
 			    	dialog.setPositiveButton(R.string.cancelButton, null);

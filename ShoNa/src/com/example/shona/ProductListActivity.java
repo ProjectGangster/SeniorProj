@@ -28,9 +28,9 @@ public class ProductListActivity extends Activity {
 	protected int navPro = 995;
 	
 	//product types
-	private int type = 0;
-	
+	private int productType = 0;
 	private ProductList_HandleJSON obj;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,14 +38,14 @@ public class ProductListActivity extends Activity {
 		
 		//listview = 
 		listview = (ListView) findViewById(R.id.ListView1);
-		//get product type
+		//get product productType
 		intentFromLV3 = getIntent();
-		//type = intentFromLV3.getIntExtra("proType", 0);
-		type = intentFromLV3.getIntExtra("catid", 0);
-		Log.i("PROTYPEEEEE", ""+type);
+		//productType = intentFromLV3.getIntExtra("proType", 0);
+		productType = intentFromLV3.getIntExtra("catid", 0);
+		Log.i("PROTYPEEEEE", ""+productType);
 		
 		//intent creation
-		intentToNavPro = new Intent(ProductListActivity.this,NavToProductActivity.class);
+		intentToNavPro = new Intent(ProductListActivity.this,NaviActivity.class);
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	dialog.setTitle("Product List");
@@ -53,7 +53,8 @@ public class ProductListActivity extends Activity {
     	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
 			//activate button OnClickListener creation
 			public void onClick(DialogInterface arg0, int arg1) {
-				intentToNavPro.putExtra("proID", getType());
+				intentToNavPro.putExtra("proType", getType());
+				intentToNavPro.putExtra("navType", 1);
 				startActivityForResult(intentToNavPro, navPro);
 			}
 		});//end activate button
@@ -61,7 +62,7 @@ public class ProductListActivity extends Activity {
     	dialog.show();
     	
 
-    	ArrayList<Product> product = ProductList_HandleJSON.getPList(type);
+    	ArrayList<Product> product = ProductList_HandleJSON.getPList(productType);
     	ArrayList<Product> list = new ArrayList<Product>();    	
     	ListAdapter Adapter = new ListAdapter(this, list);
     	listview.setAdapter(Adapter);  
@@ -78,14 +79,11 @@ public class ProductListActivity extends Activity {
     			intentToNavPro.putExtra("X", p.getX());
     			intentToNavPro.putExtra("Y", p.getY());
 				
-    			startActivityForResult(intentToNavPro,1);
-    			
-    			
-
-				
+    			startActivityForResult(intentToNavPro,1);				
 			}
     	});
     	 
+
         for (int i = 0; i < product.size(); ++i) {
           //list.add(product.get(i).getName());
           //.add("test"+i);
@@ -105,7 +103,7 @@ public class ProductListActivity extends Activity {
 	}
 
 	public int getType() {
-		return type;
+		return productType;
 	}
 	
 	

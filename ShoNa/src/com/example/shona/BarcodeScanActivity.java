@@ -21,7 +21,7 @@ public class BarcodeScanActivity extends Activity {
 		
 		
 		//intent creation
-		intentToCheckout = new Intent(BarcodeScanActivity.this,CheckOutActivity.class);
+		intentToCheckout = new Intent(BarcodeScanActivity.this,ProductDetailsActivity.class);
 		
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
