@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -27,16 +28,18 @@ public class NaviActivity extends Activity{
 	private Beacon beacon;
 	//region for discovering beacons	
 	private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
+	private Region current_Region;
 	
 	//beacon distance
 	private double dis[];
-	private String id[];
+	private int id[];//minor
 	private double temp[];
 	private double closeDis[] = new double[3];
-	private String closeID[] = new String[3];
+	private int closeID[] = new int[3];
 	
 	//user's position
-	public static Location userPo;
+	public static Location userLoc;
+	private Beacon currentBeac;
 	private Location b1 = new Location("b1Location");
 	private Location b2 = new Location("b2Location");
 	private Location b3 = new Location("b3Location");
@@ -50,27 +53,42 @@ public class NaviActivity extends Activity{
 	//navigation type: 0=default, 1=to product, 2=to cashier
 	private int navType = 0;
 	//destination location
-	private Location destination[] = new Location[2];
+	private Location destination = new Location("desLoc");
+	@SuppressWarnings("unused")
+	private Region destReg;
+	private Beacon destBeac;
 	//product
+	@SuppressWarnings("unused")
 	private int proType = 1;
+	
+	/*
+	 * intent
+	 */
+	private Intent intentToBC = new Intent(NaviActivity.this,BarcodeScanActivity.class);
+	protected int bc = 555;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_navi);
-		
+
 		//get navigation type
 		navType = getIntent().getIntExtra("navType", 0);
 		//check navigation type
 		if(navType==1){
 			//to product
 			proType = getIntent().getIntExtra("proType", 1);
-			destination = Shelf.getZone(proType);
+//get the beacon of the productType
+/*
+ * destBeac = new Beacon();//from db
+ */
 		}
 		else if(navType==2){
 			//to cashier
-//destination[0] = ;
-//destination[1] = ;
+//get cashier's beacon info
+/*
+ * destBeac = new Region();//from db			
+ */
 		}
 		//beaconManager
 		beaconManager = new BeaconManager(this);
@@ -90,7 +108,7 @@ public class NaviActivity extends Activity{
 	    	dialog.show();
 		}
 		else{
-			//Bluetooth is on, then start connecting to the service
+			//Blue tooth is on, then start connecting to the service
 			connectToService();
 			beaconManager.setRangingListener(new BeaconManager.RangingListener(){
 				@Override
@@ -103,19 +121,21 @@ public class NaviActivity extends Activity{
 			            // distance between device and beacon.
 			        	  Log.i("----------------", "Found beacons: "+blist.size());
 			        	  dis = new double[blist.size()];
-			        	  id = new String[blist.size()];
+			        	  id = new int[blist.size()];
 			        	  for(int i=0;i<blist.size();i++){
 			        		  beacon = blist.get(i);
 				        	  Log.i("----------------", "beacon no."+i);
-				        	  Log.i("----------------", "uuid"+beacon.getProximityUUID());
-				        	  id[i] = beacon.getProximityUUID();
+				        	  Log.i("----------------", "minor"+beacon.getMinor());
+				        	  id[i] = beacon.getMinor();
 				        	  dis[i] = calculateAccuracy(beacon.getMeasuredPower(), beacon.getRssi());
 			        	  }
 			        	  //get 3 closest beacons and setup their latitudes and longitudes
 			        	  threeClosest(getDis());
 			        	  //calculate the position of the user
-			        	  userPo = getLocationWithTrilateration(b1, b2, b3, closeDis[0], closeDis[1], closeDis[2]);
-			        	  
+			        	  userLoc = getLocationWithTrilateration(b1, b2, b3, closeDis[0], closeDis[1], closeDis[2]);
+			      		  //set up the closest beacon
+			        	  currentBeac = blist.get(0);
+			        	  navigation(currentBeac, destBeac);
 			          }//end runnable
 			        });//end runOnUiThread
 				}//end beaconDiscover
@@ -192,8 +212,8 @@ public class NaviActivity extends Activity{
 		//sort to get the 3 minimum distance
 		Arrays.sort(temp);
 		Log.i(">>>>>>>>>>closest 1", ""+temp[0]);
-		Log.i(">>>>>>>>>>closest 1", ""+temp[1]);
-		Log.i(">>>>>>>>>>closest 1", ""+temp[2]);
+		Log.i(">>>>>>>>>>closest 2", ""+temp[1]);
+		Log.i(">>>>>>>>>>closest 3", ""+temp[2]);
 		closeDis[0] = temp[0];
 		closeDis[1] = temp[1];
 		closeDis[2] = temp[2];
@@ -206,7 +226,9 @@ public class NaviActivity extends Activity{
 			}//end dist
 		}//end closeDis
 		
-//-------------------------------getLat/Long from DB
+/*
+ * -------------------------------getLat/Long from DB
+ */
 		
 		//setLat/Long of 3 closest
 		b1.setLatitude(latitude1);
@@ -248,6 +270,48 @@ public class NaviActivity extends Activity{
 	    return foundLocation;
 	}
 
+	private void navigation(Beacon current, Beacon dest){
+		destReg = new Region("destRegion", dest.getProximityUUID(),dest.getMajor(),dest.getMinor());
+		current_Region = new Region("userRegion", current.getProximityUUID(),current.getMajor(),current.getMinor());
+		//check if the user's current region is equal to destination's region
+		while((current_Region.getMinor()).compareTo(dest.getMinor()) != 0){
+/*
+ * navigate
+ */
+			
+			
+		}
+		//notify reaching destination zone
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+    	if(navType==1){
+    		//to product
+    		dialog.setTitle("You have reach the product zone");
+	    	//activate button OnClickListener				
+	    	dialog.setPositiveButton("OK", new OnClickListener() {	
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					//go to barcode scanner
+		    		startActivityForResult(intentToBC, bc);
+		    		finish();
+				}
+			});
+	    	dialog.show();
+    	}
+    	else if(navType==2){
+    		//to cashier
+    		dialog.setTitle("You have reach the cashier zone");
+	    	//activate button OnClickListener				
+	    	dialog.setPositiveButton("OK", new OnClickListener() {	
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					//close
+					finish();
+				}
+			});
+	    	dialog.show();
+    	}
+	}//end navigation
+
 	public BeaconManager getBeaconManager() {
 		return beaconManager;
 	}
@@ -268,7 +332,7 @@ public class NaviActivity extends Activity{
 	}
 
 
-	public String[] getId() {
+	public int[] getId() {
 		return id;
 	}
 
@@ -283,25 +347,24 @@ public class NaviActivity extends Activity{
 	}
 
 
-	public String[] getCloseID() {
+	public int[] getCloseID() {
 		return closeID;
 	}
 
 	public static Location getUserPo() {
-		return userPo;
+		return userLoc;
 	}
 
 
-	public Location[] getDestination() {
+	public Location getDestination() {
 		return destination;
 	}
 
 
-	public void setDestination(Location[] destination) {
+	public void setDestination(Location destination) {
 		this.destination = destination;
 	}
-
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
