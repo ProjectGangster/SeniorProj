@@ -81,6 +81,8 @@ public class NaviActivity extends Activity{
 //get the beacon of the productType
 /*
  * destBeac = new Beacon();//from db
+ * 
+ * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
  */
 		}
 		else if(navType==2){
@@ -229,6 +231,7 @@ public class NaviActivity extends Activity{
 /*
  * -------------------------------getLat/Long from DB
  */
+		Beacon_HandleJSON.getBeacon3(closeID);
 		
 		//setLat/Long of 3 closest
 		b1.setLatitude(latitude1);
