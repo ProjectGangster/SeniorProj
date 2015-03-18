@@ -28,8 +28,6 @@ public class NaviActivity extends Activity{
 	private Beacon beacon;
 	//region for discovering beacons	
 	private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
-	private Region current_Region;
-	
 	//beacon distance
 	private double dis[];
 	private int id[];//minor
@@ -39,7 +37,6 @@ public class NaviActivity extends Activity{
 	
 	//user's position
 	public static Location userLoc;
-	private Beacon currentBeac;
 	private Location b1 = new Location("b1Location");
 	private Location b2 = new Location("b2Location");
 	private Location b3 = new Location("b3Location");
@@ -56,10 +53,12 @@ public class NaviActivity extends Activity{
 	private Location destination = new Location("desLoc");
 	@SuppressWarnings("unused")
 	private Region destReg;
-	private Beacon destBeac;
+	private Location destLoc;
 	//product
 	@SuppressWarnings("unused")
 	private int proType = 1;
+	//navigation route
+	private Location[] navRoute;
 	
 	/*
 	 * intent
@@ -80,16 +79,16 @@ public class NaviActivity extends Activity{
 			proType = getIntent().getIntExtra("proType", 1);
 //get the beacon of the productType
 /*
- * destBeac = new Beacon();//from db
- * 
  * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
+ * destLoc = BeaconLocation;
  */
 		}
 		else if(navType==2){
 			//to cashier
 //get cashier's beacon info
 /*
- * destBeac = new Region();//from db			
+ * destBeac = new Region();//from db	
+ * destLoc = BeaconLocation;
  */
 		}
 		//beaconManager
@@ -135,9 +134,7 @@ public class NaviActivity extends Activity{
 			        	  threeClosest(getDis());
 			        	  //calculate the position of the user
 			        	  userLoc = getLocationWithTrilateration(b1, b2, b3, closeDis[0], closeDis[1], closeDis[2]);
-			      		  //set up the closest beacon
-			        	  currentBeac = blist.get(0);
-			        	  navigation(currentBeac, destBeac);
+			        	  navigation(userLoc, destLoc);
 			          }//end runnable
 			        });//end runOnUiThread
 				}//end beaconDiscover
@@ -273,15 +270,13 @@ public class NaviActivity extends Activity{
 	    return foundLocation;
 	}
 
-	private void navigation(Beacon current, Beacon dest){
-		destReg = new Region("destRegion", dest.getProximityUUID(),dest.getMajor(),dest.getMinor());
-		current_Region = new Region("userRegion", current.getProximityUUID(),current.getMajor(),current.getMinor());
-		//check if the user's current region is equal to destination's region
-		while((current_Region.getMinor()).compareTo(dest.getMinor()) != 0){
-/*
- * navigate
- */
-			
+	private void navigation(Location current, Location dest){
+		//check if the user's current location is in the destination's region
+		while(current.distanceTo(dest)!=0.0){
+			navRoute = Route.genRoute(current, dest);
+			/*
+			 * =================navigate
+			 */
 			
 		}
 		//notify reaching destination zone

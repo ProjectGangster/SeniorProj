@@ -30,6 +30,7 @@ public class NavToProductActivity extends Activity {
 		nav = new Intent(NavToProductActivity.this,NaviActivity.class);
 		nav.putExtra("nType", 1);
 		startActivity(nav);
+		finish();
 		
 		//ask if user wants to go to the cashier
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
