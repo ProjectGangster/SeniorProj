@@ -466,7 +466,6 @@ containing a value of this type.
     public static final class id {
         public static final int ListView1=0x7f0b002f;
         public static final int TextView02=0x7f0b0029;
-        public static final int action_settings=0x7f0b0036;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
         public static final int back_settings=0x7f0b0034;
@@ -606,11 +605,9 @@ containing a value of this type.
         public static final int lv3_al=0x7f0a0022;
         public static final int lv3_nal=0x7f0a0023;
         public static final int main=0x7f0a0024;
-        public static final int nav_to_cashier=0x7f0a0025;
-        public static final int nav_to_product=0x7f0a0026;
-        public static final int navi=0x7f0a0027;
-        public static final int product_detials=0x7f0a0028;
-        public static final int product_list=0x7f0a0029;
+        public static final int navi=0x7f0a0025;
+        public static final int product_detials=0x7f0a0026;
+        public static final int product_list=0x7f0a0027;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f040000;

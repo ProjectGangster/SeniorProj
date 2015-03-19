@@ -99,7 +99,6 @@ int drawable powered_by_google_dark 0x7f02001f
 int drawable powered_by_google_light 0x7f020020
 int id ListView1 0x7f0b002f
 int id TextView02 0x7f0b0029
-int id action_settings 0x7f0b0036
 int id adjust_height 0x7f0b0000
 int id adjust_width 0x7f0b0001
 int id back_settings 0x7f0b0034
@@ -233,11 +232,9 @@ int menu lv2_snack 0x7f0a0021
 int menu lv3_al 0x7f0a0022
 int menu lv3_nal 0x7f0a0023
 int menu main 0x7f0a0024
-int menu nav_to_cashier 0x7f0a0025
-int menu nav_to_product 0x7f0a0026
-int menu navi 0x7f0a0027
-int menu product_detials 0x7f0a0028
-int menu product_list 0x7f0a0029
+int menu navi 0x7f0a0025
+int menu product_detials 0x7f0a0026
+int menu product_list 0x7f0a0027
 int raw gtm_analytics 0x7f040000
 int string LV1CateBut1 0x7f060027
 int string LV1CateBut2 0x7f060028

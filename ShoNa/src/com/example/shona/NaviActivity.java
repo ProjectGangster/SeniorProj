@@ -308,6 +308,8 @@ public class NaviActivity extends Activity implements LocationListener{
 		while(!navRoute.equals(null)){
 			//navigate
 			for(int i=0;i<navRoute.length;i++){
+				Log.i("Routeeee","distance : "+getDistance(current, navRoute[i]));
+				Log.i("Routeeee","heading : "+getHeading(current, navRoute[i]));
 				disValue.setText(getDistance(current, navRoute[i]));
 				disValue.setContentDescription(getDistance(current, navRoute[i]));
 				headingValue.setText(getHeading(current, navRoute[i]));
@@ -420,14 +422,13 @@ public class NaviActivity extends Activity implements LocationListener{
 		// TODO Auto-generated method stub
 		Toast.makeText(getApplicationContext(), "GPS is disable", Toast.LENGTH_SHORT).show();
 	}
-	
 	/*
 	 * nav
 	 */
-	private static String getDistance(Location now, Location dest){
+	private String getDistance(Location now, Location dest){
 		return now.distanceTo(dest)+" meters";
 	}
-	private static String getHeading(Location now, Location dest){
+	private String getHeading(Location now, Location dest){
 		String side = " degrees on the right side";
 		double degree = 0.0;
 		degree = now.bearingTo(dest);
@@ -453,13 +454,16 @@ public class NaviActivity extends Activity implements LocationListener{
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		switch (item.getItemId()) {
+		case R.id.home_settings:
+			//go to home
+			MainActivity.toHome = true;
+			setResult(RESULT_OK);
+			finish();
+			break;
+		default:
+			break;
 		}
-		return super.onOptionsItemSelected(item);
+		return false;
 	}
 }
