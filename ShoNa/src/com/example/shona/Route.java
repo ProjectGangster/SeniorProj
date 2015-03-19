@@ -6,32 +6,14 @@ public class Route {
 	private static Location[] route;
 	private static int routeSize = 1;
 	
+	static Location[] point = new Location[29];
+	
 	
 	
 	public static Location[] genRoute(Location current, Location dest){
 /*
  * get from db
  */
-	String path = Route_HandleJSON.getBeaconDetail(current, dest);
-
-//routeSize = ;
-		route = new Location[routeSize];
-		route[0] = current;
-		route[routeSize-1] = dest;
-/*
- * get Location from db
- */
-		for(int i=1;i<(routeSize-1);i++){
-//route[i] = from db;
-		}
-		return route;
-	}
-
-	//Point to Location
-	public Location PtoL(int i){
-		Location l = new Location("l");
-		Location point[] = new Location[29];
-
 		//set Latitute and Longitute of each point
 		point[0].setLatitude(1.1);
 		point[0].setLongitude(1.1);
@@ -92,13 +74,52 @@ public class Route {
 		point[28].setLatitude(1.1);
 		point[28].setLongitude(1.1);
 		
+	//current point
+	int Cp = LocationtoNearestPoint(current);
+	//End point
+	int Ep = LocationtoNearestPoint(dest);
+	String path = Route_HandleJSON.getBeaconDetail(Cp, Ep);
+
+	String[] points = path.split(",");
+	
+	routeSize = points.length+2;
+		route = new Location[routeSize];
+		route[0] = current;
+		route[1] = PtoL(Cp);
+/*
+ * get Location from db
+ */
+		for(int i=0;i<points.length;i++){
+			route[i+2] = point[Integer.parseInt(points[i])];
+//route[i] = from db;
+		}
+		return route;
+	}
+
+	//Point to Location
+	public static Location PtoL(int i){
 		
-		return point[i];
+			return point[i];
 	}
 	
 	//Location to nearestPoint
-	public int LtoP(){
-		return 0;
+	public static int LocationtoNearestPoint(Location l){
+		int i;
+		int min = 0;
+		Double sum,val;
+		Double la,lo;
+		la = l.getLatitude();
+		lo = l.getLongitude();
+		sum = Math.pow(point[0].getLatitude()-la,2.0) + Math.pow(point[0].getLongitude()-lo,2.0);
+		for (int j = 1; j < point.length; j++) {
+			val = Math.pow(point[j].getLatitude()-la,2.0) + Math.pow(point[j].getLongitude()-lo,2.0);
+			if(val<sum)
+			{
+				sum = val;
+				min = j;
+			}
+		}
+		return min;
 	}
 }
 
