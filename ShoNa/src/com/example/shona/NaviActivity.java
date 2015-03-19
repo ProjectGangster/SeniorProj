@@ -13,14 +13,25 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class NaviActivity extends Activity{
+public class NaviActivity extends Activity implements LocationListener{
+	/*
+	 * layout text view
+	 */
+	private TextView destText;
+	private TextView destName;
+	private TextView disText;
+	private TextView disValue;
+	private TextView headingText;
+	private TextView headingValue;
 	/*
 	 * Beacon
 	 */
@@ -47,6 +58,12 @@ public class NaviActivity extends Activity{
 	private double latitude3 = 0.0;
 	private double longitude3 = 0.0;
 	
+	/*
+	 * intent
+	 */
+	private Intent intentToBC = new Intent(NaviActivity.this,BarcodeScanActivity.class);
+	protected int bc = 555;
+	
 	//navigation type: 0=default, 1=to product, 2=to cashier
 	private int navType = 0;
 	//destination location
@@ -58,18 +75,24 @@ public class NaviActivity extends Activity{
 	@SuppressWarnings("unused")
 	private int proType = 1;
 	//navigation route
-	private Location[] navRoute;
-	
-	/*
-	 * intent
-	 */
-	private Intent intentToBC = new Intent(NaviActivity.this,BarcodeScanActivity.class);
-	protected int bc = 555;
-	
+	private Location[] navRoute = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_navi);
+		/*
+		 * text view
+		 */
+		destText = (TextView)findViewById(R.id.textView1);
+		destText.setContentDescription("Going to");
+		destName = (TextView)findViewById(R.id.textView2);
+		disText= (TextView)findViewById(R.id.textView3);
+		disText.setContentDescription("Distance");
+		disValue= (TextView)findViewById(R.id.textView4);
+		headingText= (TextView)findViewById(R.id.textView5);
+		headingText.setContentDescription("Heading");
+		headingValue= (TextView)findViewById(R.id.textView6);
 
 		//get navigation type
 		navType = getIntent().getIntExtra("navType", 0);
@@ -77,6 +100,10 @@ public class NaviActivity extends Activity{
 		if(navType==1){
 			//to product
 			proType = getIntent().getIntExtra("proType", 1);
+/*
+ * send product type to db to get product type's name
+ */
+			destName.setText("product Type");
 //get the beacon of the productType
 /*
  * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
@@ -85,6 +112,8 @@ public class NaviActivity extends Activity{
 		}
 		else if(navType==2){
 			//to cashier
+			destName.setText("Cashier");
+			destName.setContentDescription("Cashier");
 //get cashier's beacon info
 /*
  * destBeac = new Region();//from db	
@@ -271,13 +300,19 @@ public class NaviActivity extends Activity{
 	}
 
 	private void navigation(Location current, Location dest){
-		//check if the user's current location is in the destination's region
-		while(current.distanceTo(dest)!=0.0){
+		//current position is not near destination
+		if(current.distanceTo(dest)>1){
+			//generate route to destination
 			navRoute = Route.genRoute(current, dest);
-			/*
-			 * =================navigate
-			 */
-			
+		}
+		while(!navRoute.equals(null)){
+			//navigate
+			for(int i=0;i<navRoute.length;i++){
+				disValue.setText(getDistance(current, navRoute[i]));
+				disValue.setContentDescription(getDistance(current, navRoute[i]));
+				headingValue.setText(getHeading(current, navRoute[i]));
+				headingValue.setContentDescription(getHeading(current, navRoute[i]));
+			}
 		}
 		//notify reaching destination zone
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -361,6 +396,52 @@ public class NaviActivity extends Activity{
 
 	public void setDestination(Location destination) {
 		this.destination = destination;
+	}
+
+
+	@Override
+	public void onLocationChanged(Location location) {
+		// TODO Auto-generated method stub
+		connectToService();
+	}
+
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		Toast.makeText(getApplicationContext(), "GPS is enable", Toast.LENGTH_SHORT).show();
+	}
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		Toast.makeText(getApplicationContext(), "GPS is disable", Toast.LENGTH_SHORT).show();
+	}
+	
+	/*
+	 * nav
+	 */
+	private static String getDistance(Location now, Location dest){
+		return now.distanceTo(dest)+" meters";
+	}
+	private static String getHeading(Location now, Location dest){
+		String side = " degrees on the right side";
+		double degree = 0.0;
+		degree = now.bearingTo(dest);
+		if(degree==0.0 || degree == 360){
+			side = "degrees, go straight";
+		}
+		else if(degree==180.0){
+			side = "degrees on the back";
+		}
+		else if(degree>180 && degree<360){
+			degree -= 360;
+			side = "degrees on the left side";
+		}
+		return degree+side;
 	}
 	
 	@Override
