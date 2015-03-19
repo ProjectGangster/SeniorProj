@@ -106,9 +106,11 @@ public class NaviActivity extends Activity implements LocationListener{
 			destName.setText("product Type");
 //get the beacon of the productType
 /*
- * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
- * destLoc = BeaconLocation;
+ * 
+ * 
  */
+//destLoc = Beacon_HandleJSON.getBeaconLocation("1");
+
 		}
 		else if(navType==2){
 			//to cashier
@@ -119,6 +121,8 @@ public class NaviActivity extends Activity implements LocationListener{
  * destBeac = new Region();//from db	
  * destLoc = BeaconLocation;
  */
+//destLoc = Beacon_HandleJSON.getBeaconLocation("1");
+
 		}
 		//beaconManager
 		beaconManager = new BeaconManager(this);
@@ -257,15 +261,15 @@ public class NaviActivity extends Activity implements LocationListener{
 /*
  * -------------------------------getLat/Long from DB
  */
-		Beacon_HandleJSON.getBeacon3(closeID);
+		Double beacon3[] = Beacon_HandleJSON.getBeacon3(closeID);
 		
 		//setLat/Long of 3 closest
-		b1.setLatitude(latitude1);
-		b1.setLongitude(longitude1);
-		b2.setLatitude(latitude2);
-		b2.setLongitude(longitude2);
-		b3.setLatitude(latitude3);
-		b3.setLongitude(longitude3);
+		b1.setLatitude(beacon3[0]);
+		b1.setLongitude(beacon3[1]);
+		b2.setLatitude(beacon3[2]);
+		b2.setLongitude(beacon3[3]);
+		b3.setLatitude(beacon3[4]);
+		b3.setLongitude(beacon3[5]);
 	}
 	
 	/*

@@ -19,6 +19,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import android.annotation.SuppressLint;
+import android.location.Location;
 import android.util.Log;
 
 
@@ -27,14 +28,21 @@ public class Beacon_HandleJSON {
 
   //PList.add(new Player(1));
    Beacon B;
+   Location L;
    Double[] LatLong;
+   private String urlString = null;
    
    public Beacon getBeacon(){
 	   return this.B;
    }
    
-   private String urlString = null;
-   
+   public Location getL() {
+		return L;
+	}
+
+	public Double[] getLatLong() {
+		return LatLong;
+	} 
    
    public volatile boolean parsingComplete = true;
    
@@ -44,14 +52,23 @@ public class Beacon_HandleJSON {
    }
 
 
-   public static Beacon getBeaconDetail(String UUID,String Major, String Minor) {
-	   String url = "http://www.numpun.lnw.mn/shona/API/beacon.php?UUID="+UUID+"&Major="+Major+"&Minor="+Minor;
+   public static Beacon getBeaconDetail(String Minor) {
+	   String url = "http://www.numpun.lnw.mn/shona/API/beacon.php?Minor="+Minor;
 	   Beacon_HandleJSON obj = new Beacon_HandleJSON(url);
 	   obj.fetchBeaconDetail();
 
 	   while(obj.parsingComplete);
 	   
 	   return obj.getBeacon();
+	}
+   public static Location getBeaconLocation(String Minor) {
+	   String url = "http://www.numpun.lnw.mn/shona/API/beacon_location.php?Minor="+Minor;
+	   Beacon_HandleJSON obj = new Beacon_HandleJSON(url);
+	   obj.fetchBeaconLocation();
+
+	   while(obj.parsingComplete);
+	   
+	   return obj.getL();
 	}
    
    public static Double[] getBeacon3 (int[] ID) {
@@ -94,6 +111,36 @@ public class Beacon_HandleJSON {
 
        thread.start(); 		
    }
+   
+   public void fetchBeaconLocation(){
+	      Thread thread = new Thread(new Runnable(){
+	         @Override
+	         public void run() {
+	         try {
+	        	Log.d("URL", urlString);
+	            URL url = new URL(urlString);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setReadTimeout(10000 /* milliseconds */);
+	            conn.setConnectTimeout(15000 /* milliseconds */);
+	            conn.setRequestMethod("GET");
+	            conn.setDoInput(true);
+	            // Starts the query
+	            conn.connect();
+	         InputStream stream = conn.getInputStream();
+
+	      String data = convertStreamToString(stream);
+
+	      readAndParseJSON_Location(data);
+	         stream.close();
+
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	         }
+	         }
+	      });
+
+	       thread.start(); 		
+	   }
    
    public void fetchBeacon3(){
 	      Thread thread = new Thread(new Runnable(){
@@ -139,7 +186,7 @@ public class Beacon_HandleJSON {
 		        	 minor = reader.getInt("Minor");
 		        	 measuredPower = reader.getInt("Power");
 		        	 rssi = reader.getInt("RSSI");	
-		        	 
+		        	 Log.d("Beacon1", UUID+"");
 		        	 //public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
 		        	 Beacon b = new Beacon(UUID, name, macAddress, major, minor, measuredPower, rssi);
 		        	 this.B = b; 
@@ -154,9 +201,33 @@ public class Beacon_HandleJSON {
 
 		   }
 	   
-	   public Double[] getLatLong() {
-		return LatLong;
-	}
+
+	   public void readAndParseJSON_Location(String in) {
+		      try { 
+		    	  Log.d("test", in);
+		    	  JSONObject reader = new JSONObject(in);
+		    	 
+		         Double lat,lon;         
+		         	 lat = reader.getDouble("Latitiude");
+		        	 lon = reader.getDouble("Longitude");	
+		        	 Log.d("Beacon2", lat+":"+lon);
+		        	 //public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
+		        	 Location l = new Location("l");
+		        	 l.setLatitude(lat);
+		        	 l.setLongitude(lon);
+		        	 this.L = l;
+		         
+		        	 parsingComplete = false;
+
+
+		        } catch (Exception e) {
+		           // TODO Auto-generated catch block
+		           e.printStackTrace();
+		        }
+
+		   }
+	   
+
 
 
 	public void readAndParseJSON_Beacon3(String in) {
@@ -165,12 +236,15 @@ public class Beacon_HandleJSON {
 		    	  JSONObject reader = new JSONObject(in);
 		         
 		         JSONArray jArray = reader.getJSONArray("Beacon_list");
-		        
+		         int order;
 		         LatLong = new Double[6];
 		         for(int i =0;i<jArray.length();i++){
 		        	 //id = jArray.getJSONObject(i).getString("UUID");
-		        	 LatLong[i*2] = jArray.getJSONObject(i).getDouble("Latitude");
-		        	 LatLong[i*2+1] = jArray.getJSONObject(i).getDouble("Longitude");	        	 	 
+		        	 order = jArray.getJSONObject(i).getInt("Order");
+		        	 LatLong[(order-1)*2] = jArray.getJSONObject(i).getDouble("Latitude");
+		        	 LatLong[(order-1)*2+1] = jArray.getJSONObject(i).getDouble("Longitude");
+		        	 Log.d("Beacon3."+i, order+"");
+		        	 Log.d("Beacon3."+i, LatLong[(order-1)*2]+":"+LatLong[(order-1)*2+1]);
 		        	 
 		         }
 		         parsingComplete = false;
