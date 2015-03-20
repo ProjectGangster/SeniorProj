@@ -560,12 +560,10 @@ containing a value of this type.
         public static final int activity_lv3_al=0x7f030022;
         public static final int activity_lv3_nal=0x7f030023;
         public static final int activity_main=0x7f030024;
-        public static final int activity_nav_to_cashier=0x7f030025;
-        public static final int activity_nav_to_product=0x7f030026;
-        public static final int activity_navi=0x7f030027;
-        public static final int activity_product_detials=0x7f030028;
-        public static final int activity_product_list=0x7f030029;
-        public static final int productlist=0x7f03002a;
+        public static final int activity_navi=0x7f030025;
+        public static final int activity_product_detials=0x7f030026;
+        public static final int activity_product_list=0x7f030027;
+        public static final int productlist=0x7f030028;
     }
     public static final class menu {
         public static final int barcode_scan=0x7f0a0000;

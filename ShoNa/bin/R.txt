@@ -189,12 +189,10 @@ int layout activity_lv2_snack 0x7f030021
 int layout activity_lv3_al 0x7f030022
 int layout activity_lv3_nal 0x7f030023
 int layout activity_main 0x7f030024
-int layout activity_nav_to_cashier 0x7f030025
-int layout activity_nav_to_product 0x7f030026
-int layout activity_navi 0x7f030027
-int layout activity_product_detials 0x7f030028
-int layout activity_product_list 0x7f030029
-int layout productlist 0x7f03002a
+int layout activity_navi 0x7f030025
+int layout activity_product_detials 0x7f030026
+int layout activity_product_list 0x7f030027
+int layout productlist 0x7f030028
 int menu barcode_scan 0x7f0a0000
 int menu cc_lv3aif 0x7f0a0001
 int menu cc_lv3car 0x7f0a0002

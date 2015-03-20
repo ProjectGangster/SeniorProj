@@ -9,11 +9,13 @@ import com.estimote.sdk.Region;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
@@ -22,16 +24,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NaviActivity extends Activity implements LocationListener{
+public class NaviActivity extends Activity{
 	/*
 	 * layout text view
 	 */
 	private TextView destText;
-	private TextView destName;
+	public static TextView destName;
 	private TextView disText;
-	private TextView disValue;
+	public static TextView disValue;
 	private TextView headingText;
-	private TextView headingValue;
+	public static TextView headingValue;
 	/*
 	 * Beacon
 	 */
@@ -48,7 +50,7 @@ public class NaviActivity extends Activity implements LocationListener{
 	
 	//user's position
 	public static Location userLoc;
-	private Location b1 = new Location("b1Location");
+	/*private Location b1 = new Location("b1Location");
 	private Location b2 = new Location("b2Location");
 	private Location b3 = new Location("b3Location");
 	private double latitude1 = 0.0;
@@ -57,6 +59,9 @@ public class NaviActivity extends Activity implements LocationListener{
 	private double longitude2 = 0.0;
 	private double latitude3 = 0.0;
 	private double longitude3 = 0.0;
+	*/
+	private LocationManager lm = null;
+	public static MyLocationListener ll = null;
 	
 	/*
 	 * intent
@@ -93,6 +98,13 @@ public class NaviActivity extends Activity implements LocationListener{
 		headingText= (TextView)findViewById(R.id.textView5);
 		headingText.setContentDescription("Heading");
 		headingValue= (TextView)findViewById(R.id.textView6);
+		
+		//init location services
+		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        ll = new MyLocationListener();		
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+		ll.setLocationText(ll.getLatitude(), ll.getLongitude());
+		ll.setHeadingText(ll.getHeading());
 
 		//get navigation type
 		navType = getIntent().getIntExtra("navType", 0);
@@ -139,7 +151,7 @@ public class NaviActivity extends Activity implements LocationListener{
 		}
 		else{
 			//Blue tooth is on, then start connecting to the service
-			connectToService();
+			//connectToService();
 			beaconManager.setRangingListener(new BeaconManager.RangingListener(){
 				@Override
 				public void onBeaconsDiscovered(Region region, final List<Beacon> blist) {
@@ -148,22 +160,35 @@ public class NaviActivity extends Activity implements LocationListener{
 			          @Override
 			          public void run() {
 			            // Note that beacons reported here are already sorted by estimated
-			            // distance between device and beacon.
+			        	// distance between device and beacon.
 			        	  Log.i("----------------", "Found beacons: "+blist.size());
 			        	  dis = new double[blist.size()];
 			        	  id = new int[blist.size()];
 			        	  for(int i=0;i<blist.size();i++){
 			        		  beacon = blist.get(i);
 				        	  Log.i("----------------", "beacon no."+i);
-				        	  Log.i("----------------", "minor"+beacon.getMinor());
-				        	  id[i] = beacon.getMinor();
+				        	  if((""+beacon.getMinor()).equals("45677")){
+				        		  Log.i("----------------", "blueburry");
+				        	  }
+				        	  else if((""+beacon.getMinor()).equals("9327")){
+				        		  Log.i("----------------", "mint");
+				        	  }
+				        	  else if((""+beacon.getMinor()).equals("37909")){
+				        		  Log.i("----------------", "ice");
+				        	  }
+				        	  /*id[i] = beacon.getMinor();
 				        	  dis[i] = calculateAccuracy(beacon.getMeasuredPower(), beacon.getRssi());
+				        	  //get 3 closest beacons and setup their latitudes and longitudes
+				        	  threeClosest(getDis());
+				        	  //calculate the position of the user
+				        	  userLoc = getLocationWithTrilateration(b1, b2, b3, closeDis[0], closeDis[1], closeDis[2]);
+				        	  Log.i("UserLOC", ""+userLoc.getLatitude()+","+userLoc.getLongitude());
+				        	  //test nav
+				        	  disValue.setText(userLoc.getLatitude()+","+userLoc.getLongitude());
+				        	  headingValue.setText(userLoc.getBearing()+"");
+				        	  //navigation(userLoc, destLoc);
+				        	  */
 			        	  }
-			        	  //get 3 closest beacons and setup their latitudes and longitudes
-			        	  threeClosest(getDis());
-			        	  //calculate the position of the user
-			        	  userLoc = getLocationWithTrilateration(b1, b2, b3, closeDis[0], closeDis[1], closeDis[2]);
-			        	  navigation(userLoc, destLoc);
 			          }//end runnable
 			        });//end runOnUiThread
 				}//end beaconDiscover
@@ -190,7 +215,8 @@ public class NaviActivity extends Activity implements LocationListener{
 	 
 	 @Override
 	  protected void onResume() {
-		 connectToService();
+		 //connectToService();
+		 lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
 		 super.onResume();
 	  }
 	 
@@ -260,12 +286,17 @@ public class NaviActivity extends Activity implements LocationListener{
 		//Beacon_HandleJSON.getBeacon3(closeID);
 		
 		//setLat/Long of 3 closest
-		b1.setLatitude(latitude1);
-		b1.setLongitude(longitude1);
-		b2.setLatitude(latitude2);
-		b2.setLongitude(longitude2);
-		b3.setLatitude(latitude3);
-		b3.setLongitude(longitude3);
+		/*
+		//blueburry
+		b1.setLatitude(13.732105580040615);
+		b1.setLongitude(100.53051182779373);
+		//ice
+		b2.setLatitude(13.736045951967812);
+		b2.setLongitude(100.53394281314735);
+		//mint
+		b3.setLatitude(13.732098035241762);
+		b3.setLongitude(100.5305052083561);
+		*/
 	}
 	
 	/*
@@ -298,6 +329,13 @@ public class NaviActivity extends Activity implements LocationListener{
 
 	    return foundLocation;
 	}
+	
+	private void initLocationListener() {
+        //location manager creation
+        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        ll = new MyLocationListener();		
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+    }
 
 	private void navigation(Location current, Location dest){
 		//current position is not near destination
@@ -403,29 +441,7 @@ public class NaviActivity extends Activity implements LocationListener{
 	public void setDestination(Location destination) {
 		this.destination = destination;
 	}
-
-
-	@Override
-	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
-		connectToService();
-	}
-
-
-	@Override
-	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
-	}
-	@Override
-	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
-		Toast.makeText(getApplicationContext(), "GPS is enable", Toast.LENGTH_SHORT).show();
-	}
-	@Override
-	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
-		Toast.makeText(getApplicationContext(), "GPS is disable", Toast.LENGTH_SHORT).show();
-	}
+	
 	/*
 	 * nav
 	 */
