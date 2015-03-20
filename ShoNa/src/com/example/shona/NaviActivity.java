@@ -257,7 +257,7 @@ public class NaviActivity extends Activity implements LocationListener{
 /*
  * -------------------------------getLat/Long from DB
  */
-		Beacon_HandleJSON.getBeacon3(closeID);
+		//Beacon_HandleJSON.getBeacon3(closeID);
 		
 		//setLat/Long of 3 closest
 		b1.setLatitude(latitude1);

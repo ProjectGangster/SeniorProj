@@ -46,21 +46,6 @@ public class ProductListActivity extends Activity {
 		
 		//intent creation
 		intentToNavPro = new Intent(ProductListActivity.this,NaviActivity.class);
-		//ask if user wants to go to the cashier
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-    	dialog.setTitle("Product List");
-    	//activate button OnClickListener
-    	dialog.setNegativeButton(R.string.okButton, new DialogInterface.OnClickListener() {
-			//activate button OnClickListener creation
-			public void onClick(DialogInterface arg0, int arg1) {
-				intentToNavPro.putExtra("proType", getType());
-				intentToNavPro.putExtra("navType", 1);
-				startActivityForResult(intentToNavPro, navPro);
-			}
-		});//end activate button
-    	dialog.setPositiveButton(R.string.cancelButton, null);
-    	dialog.show();
-    	
 
     	ArrayList<Product> product = ProductList_HandleJSON.getPList(productType+"");
     	ArrayList<Product> list = new ArrayList<Product>();    	
@@ -79,7 +64,9 @@ public class ProductListActivity extends Activity {
     			intentToNavPro.putExtra("X", p.getX());
     			intentToNavPro.putExtra("Y", p.getY());
 				
-    			startActivityForResult(intentToNavPro,1);				
+    			intentToNavPro.putExtra("proType", getType());
+				intentToNavPro.putExtra("navType", 1);
+				startActivityForResult(intentToNavPro, navPro);			
 			}
     	});
     	 
