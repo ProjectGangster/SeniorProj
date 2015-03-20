@@ -1,21 +1,29 @@
 package com.example.shona;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.location.Location;
 
 public class Route {
-	private static Location[] route;
-	private static int routeSize = 1;
+private static List<Location> route;
 	
-	static Location[] point = new Location[29];
-	
-	
-	
-	public static Location[] genRoute(Location current, Location dest){
+	public static List<Location> genRoute(Location current, Location dest){
 /*
  * get from db
  */
+//routeSize = ;
+		route = new ArrayList<Location>();
+		route.add(current);
+/*
+ * get Location from db
+ */
+		//route.add(Location from db);
+		
+		return route;
+	}
 		//set Latitute and Longitute of each point
-		point[0].setLatitude(1.1);
+		/*point[0].setLatitude(1.1);
 		point[0].setLongitude(1.1);
 		point[1].setLatitude(1.1);
 		point[1].setLongitude(1.1);
@@ -89,19 +97,15 @@ public class Route {
 /*
  * get Location from db
  */
+	/*
 		for(int i=0;i<points.length;i++){
 			route[i+2] = point[Integer.parseInt(points[i])];
 //route[i] = from db;
 		}
 		return route;
 	}
-
-	//Point to Location
-	public static Location PtoL(int i){
-		
-			return point[i];
-	}
-	
+	*/
+	/*
 	//Location to nearestPoint
 	public static int LocationtoNearestPoint(Location l){
 		int i;
@@ -121,6 +125,7 @@ public class Route {
 		}
 		return min;
 	}
+	*/
 }
 
 

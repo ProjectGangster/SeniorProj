@@ -75,7 +75,7 @@ public class NaviActivity extends Activity implements LocationListener{
 	@SuppressWarnings("unused")
 	private int proType = 1;
 	//navigation route
-	private Location[] navRoute = null;
+	private List<Location> navRoute = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +106,9 @@ public class NaviActivity extends Activity implements LocationListener{
 			destName.setText("product Type");
 //get the beacon of the productType
 /*
- * 
- * 
+ * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
+ * destLoc = BeaconLocation;
  */
-//destLoc = Beacon_HandleJSON.getBeaconLocation("1");
-
 		}
 		else if(navType==2){
 			//to cashier
@@ -121,8 +119,6 @@ public class NaviActivity extends Activity implements LocationListener{
  * destBeac = new Region();//from db	
  * destLoc = BeaconLocation;
  */
-//destLoc = Beacon_HandleJSON.getBeaconLocation("1");
-
 		}
 		//beaconManager
 		beaconManager = new BeaconManager(this);
@@ -261,15 +257,15 @@ public class NaviActivity extends Activity implements LocationListener{
 /*
  * -------------------------------getLat/Long from DB
  */
-		Double beacon3[] = Beacon_HandleJSON.getBeacon3(closeID);
+		Beacon_HandleJSON.getBeacon3(closeID);
 		
 		//setLat/Long of 3 closest
-		b1.setLatitude(beacon3[0]);
-		b1.setLongitude(beacon3[1]);
-		b2.setLatitude(beacon3[2]);
-		b2.setLongitude(beacon3[3]);
-		b3.setLatitude(beacon3[4]);
-		b3.setLongitude(beacon3[5]);
+		b1.setLatitude(latitude1);
+		b1.setLongitude(longitude1);
+		b2.setLatitude(latitude2);
+		b2.setLongitude(longitude2);
+		b3.setLatitude(latitude3);
+		b3.setLongitude(longitude3);
 	}
 	
 	/*
@@ -311,13 +307,17 @@ public class NaviActivity extends Activity implements LocationListener{
 		}
 		while(!navRoute.equals(null)){
 			//navigate
-			for(int i=0;i<navRoute.length;i++){
-				Log.i("Routeeee","distance : "+getDistance(current, navRoute[i]));
-				Log.i("Routeeee","heading : "+getHeading(current, navRoute[i]));
-				disValue.setText(getDistance(current, navRoute[i]));
-				disValue.setContentDescription(getDistance(current, navRoute[i]));
-				headingValue.setText(getHeading(current, navRoute[i]));
-				headingValue.setContentDescription(getHeading(current, navRoute[i]));
+			for(int i =0;i<navRoute.size();i++){
+				Log.i("Routeeee","distance : "+getDistance(current, navRoute.get(i)));
+				Log.i("Routeeee","heading : "+getHeading(current, navRoute.get(i)));
+				disValue.setText(getDistance(current, navRoute.get(i))+" meters");
+				disValue.setContentDescription(getDistance(current, navRoute.get(i))+" meters");
+				headingValue.setText(getHeading(current, navRoute.get(i)));
+				headingValue.setContentDescription(getHeading(current, navRoute.get(i)));
+				if(getDistance(current, navRoute.get(i))==0.0){
+					//arrive the point
+					navRoute.remove(i);
+				}
 			}
 		}
 		//notify reaching destination zone
@@ -429,8 +429,8 @@ public class NaviActivity extends Activity implements LocationListener{
 	/*
 	 * nav
 	 */
-	private String getDistance(Location now, Location dest){
-		return now.distanceTo(dest)+" meters";
+	private double getDistance(Location now, Location dest){
+		return now.distanceTo(dest);
 	}
 	private String getHeading(Location now, Location dest){
 		String side = " degrees on the right side";
