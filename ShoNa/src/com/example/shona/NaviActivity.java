@@ -49,7 +49,7 @@ public class NaviActivity extends Activity{
 	private int closeID[] = new int[3];
 	
 	//user's position
-	public static Location userLoc;
+	public static Location userLoc = new Location("User Location");
 	/*private Location b1 = new Location("b1Location");
 	private Location b2 = new Location("b2Location");
 	private Location b3 = new Location("b3Location");
@@ -71,11 +71,10 @@ public class NaviActivity extends Activity{
 	
 	//navigation type: 0=default, 1=to product, 2=to cashier
 	private int navType = 0;
-	//destination location
-	private Location destination = new Location("desLoc");
+	//destination
 	@SuppressWarnings("unused")
 	private Region destReg;
-	private Location destLoc;
+	private Location destLoc = new Location("destLoc");
 	//product
 	@SuppressWarnings("unused")
 	private int proType = 1;
@@ -103,8 +102,7 @@ public class NaviActivity extends Activity{
 		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ll = new MyLocationListener();		
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-		ll.setLocationText(ll.getLatitude(), ll.getLongitude());
-		ll.setHeadingText(ll.getHeading());
+		
 
 		//get navigation type
 		navType = getIntent().getIntExtra("navType", 0);
@@ -116,6 +114,8 @@ public class NaviActivity extends Activity{
  * send product type to db to get product type's name
  */
 			destName.setText("product Type");
+			destLoc.setLatitude(0.0);
+			destLoc.setLongitude(0.0);
 //get the beacon of the productType
 /*
  * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
@@ -126,11 +126,9 @@ public class NaviActivity extends Activity{
 			//to cashier
 			destName.setText("Cashier");
 			destName.setContentDescription("Cashier");
-//get cashier's beacon info
-/*
- * destBeac = new Region();//from db	
- * destLoc = BeaconLocation;
- */
+			//cashier location
+			destLoc.setLatitude(13.735963893135763);
+			destLoc.setLongitude(100.5338692200375);
 		}
 		//beaconManager
 		beaconManager = new BeaconManager(this);
@@ -193,6 +191,8 @@ public class NaviActivity extends Activity{
 			        });//end runOnUiThread
 				}//end beaconDiscover
 			});//end setRanging
+			navigation(getUserPo(), getDestination());
+			
 		}//end else
 	}//end onCreate
 	
@@ -215,7 +215,7 @@ public class NaviActivity extends Activity{
 	 
 	 @Override
 	  protected void onResume() {
-		 //connectToService();
+		 connectToService();
 		 lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
 		 super.onResume();
 	  }
@@ -330,30 +330,20 @@ public class NaviActivity extends Activity{
 	    return foundLocation;
 	}
 	
-	private void initLocationListener() {
-        //location manager creation
-        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        ll = new MyLocationListener();		
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-    }
-
 	private void navigation(Location current, Location dest){
-		//current position is not near destination
-		if(current.distanceTo(dest)>1){
-			//generate route to destination
-			navRoute = Route.genRoute(current, dest);
-		}
+		//generate route to destination
+		navRoute = Route.genRoute(current, dest);
 		while(!navRoute.equals(null)){
 			//navigate
 			for(int i =0;i<navRoute.size();i++){
-				Log.i("Routeeee","distance : "+getDistance(current, navRoute.get(i)));
-				Log.i("Routeeee","heading : "+getHeading(current, navRoute.get(i)));
-				disValue.setText(getDistance(current, navRoute.get(i))+" meters");
-				disValue.setContentDescription(getDistance(current, navRoute.get(i))+" meters");
-				headingValue.setText(getHeading(current, navRoute.get(i)));
-				headingValue.setContentDescription(getHeading(current, navRoute.get(i)));
-				if(getDistance(current, navRoute.get(i))==0.0){
-					//arrive the point
+				lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+				Log.i("USERLOC", getUserPo().getLatitude()+","+getUserPo().getLongitude());
+				Log.i("NavRouteLoc", "no: "+i+" = "+navRoute.get(i).getLatitude()+","+navRoute.get(i).getLongitude());
+				Log.i("Routeeee","distance : "+getDistance(getUserPo(), navRoute.get(i)));
+				Log.i("Routeeee","heading : "+getHeading(getUserPo(), navRoute.get(i)));
+				ll.setDistanceText(getUserPo().getLatitude(), getUserPo().getLongitude(), navRoute.get(i).getLatitude(), navRoute.get(i).getLongitude());
+				if(getDistance(getUserPo(), navRoute.get(i))==0.0){
+					//arrived a point in the route
 					navRoute.remove(i);
 				}
 			}
@@ -434,12 +424,7 @@ public class NaviActivity extends Activity{
 
 
 	public Location getDestination() {
-		return destination;
-	}
-
-
-	public void setDestination(Location destination) {
-		this.destination = destination;
+		return destLoc;
 	}
 	
 	/*
