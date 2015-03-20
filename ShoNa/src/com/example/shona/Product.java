@@ -9,8 +9,8 @@ public class Product {
 	private double price = 0.0;
 	private String description = "n/a";
 	private int shelf = 0;
-	private int x,y = 0;
-	public Product(String id,String n,String b,double v, double p, String des,int s,int x,int y){
+	private double x,y = 0;
+	public Product(String id,String n,String b,double v, double p, String des,int s,double x,double y){
 		this.id = id;
 		this.name = n;
 		this.brand = b;
@@ -18,7 +18,7 @@ public class Product {
 		this.price = p;
 		this.description = des;
 		this.shelf = s;
-		this.x = s;
+		this.x = x;
 		this.y = y;
 		
 	}
@@ -64,16 +64,16 @@ public class Product {
 	public void setShelf(int shelf) {
 		this.shelf = shelf;
 	}
-	public int getX() {
+	public double getX() {
 		return x;
 	}
-	public void setX(int x) {
+	public void setX(double x) {
 		this.x = x;
 	}
-	public int getY() {
+	public double getY() {
 		return y;
 	}
-	public void setY(int y) {
+	public void setY(double y) {
 		this.y = y;
 	}
 }

@@ -75,6 +75,7 @@ public class NaviActivity extends Activity{
 	@SuppressWarnings("unused")
 	private Region destReg;
 	private Location destLoc = new Location("destLoc");
+	private int destNum;
 	//product
 	@SuppressWarnings("unused")
 	private int proType = 1;
@@ -113,14 +114,16 @@ public class NaviActivity extends Activity{
 /*
  * send product type to db to get product type's name
  */
-			destName.setText("product Type");
-			destLoc.setLatitude(0.0);
-			destLoc.setLongitude(0.0);
-//get the beacon of the productType
-/*
- * destBeac = Beacon_HandleJSON.getBeaconDetail(UUID,Major,Minor);
- * destLoc = BeaconLocation;
- */
+			//Here is the code
+			destLoc =ProductList_HandleJSON.getTypeLocation(proType);
+			destNum = proType;
+// These are not required
+// P.S. Give me the location of each Type so that I can put it in DB.
+//			destName.setText("product Type");
+//			destLoc.setLatitude(0.0);
+//			destLoc.setLongitude(0.0);
+			
+			
 		}
 		else if(navType==2){
 			//to cashier
@@ -129,6 +132,7 @@ public class NaviActivity extends Activity{
 			//cashier location
 			destLoc.setLatitude(13.735963893135763);
 			destLoc.setLongitude(100.5338692200375);
+			destNum = 0;
 		}
 		//beaconManager
 		beaconManager = new BeaconManager(this);
@@ -191,7 +195,7 @@ public class NaviActivity extends Activity{
 			        });//end runOnUiThread
 				}//end beaconDiscover
 			});//end setRanging
-			navigation(getUserPo(), getDestination());
+			navigation(getUserPo(), getDestination(), getDestNum());
 			
 		}//end else
 	}//end onCreate
@@ -330,9 +334,9 @@ public class NaviActivity extends Activity{
 	    return foundLocation;
 	}
 	
-	private void navigation(Location current, Location dest){
+	private void navigation(Location current, Location dest, int destNum){
 		//generate route to destination
-		navRoute = Route.genRoute(current, dest);
+		navRoute = Route.genRoute(current, dest, destNum);
 		while(!navRoute.equals(null)){
 			//navigate
 			for(int i =0;i<navRoute.size();i++){
@@ -427,6 +431,9 @@ public class NaviActivity extends Activity{
 		return destLoc;
 	}
 	
+	public int getDestNum(){
+		return destNum;
+	}
 	/*
 	 * nav
 	 */

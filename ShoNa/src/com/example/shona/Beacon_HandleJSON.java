@@ -79,7 +79,7 @@ public class Beacon_HandleJSON {
 	   while(obj.parsingComplete);
 	   	   return obj.getLatLong();
 	}
-  
+   
    @SuppressLint("NewApi")
    
    public void fetchBeaconDetail(){

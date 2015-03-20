@@ -46,7 +46,7 @@ public class Route_HandleJSON {
    }
 
 
-   public static String getBeaconDetail(int loc,int des) {
+   public static String getRoute(int loc,int des) {
 	   String url = "http://www.numpun.lnw.mn/shona/API/beacon.php?loc="+loc+"&des="+des;
 	   Route_HandleJSON obj = new Route_HandleJSON(url);
 	   obj.fetchRoute();
