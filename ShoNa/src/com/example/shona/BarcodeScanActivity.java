@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 public class BarcodeScanActivity extends Activity {
 	//intent
+	private Intent intentToPdetail;
 	private Intent intentToCheckout;
 	//code
 	protected int check = 997;
@@ -32,8 +33,8 @@ public class BarcodeScanActivity extends Activity {
 		
 		
 		//intent creation
-		intentToCheckout = new Intent(BarcodeScanActivity.this,ProductDetailsActivity.class);
-		
+		intentToPdetail = new Intent(BarcodeScanActivity.this,ProductDetailsActivity.class);
+		intentToCheckout = new Intent(BarcodeScanActivity.this,CheckOutActivity.class);
 		//ask if user wants to go to the cashier
 //		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 //   	dialog.setTitle("Checkout?");
@@ -58,8 +59,8 @@ public class BarcodeScanActivity extends Activity {
     	if (scanningResult != null) {
     		String scanContent = scanningResult.getContents();
     		String scanFormat = scanningResult.getFormatName();
-    		intentToCheckout.putExtra("PID", scanContent);
-    		startActivityForResult(intentToCheckout, check);
+    		intentToPdetail.putExtra("PID", scanContent);
+    		startActivityForResult(intentToPdetail, check);
     		//we have a result
 //    		formatTxt.setText("FORMAT: " + scanFormat);
 //    		contentTxt.setText("CONTENT: " + scanContent);

@@ -8,6 +8,7 @@ import android.location.Location;
 
 public class Route {
 private static List<Integer> route;
+
 	
 	public static List<Integer> genRoute(int current, int dest, int destNum){
 /*
@@ -23,37 +24,37 @@ private static List<Integer> route;
 		/*
 		 * test
 		 */
-		int curr = LocationtoNearestPoint(current);
+		int curr = current;// = LocationtoNearestPoint(current);
 		String path = Route_HandleJSON.getRoute(curr, destNum);
 		String []points = path.split(",");
-		Point p = new Point();
-		Location[] temp = p.getAllPoints();
+		//Point p = new Point();
+		//Location[] temp = p.getAllPoints();
 		for(int i=0;i<points.length;i++){
-			route.add(temp[Integer.parseInt(points[i])]);
+			route.add(Integer.parseInt(points[i]));
 		}
 		return route;
 	}
 	
-	public static int LocationtoNearestPoint(Location l){
-		int i;
-		int min = 0;
-		Point p = new Point();
-		Double sum,val;
-		Double la,lo;
-		la = l.getLatitude();
-		lo = l.getLongitude();
-		sum = Math.pow(p.getPoint(0).getLatitude()-la,2.0) + Math.pow(p.getPoint(0).getLongitude()-lo,2.0);
-		for (int j = 1; j < p.size(); j++) {
-			val = Math.pow(p.getPoint(j).getLatitude()-la,2.0) + Math.pow(p.getPoint(j).getLongitude()-lo,2.0);
-			if(val<sum)
-			{
-				sum = val;
-				min = j;
-			}
-		}
-		return min;
-	}
-	
+//	public static int LocationtoNearestPoint(Location l){
+//		int i;
+//		int min = 0;
+//		Point p = new Point();
+//		Double sum,val;
+//		Double la,lo;
+//		la = l.getLatitude();
+//		lo = l.getLongitude();
+//		sum = Math.pow(p.getPoint(0).getLatitude()-la,2.0) + Math.pow(p.getPoint(0).getLongitude()-lo,2.0);
+//		for (int j = 1; j < p.size(); j++) {
+//			val = Math.pow(p.getPoint(j).getLatitude()-la,2.0) + Math.pow(p.getPoint(j).getLongitude()-lo,2.0);
+//			if(val<sum)
+//			{
+//				sum = val;
+//				min = j;
+//			}
+//		}
+//		return min;
+//	}
+//	
 	//get all points around the given point
 	public static int[] getAround(int row){
 		return Point.allPoints[row];

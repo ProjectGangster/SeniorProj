@@ -30,6 +30,7 @@ public class Route_HandleJSON {
    Location l[];
    private String urlString = null;
    private String route;
+   private int beacon_ID;
 
 
 
@@ -38,7 +39,11 @@ public class Route_HandleJSON {
 	
    public String getRoute() {
 	   return route;
-   }   
+   }  
+
+   public int getBeacon_ID() {
+	   return beacon_ID;
+   }  
    public Route_HandleJSON(String Url){
 	   this.urlString = Url;
 	   
@@ -56,6 +61,16 @@ public class Route_HandleJSON {
 	   return obj.getRoute();
 	}
  
+
+   public static int getPoint(int p) {
+	   String url = "http://www.numpun.lnw.mn/shona/API/point.php?id="+p;
+	   Route_HandleJSON obj = new Route_HandleJSON(url);
+	   obj.fetchPoint();
+
+	   while(obj.parsingComplete);
+	   
+	   return obj.getBeacon_ID();
+	}
    @SuppressLint("NewApi")
    
    public void fetchRoute(){
@@ -88,7 +103,36 @@ public class Route_HandleJSON {
        thread.start(); 		
    }
    
- 
+   public void fetchPoint(){
+	      Thread thread = new Thread(new Runnable(){
+	         @Override
+	         public void run() {
+	         try {
+	        	Log.d("URL", urlString);
+	            URL url = new URL(urlString);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setReadTimeout(10000 /* milliseconds */);
+	            conn.setConnectTimeout(15000 /* milliseconds */);
+	            conn.setRequestMethod("GET");
+	            conn.setDoInput(true);
+	            // Starts the query
+	            conn.connect();
+	         InputStream stream = conn.getInputStream();
+
+	      String data = convertStreamToString(stream);
+
+	      readAndParseJSON_p(data);
+	         stream.close();
+
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	         }
+	         }
+	      });
+
+	       thread.start(); 		
+	   }
+	   
    
 	   public void readAndParseJSON(String in) {
 		      try { 
@@ -98,7 +142,7 @@ public class Route_HandleJSON {
 		         String Route;
 		         int Loca,Desc;
 		         Loca = reader.getInt("Location");
-		         Desc = reader.getInt("Desc");
+		         Desc = reader.getInt("Destination");
 		         Route = reader.getString("Route");
 		         Log.d("Route", Loca+" to "+Desc+": "+Route);
 		        	 //public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
@@ -113,7 +157,27 @@ public class Route_HandleJSON {
 
 		   }
 	   
+	   public void readAndParseJSON_p(String in) {
+		      try { 
+		    	  Log.d("test", in);
+		    	  JSONObject reader = new JSONObject(in);
+		    	 
+		         String Route;
+		         int B_ID;
+		         B_ID = Integer.parseInt(reader.getString("Beacon_ID"));
+		         Log.d("Beacon ID: ", "Beacon ID: " + B_ID);
+		        	 //public Product(int id,String n,String b,double v, double p, String des,int s,int x,int y){
+	        	 this.beacon_ID = B_ID;
+		         parsingComplete = false;
 
+
+		        } catch (Exception e) {
+		           // TODO Auto-generated catch block
+		           e.printStackTrace();
+		        }
+
+		   }
+	   
 		   
    static String convertStreamToString(java.io.InputStream is) {
       java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
