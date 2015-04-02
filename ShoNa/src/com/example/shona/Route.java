@@ -1,19 +1,20 @@
 package com.example.shona;
 
+import java.security.AllPermission;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.location.Location;
 
 public class Route {
-private static List<Location> route;
+private static List<Integer> route;
 	
-	public static List<Location> genRoute(Location current, Location dest, int destNum){
+	public static List<Integer> genRoute(int current, int dest, int destNum){
 /*
  * get from db
  */
 //routeSize = ;
-		route = new ArrayList<Location>();
+		route = new ArrayList<Integer>();
 		route.add(current);
 /*
  * get Location from db
@@ -52,12 +53,119 @@ private static List<Location> route;
 		}
 		return min;
 	}
+	
+	//get all points around the given point
+	public static int[] getAround(int row){
+		return Point.allPoints[row];
+	}
 }
 
 class Point{
-	public Location[] point = new Location[24];
+	/*
+	 * row = point, column = front,right,back and left orderly (referred to the picture)
+	 * if there is no point in that direction, it will return default value.
+	 */
+	public static int[][] allPoints = new int[25][4];
+	private int def = -1;//default value
 	public Point(){
-		point[0] = new Location("0");
+		for(int i=0;i<allPoints.length;i++){
+			for(int j=0;j<allPoints[i].length;j++){
+				allPoints[i][j] = def;
+			}
+		}
+		//0
+		allPoints[0][0] = 1;
+		allPoints[0][3] = 7;
+		//1
+		allPoints[1][0] = 2;
+		allPoints[1][2] = 0;
+		allPoints[1][3] = 8;
+		//2
+		allPoints[2][0] = 2;
+		allPoints[2][2] = 1;
+		allPoints[2][3] = 23;
+		//3
+		allPoints[3][0] = 4;
+		allPoints[3][2] = 2;
+		allPoints[3][3] = 24;//check
+		//4
+		allPoints[4][0] = 5;
+		allPoints[4][2] = 3;
+		//5
+		allPoints[5][0] = 6;
+		allPoints[5][2] = 4;
+		allPoints[5][3] = 22;
+		//6
+		allPoints[6][2] = 5;
+		//7
+		allPoints[7][0] = 8;
+		allPoints[7][1] = 0;
+		allPoints[7][3] = 11;
+		//8
+		allPoints[8][0] = 8;
+		allPoints[8][1] = 0;
+		allPoints[8][3] = 11;
+		//9
+		allPoints[9][0] = 10;
+		allPoints[9][1] = 23;
+		allPoints[9][2] = 8;
+		allPoints[9][3] = 13;
+		//10
+		allPoints[10][1] = 24;
+		allPoints[10][2] = 9;
+		allPoints[10][3] = 14;
+		//11
+		allPoints[11][0] = 12;
+		allPoints[11][1] = 7;
+		allPoints[11][3] = 15;
+		//12
+		allPoints[12][1] = 8;
+		//13
+		allPoints[13][0] = 14;
+		allPoints[13][1] = 9;
+		allPoints[13][3] = 16;
+		//14
+		allPoints[14][1] = 10;
+		allPoints[14][3] = 17;
+		//15
+		allPoints[15][0] = 16;
+		allPoints[15][1] = 11;
+		//16
+		allPoints[16][0] = 17;
+		allPoints[16][1] = 13;
+		allPoints[16][2] = 15;
+		//17
+		allPoints[17][0] = 18;
+		allPoints[17][1] = 14;
+		allPoints[17][2] = 16;
+		//18
+		allPoints[18][0] = 19;
+		allPoints[18][1] = 20;
+		allPoints[18][2] = 17;
+		//19
+		allPoints[19][1] = 12;
+		allPoints[19][2] = 18;
+		//20
+		allPoints[20][1] = 21;
+		allPoints[20][3] = 18;
+		//21
+		allPoints[21][1] = 22;
+		allPoints[21][3] = 20;
+		//22
+		allPoints[22][1] = 5;
+		allPoints[22][2] = 24;
+		allPoints[22][3] = 21;
+		//23
+		allPoints[23][0] = 24;
+		allPoints[23][1] = 2;
+		allPoints[23][3] = 9;
+		//24
+		allPoints[24][0] = 22;
+		allPoints[24][1] = 3;
+		allPoints[24][2] = 23;
+		allPoints[24][3] = 10;
+		
+		/*point[0] = new Location("0");
 		point[1] = new Location("1");
 		point[2] = new Location("2");
 		point[3] = new Location("3");
@@ -139,15 +247,7 @@ class Point{
 		point[22].setLongitude(100.53383426750128);
 		point[23].setLatitude(13.73588657007900);
 		point[23].setLongitude(100.53383032800679);
-	}
-	public Location[] getAllPoints(){
-		return point;
-	}
-	public Location getPoint(int i){
-		return point[i];
-	}
-	public int size(){
-		return point.length;
+		*/
 	}
 }
 

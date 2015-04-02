@@ -18,6 +18,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,24 +46,13 @@ public class NaviActivity extends Activity{
 	private double dis[];
 	private int id[];//minor
 	private double temp[];
-	private double closeDis[] = new double[3];
-	private int closeID[] = new int[3];
+	private double closest = 0.0;
+	private int now = 0;//point number
 	
+
 	//user's position
-	public static Location userLoc = new Location("User Location");
-	/*private Location b1 = new Location("b1Location");
-	private Location b2 = new Location("b2Location");
-	private Location b3 = new Location("b3Location");
-	private double latitude1 = 0.0;
-	private double longitude1 = 0.0;
-	private double latitude2 = 0.0;
-	private double longitude2 = 0.0;
-	private double latitude3 = 0.0;
-	private double longitude3 = 0.0;
-	*/
-	private LocationManager lm = null;
-	public static MyLocationListener ll = null;
-	
+	public int userPos = -1;//default value
+
 	/*
 	 * intent
 	 */
@@ -72,15 +62,12 @@ public class NaviActivity extends Activity{
 	//navigation type: 0=default, 1=to product, 2=to cashier
 	private int navType = 0;
 	//destination
-	@SuppressWarnings("unused")
-	private Region destReg;
-	private Location destLoc = new Location("destLoc");
+	private int destPos = -2;
 	private int destNum;
 	//product
-	@SuppressWarnings("unused")
 	private int proType = 1;
 	//navigation route
-	private List<Location> navRoute = null;
+	private List<Integer> navRoute = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,29 +87,21 @@ public class NaviActivity extends Activity{
 		headingValue= (TextView)findViewById(R.id.textView6);
 		
 		//init location services
-		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		/*lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ll = new MyLocationListener();		
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-		
+		*/
 
 		//get navigation type
 		navType = getIntent().getIntExtra("navType", 0);
 		//check navigation type
 		if(navType==1){
 			//to product
-			proType = getIntent().getIntExtra("proType", 1);
+			destNum = getIntent().getIntExtra("proType", 1);
 /*
  * send product type to db to get product type's name
  */
-			//Here is the code
-			destLoc =ProductList_HandleJSON.getTypeLocation(proType);
-			destNum = proType;
-// These are not required
-// P.S. Give me the location of each Type so that I can put it in DB.
-//			destName.setText("product Type");
-//			destLoc.setLatitude(0.0);
-//			destLoc.setLongitude(0.0);
-			
+			//destLoc =ProductList_HandleJSON.getTypeLocation(proType);
 			
 		}
 		else if(navType==2){
@@ -130,8 +109,7 @@ public class NaviActivity extends Activity{
 			destName.setText("Cashier");
 			destName.setContentDescription("Cashier");
 			//cashier location
-			destLoc.setLatitude(13.735963893135763);
-			destLoc.setLongitude(100.5338692200375);
+			destPos = 0;
 			destNum = 0;
 		}
 		//beaconManager
@@ -170,33 +148,31 @@ public class NaviActivity extends Activity{
 			        		  beacon = blist.get(i);
 				        	  Log.i("----------------", "beacon no."+i);
 				        	  if((""+beacon.getMinor()).equals("45677")){
-				        		  Log.i("----------------", "blueburry");
+				        		  Log.i("----------------", "blueburry 1");
 				        	  }
 				        	  else if((""+beacon.getMinor()).equals("9327")){
-				        		  Log.i("----------------", "mint");
+				        		  Log.i("----------------", "mint 1");
 				        	  }
-				        	  else if((""+beacon.getMinor()).equals("37909")){
-				        		  Log.i("----------------", "ice");
+				        	  else if((""+beacon.getMinor()).equals("29827")){
+				        		  Log.i("----------------", "mint 2");
 				        	  }
-				        	  /*id[i] = beacon.getMinor();
+				        	  else if((""+beacon.getMinor()).equals("59895")){
+				        		  Log.i("----------------", "ice 2");
+				        	  }
+				        	  else if((""+beacon.getMinor()).equals("19552")){
+				        		  Log.i("----------------", "blue 2");
+				        	  }
+				        	  id[i] = beacon.getMinor();
 				        	  dis[i] = calculateAccuracy(beacon.getMeasuredPower(), beacon.getRssi());
-				        	  //get 3 closest beacons and setup their latitudes and longitudes
-				        	  threeClosest(getDis());
-				        	  //calculate the position of the user
-				        	  userLoc = getLocationWithTrilateration(b1, b2, b3, closeDis[0], closeDis[1], closeDis[2]);
-				        	  Log.i("UserLOC", ""+userLoc.getLatitude()+","+userLoc.getLongitude());
-				        	  //test nav
-				        	  disValue.setText(userLoc.getLatitude()+","+userLoc.getLongitude());
-				        	  headingValue.setText(userLoc.getBearing()+"");
-				        	  //navigation(userLoc, destLoc);
-				        	  */
-			        	  }
+				        	  //get the nearest beacon
+				        	  getClosest(getDis());
+			        	  }//end for
+			        	  navigation(userPos, destPos,destNum);
 			          }//end runnable
 			        });//end runOnUiThread
 				}//end beaconDiscover
 			});//end setRanging
-			navigation(getUserPo(), getDestination(), getDestNum());
-			
+			//navigation(getUserPo(), getDestination(), getDestNum());
 		}//end else
 	}//end onCreate
 	
@@ -220,7 +196,7 @@ public class NaviActivity extends Activity{
 	 @Override
 	  protected void onResume() {
 		 connectToService();
-		 lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+		 //lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
 		 super.onResume();
 	  }
 	 
@@ -257,7 +233,7 @@ public class NaviActivity extends Activity{
 		    double accuracy =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
 		    return accuracy;
 		  }
-	}   
+	}  
 	
 	/*
 	 *1. get beacon’s ID
@@ -265,93 +241,91 @@ public class NaviActivity extends Activity{
 	 *3. getLat/Long from DB
 	 *4. setLat/Long of it 
 	 */
-	protected void threeClosest(double[] dist){
+	protected void getClosest(double[] dist){
 		temp = dist;
-		//sort to get the 3 minimum distance
+		//sort to get the nearest
 		Arrays.sort(temp);
 		Log.i(">>>>>>>>>>closest 1", ""+temp[0]);
-		Log.i(">>>>>>>>>>closest 2", ""+temp[1]);
-		Log.i(">>>>>>>>>>closest 3", ""+temp[2]);
-		closeDis[0] = temp[0];
-		closeDis[1] = temp[1];
-		closeDis[2] = temp[2];
-		for(int j=0;j<closeDis.length;j++){
-			for(int i=0;i<dist.length;i++){
-				//find 3 closest distance beacons' id
-				if(closeDis[j]==dist[i]){
-					closeID[j] = getId()[i];
-				}
-			}//end dist
-		}//end closeDis
+		closest = temp[0];
+		for(int i=0;i<dist.length;i++){
+			//find the nearest beacons' id
+			if(closest==dist[i]){
+				now = getId()[i];
+			}
+		}//end dist
 		
-/*
- * -------------------------------getLat/Long from DB
- */
-		//Beacon_HandleJSON.getBeacon3(closeID);
-		
-		//setLat/Long of 3 closest
-		/*
-		//blueburry
-		b1.setLatitude(13.732105580040615);
-		b1.setLongitude(100.53051182779373);
-		//ice
-		b2.setLatitude(13.736045951967812);
-		b2.setLongitude(100.53394281314735);
-		//mint
-		b3.setLatitude(13.732098035241762);
-		b3.setLongitude(100.5305052083561);
-		*/
 	}
 	
-	/*
-	 *get location from triangle beacons
-	 * from http://stackoverflow.com/questions/20332856/triangulate-example-for-ibeacons
-	 */
-	public static Location getLocationWithTrilateration(Location beaconA, Location beaconB, Location beaconC, double distanceA, double distanceB, double distanceC){
-
-	    double bAlat = beaconA.getLatitude();
-	    double bAlong = beaconA.getLongitude();
-	    double bBlat = beaconB.getLatitude();
-	    double bBlong = beaconB.getLongitude();
-	    double bClat = beaconC.getLatitude();
-	    double bClong = beaconC.getLongitude();
-
-	    double W, Z, foundBeaconLat, foundBeaconLong, foundBeaconLongFilter;
-	    W = distanceA * distanceA - distanceB * distanceB - bAlat * bAlat - bAlong * bAlong + bBlat * bBlat + bBlong * bBlong;
-	    Z = distanceB * distanceB - distanceC * distanceC - bBlat * bBlat - bBlong * bBlong + bClat * bClat + bClong * bClong;
-
-	    foundBeaconLat = (W * (bClong - bBlong) - Z * (bBlong - bAlong)) / (2 * ((bBlat - bAlat) * (bClong - bBlong) - (bClat - bBlat) * (bBlong - bAlong)));
-	    foundBeaconLong = (W - 2 * foundBeaconLat * (bBlat - bAlat)) / (2 * (bBlong - bAlong));
-	    //`foundBeaconLongFilter` is a second measure of `foundBeaconLong` to mitigate errors
-	    foundBeaconLongFilter = (Z - 2 * foundBeaconLat * (bClat - bBlat)) / (2 * (bClong - bBlong));
-
-	    foundBeaconLong = (foundBeaconLong + foundBeaconLongFilter) / 2;
-
-	    Location foundLocation = new Location("Location");
-	        foundLocation.setLatitude(foundBeaconLat);
-	        foundLocation.setLongitude(foundBeaconLong);
-
-	    return foundLocation;
-	}
-	
-	private void navigation(Location current, Location dest, int destNum){
+	private void navigation(int current, int dest, int destNum){
 		//generate route to destination
 		navRoute = Route.genRoute(current, dest, destNum);
+		int next = -99;
+		int[] around = new int[4];
 		while(!navRoute.equals(null)){
 			//navigate
 			for(int i =0;i<navRoute.size();i++){
-				lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-				Log.i("USERLOC", getUserPo().getLatitude()+","+getUserPo().getLongitude());
+				//lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+				/*Log.i("USERLOC", getUserPo().getLatitude()+","+getUserPo().getLongitude());
 				Log.i("NavRouteLoc", "no: "+i+" = "+navRoute.get(i).getLatitude()+","+navRoute.get(i).getLongitude());
 				Log.i("Routeeee","distance : "+getDistance(getUserPo(), navRoute.get(i)));
 				Log.i("Routeeee","heading : "+getHeading(getUserPo(), navRoute.get(i)));
-				ll.setDistanceText(getUserPo().getLatitude(), getUserPo().getLongitude(), navRoute.get(i).getLatitude(), navRoute.get(i).getLongitude());
-				if(getDistance(getUserPo(), navRoute.get(i))==0.0){
-					//arrived a point in the route
-					navRoute.remove(i);
+				//ll.setDistanceText(getUserPo().getLatitude(), getUserPo().getLongitude(), navRoute.get(i).getLatitude(), navRoute.get(i).getLongitude());
+				*/
+				next = navRoute.get(i);
+				Log.i("SHOW NAV", "next point is"+ next);
+				around = Route.getAround(getNow());
+				while(closest>0.2){
+					if(getNow()==next){//0
+						//right way
+						headingValue.setText("go straight");
+						disValue.setText(closest+" meters");
+					}
+					else{
+						//wrong way
+						if(getNow()==around[1] && next==around[2]){
+							headingValue.setText("please turn right");
+						}
+						else if(getNow()==around[2] && next==around[3]){
+							headingValue.setText("please turn right");
+						}
+						else if (getNow()==around[3] && next==around[0]){
+							headingValue.setText("please turn right");
+						}
+						else if (getNow()==around[0] && next==around[1]){
+							headingValue.setText("please turn right");
+						}
+						else if(getNow()==around[1] && next==around[0]){
+							headingValue.setText("please turn left");
+						}
+						else if(getNow()==around[2] && next==around[1]){
+							headingValue.setText("please turn left");
+						}
+						else if(getNow()==around[3] && next==around[2]){
+							headingValue.setText("please turn left");
+						}
+						else if(getNow()==around[0] && next==around[1]){
+							headingValue.setText("please turn left");
+						}
+						else if(getNow()==around[1] && next==around[3]){
+							headingValue.setText("please turn back");
+						}
+						else if(getNow()==around[2] && next==around[0]){
+							headingValue.setText("please turn back");
+						}
+						else if(getNow()==around[3] && next==around[1]){
+							headingValue.setText("please turn back");
+						}
+						else if(getNow()==around[0] && next==around[2]){
+							headingValue.setText("please turn back");
+						}
+
+						disValue.setText("WRONG WAY!!");
+					}
 				}
+				//arrived a point in the route and move on the next point
+				navRoute.remove(i);
 			}
-		}
+		}//approaching the destination
 		//notify reaching destination zone
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	if(navType==1){
@@ -407,54 +381,19 @@ public class NaviActivity extends Activity{
 		return id;
 	}
 
-
-	public double[] getTemp() {
-		return temp;
-	}
-
-
-	public double[] getCloseDis() {
-		return closeDis;
-	}
-
-
-	public int[] getCloseID() {
-		return closeID;
-	}
-
-	public static Location getUserPo() {
-		return userLoc;
-	}
-
-
-	public Location getDestination() {
-		return destLoc;
-	}
 	
+	public double getClosest() {
+		return closest;
+	}
+
+
+	public int getNow() {
+		return now;
+	}
+
+
 	public int getDestNum(){
 		return destNum;
-	}
-	/*
-	 * nav
-	 */
-	private double getDistance(Location now, Location dest){
-		return now.distanceTo(dest);
-	}
-	private String getHeading(Location now, Location dest){
-		String side = " degrees on the right side";
-		double degree = 0.0;
-		degree = now.bearingTo(dest);
-		if(degree==0.0 || degree == 360){
-			side = "degrees, go straight";
-		}
-		else if(degree==180.0){
-			side = "degrees on the back";
-		}
-		else if(degree>180 && degree<360){
-			degree -= 360;
-			side = "degrees on the left side";
-		}
-		return degree+side;
 	}
 	
 	@Override
