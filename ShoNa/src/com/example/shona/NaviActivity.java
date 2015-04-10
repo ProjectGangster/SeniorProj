@@ -19,6 +19,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,10 +47,9 @@ public class NaviActivity extends Activity{
 	private double dis[];
 	private int id[];//minor
 	private double temp[];
-	private double closest = 0.0;
+	private double closest = 0.0;//distance
 	private int now = 0;//point number
-	
-
+	private int nextTo = 0;
 	//user's position
 	public int userPos = -1;//default value
 
@@ -68,6 +68,9 @@ public class NaviActivity extends Activity{
 	private int proType = 1;
 	//navigation route
 	private List<Integer> navRoute = null;
+	
+	//tts
+	private TextToSpeech tts = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,13 +88,17 @@ public class NaviActivity extends Activity{
 		headingText= (TextView)findViewById(R.id.textView5);
 		headingText.setContentDescription("Heading");
 		headingValue= (TextView)findViewById(R.id.textView6);
-		
-		//init location services
-		/*lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        ll = new MyLocationListener();		
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-		*/
 
+		OnInitListener oninit = new OnInitListener() {
+			
+			@Override
+			public void onInit(int status) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		tts = new TextToSpeech(this, oninit);
+		
 		//get navigation type
 		navType = getIntent().getIntExtra("navType", 0);
 		//check navigation type
@@ -167,12 +174,15 @@ public class NaviActivity extends Activity{
 				        	  //get the nearest beacon
 				        	  getClosest(getDis());
 			        	  }//end for
-			        	  navigation(userPos, destPos,destNum);
+			        	  //navigation(userPos, destPos,destNum);
 			          }//end runnable
 			        });//end runOnUiThread
+		        	 Log.i("NAVIIII", "start navigating");
+		        	 navigation(now, destPos,destNum);
+		        	 Log.i("NAVIIII", "end navigating");
 				}//end beaconDiscover
 			});//end setRanging
-			//navigation(getUserPo(), getDestination(), getDestNum());
+			//navigation(userPos, destPos,destNum);
 		}//end else
 	}//end onCreate
 	
@@ -252,80 +262,126 @@ public class NaviActivity extends Activity{
 			if(closest==dist[i]){
 				now = getId()[i];
 			}
+			else if(temp[1]==dist[i]){
+				nextTo = getId()[i];
+			}
 		}//end dist
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void navigation(int current, int dest, int destNum){
+		Log.i("NAVIII", "I'm in "+current);
 		//generate route to destination
-		navRoute = Route.genRoute(current, dest, destNum);
+		//navRoute = Route.genRoute(current, dest, destNum);
 		int next = -99;
 		int[] around = new int[4];
-		while(!navRoute.equals(null)){
+		Log.i("NAVIII", "around: "+around.length);
+		
+		if(current==45677){
+  		  Log.i("----------------", "blueburry 1");
+  		  headingValue.setText("blueburry 1");
+		  disValue.setText(closest+" meters");
+			tts.speak("blueburry 1, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
+		  }
+		 else if(current==9327){
+			  Log.i("----------------", "mint 1");
+			  headingValue.setText("mint 1");
+			  disValue.setText(closest+" meters");
+			  tts.speak("mint 1, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
+		  }
+		  else if(current==29827){
+			  Log.i("----------------", "mint 2");
+			  headingValue.setText("mint 2");
+			  disValue.setText(closest+" meters");
+			  tts.speak("mint 2, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
+		  }
+		  else if(current==59895){
+			  Log.i("----------------", "ice 2");
+			  headingValue.setText("ice 2");
+			  disValue.setText(closest+" meters");
+			  tts.speak("ice 2, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
+		  }
+		  else if(current==19552){
+			  Log.i("----------------", "blue 2");
+			  headingValue.setText("blue 2");
+			  disValue.setText(closest+" meters");
+			  tts.speak("blue 2, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
+		  }
+		
+		/*while(!navRoute.equals(null)){
 			//navigate
 			for(int i =0;i<navRoute.size();i++){
-				//lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-				/*Log.i("USERLOC", getUserPo().getLatitude()+","+getUserPo().getLongitude());
-				Log.i("NavRouteLoc", "no: "+i+" = "+navRoute.get(i).getLatitude()+","+navRoute.get(i).getLongitude());
-				Log.i("Routeeee","distance : "+getDistance(getUserPo(), navRoute.get(i)));
-				Log.i("Routeeee","heading : "+getHeading(getUserPo(), navRoute.get(i)));
-				//ll.setDistanceText(getUserPo().getLatitude(), getUserPo().getLongitude(), navRoute.get(i).getLatitude(), navRoute.get(i).getLongitude());
-				*/
 				next = navRoute.get(i);
 				Log.i("SHOW NAV", "next point is"+ next);
 				around = Route.getAround(getNow());
+				
 				while(closest>0.2){
 					if(getNow()==next){//0
 						//right way
 						headingValue.setText("go straight");
 						disValue.setText(closest+" meters");
+						tts.speak("go straight, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
 					}
 					else{
 						//wrong way
 						if(getNow()==around[1] && next==around[2]){
 							headingValue.setText("please turn right");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
+
 						}
 						else if(getNow()==around[2] && next==around[3]){
 							headingValue.setText("please turn right");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if (getNow()==around[3] && next==around[0]){
 							headingValue.setText("please turn right");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if (getNow()==around[0] && next==around[1]){
 							headingValue.setText("please turn right");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[1] && next==around[0]){
 							headingValue.setText("please turn left");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[2] && next==around[1]){
 							headingValue.setText("please turn left");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[3] && next==around[2]){
 							headingValue.setText("please turn left");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[0] && next==around[1]){
 							headingValue.setText("please turn left");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[1] && next==around[3]){
 							headingValue.setText("please turn back");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[2] && next==around[0]){
 							headingValue.setText("please turn back");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[3] && next==around[1]){
 							headingValue.setText("please turn back");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
 						else if(getNow()==around[0] && next==around[2]){
 							headingValue.setText("please turn back");
+							tts.speak("please turn right", TextToSpeech.QUEUE_FLUSH, null);
 						}
-
 						disValue.setText("WRONG WAY!!");
-					}
-				}
+					}//end else
+				}//end while 
 				//arrived a point in the route and move on the next point
-				navRoute.remove(i);
-			}
+				//navRoute.remove(i);
+			}//end for
 		}//approaching the destination
+		/*
 		//notify reaching destination zone
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
     	if(navType==1){
@@ -355,6 +411,7 @@ public class NaviActivity extends Activity{
 			});
 	    	dialog.show();
     	}
+    	*/
 	}//end navigation
 
 	public BeaconManager getBeaconManager() {
@@ -380,12 +437,6 @@ public class NaviActivity extends Activity{
 	public int[] getId() {
 		return id;
 	}
-
-	
-	public double getClosest() {
-		return closest;
-	}
-
 
 	public int getNow() {
 		return now;
