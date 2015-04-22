@@ -280,31 +280,32 @@ public class NaviActivity extends Activity{
 		
 		if(current==45677){
   		  Log.i("----------------", "blueburry 1");
-  		  headingValue.setText("blueburry 1");
+  		  headingValue.setText("back");
 		  disValue.setText(closest+" meters");
 			tts.speak("blueburry 1, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
 		  }
 		 else if(current==9327){
 			  Log.i("----------------", "mint 1");
-			  headingValue.setText("mint 1");
+			  headingValue.setText("right");
 			  disValue.setText(closest+" meters");
 			  tts.speak("mint 1, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
 		  }
-		  else if(current==29827){
+		  /*else if(current==29827){
 			  Log.i("----------------", "mint 2");
 			  headingValue.setText("mint 2");
 			  disValue.setText(closest+" meters");
 			  tts.speak("mint 2, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
 		  }
+		  */
 		  else if(current==59895){
 			  Log.i("----------------", "ice 2");
-			  headingValue.setText("ice 2");
+			  headingValue.setText("left");
 			  disValue.setText(closest+" meters");
 			  tts.speak("ice 2, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
 		  }
 		  else if(current==19552){
 			  Log.i("----------------", "blue 2");
-			  headingValue.setText("blue 2");
+			  headingValue.setText("front");
 			  disValue.setText(closest+" meters");
 			  tts.speak("blue 2, "+closest+" meters left", TextToSpeech.QUEUE_FLUSH, null);
 		  }
